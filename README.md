@@ -1,10 +1,7 @@
-# Teriash Dark Gold v5
+# Teriash Dark Gold v5.1 Ornate
 
-Wersja dopasowana do aktualnego NI.
+Wersja bardziej ozdobna. Naprawia czarną górną belkę przez stylowanie zarówno `.top.positioner`,
+jak i jej `.bg`. Nie zmienia width/height/top/left/padding/margin/transform.
 
-Wrzuć zawartość ZIP-a do głównego katalogu repozytorium `Teriash/teriash-dark-gold`
-i zastąp poprzednie pliki. Userscript pobiera PNG z `main/assets/`.
-
-Najważniejsze: v5 nie ustawia width/height/top/left/margin/padding/transform, więc nie powinien
-rozjeżdżać geometrii NI. Grafiki są osobne dla górnej/dolnej belki, prawego panelu,
-chatu, okien, slotów i przycisków widgetów.
+Wrzuć pliki do głównego katalogu `Teriash/teriash-dark-gold`, zastępując poprzednie.
+Folder `assets` musi znaleźć się w `main/assets/`.
