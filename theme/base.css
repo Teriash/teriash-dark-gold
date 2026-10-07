@@ -1,0 +1,23 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap");
+
+html.__ROOT__ {
+  --tdg-gold:#c68a25;
+  --tdg-gold-hi:#efce72;
+  --tdg-gold-dark:#684014;
+  --tdg-text:#ead7a0;
+  --tdg-bg:#0d0b08;
+  --tdg-font-ui:"Poppins", Arial, sans-serif;
+  --tdg-font-fantasy:"Cinzel", Georgia, serif;
+}
+
+html.__ROOT__ #GAME_CANVAS,
+html.__ROOT__ #base,
+html.__ROOT__ #bground,
+html.__ROOT__ .game-layer canvas,
+html.__ROOT__ .battle-effect-tint,
+html.__ROOT__ .character-effects,
+html.__ROOT__ .battle-night2-layer,
+html.__ROOT__ .window-mode-background-layer {
+  filter:none!important;
+}

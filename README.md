@@ -1,31 +1,24 @@
-# Teriash Dark Gold v6.1
+# Teriash Dark Gold v7
 
-Modułowa wersja motywu pod aktualny Nowy Interfejs Margonem.
+Wersja przebudowana na architekturę podobną do systemu rozszerzeń:
+- osobny loader,
+- osobne moduły CSS,
+- osobne rozszerzenia JS,
+- osobne assety PNG.
 
-## Struktura
-- `teriash-dark-gold.user.js` — tylko loader
-- `theme/` — osobne CSS-y dla HUD-u, chatu, prawego panelu, okien i tooltipów
-- `extensions/` — osobne pliki JS
-- `assets/` — osobne PNG dla konkretnych części interfejsu
+Najważniejsze zmiany:
+- HUD używa pełnych grafik belki zamiast powtarzalnego ornamentu,
+- styl lootloga został dopasowany do Dark Gold,
+- tipy NPC mają własne klasy i kolory,
+- znacznik kliknięcia na mapie ma własną grafikę,
+- rozszerzenia czekają na `Engine.allInit` zamiast wykonywać się za wcześnie,
+- starsze wersje Dark Gold powinny być wyłączone.
 
-## Instalacja
-1. Wrzuć CAŁĄ zawartość ZIP-a do głównego katalogu repozytorium:
-   `Teriash/teriash-dark-gold`
-2. Pliki muszą być na gałęzi `main`.
-3. Repozytorium musi być publiczne, żeby `raw.githubusercontent.com` mogło serwować pliki gry.
-4. W Tampermonkey zainstaluj:
-   `teriash-dark-gold.user.js`
-5. Wyłącz starsze wersje Dark Gold.
-6. Zrób Ctrl+F5.
+## Repo
+Wgraj całą zawartość do:
+`Teriash/teriash-dark-gold`
 
-## Ważne
-Loader pobiera CSS/JS z repo przez `GM_xmlhttpRequest`, dlatego:
-- nie ma problemu z MIME typu `text/plain` dla modułów GitHub RAW,
-- każda aktualizacja dostaje cache-busting,
-- możesz podmieniać pojedyncze grafiki i po odświeżeniu gry widzieć nową wersję.
+Gałąź:
+`main`
 
-Motyw nie ustawia geometrii kluczowych elementów NI (width/height/top/left/margin/padding/transform).
-
-
-## Zmiana v6.1
-- górna i dolna belka korzystają z pełnych grafik (`top-full.png`, `bottom-full.png`) zamiast powtarzalnych segmentów.
+Potem zainstaluj `teriash-dark-gold.user.js` w Tampermonkey.

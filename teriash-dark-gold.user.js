@@ -1,97 +1,91 @@
 // ==UserScript==
-// @name         Teriash Dark Gold v6
+// @name         Teriash Dark Gold v7
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      6.1.0
-// @description  Modułowy graficzny motyw Dark Gold dla Margonem NI.
+// @version      7.0.0
+// @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
 // @match        https://*.margonem.com/*
 // @exclude      https://www.margonem.pl/*
 // @exclude      https://forum.margonem.pl/*
-// @run-at       document-start
+// @run-at       document-end
 // @grant        GM_xmlhttpRequest
 // @connect      raw.githubusercontent.com
 // @updateURL    https://raw.githubusercontent.com/Teriash/teriash-dark-gold/main/teriash-dark-gold.user.js
 // @downloadURL  https://raw.githubusercontent.com/Teriash/teriash-dark-gold/main/teriash-dark-gold.user.js
 // ==/UserScript==
 
-(() => {
+(async () => {
   "use strict";
 
-  const ROOT = "teriash-dark-gold-v6";
   const RAW = "https://raw.githubusercontent.com/Teriash/teriash-dark-gold/main";
+  const ROOT = "teriash-dark-gold-v7";
   const CACHE = Date.now().toString();
-  const DEBUG = false;
 
-  const CSS_FILES = [
-    "theme/00-base.css",
-    "theme/10-hud.css",
-    "theme/20-chat.css",
-    "theme/30-equipment.css",
-    "theme/40-windows.css",
-    "theme/50-tooltips.css"
+  const CSS = [
+    "theme/base.css",
+    "theme/hud.css",
+    "theme/chat.css",
+    "theme/equipment.css",
+    "theme/windows.css",
+    "theme/tooltips.css",
+    "theme/lootlog.css",
+    "theme/npc-tips.css"
   ];
 
-  const JS_FILES = [
-    "extensions/runtime.js",
-    "extensions/diagnostics.js"
+  const EXTENSIONS = [
+    "extensions/engine.js",
+    "extensions/npc-tips.js",
+    "extensions/map-mark.js"
   ];
 
-  window.__TERIASH_DARK_GOLD__ = {
-    version: "6.1.0",
-    rootClass: ROOT,
-    rawBase: RAW,
-    cacheToken: CACHE,
-    debug: DEBUG
+  window.__TDG = {
+    version: "7.0.0",
+    root: ROOT,
+    raw: RAW,
+    cache: CACHE,
+    asset(path) { return `${RAW}/assets/${path}?v=${CACHE}`; }
   };
 
   document.documentElement.classList.add(ROOT);
 
-  function requestText(path) {
+  function get(path) {
     return new Promise((resolve, reject) => {
       GM_xmlhttpRequest({
         method: "GET",
         url: `${RAW}/${path}?v=${CACHE}`,
-        headers: { "Cache-Control": "no-cache" },
-        onload: r => {
-          if (r.status >= 200 && r.status < 300) resolve(r.responseText);
-          else reject(new Error(`${path}: HTTP ${r.status}`));
-        },
+        headers: {"Cache-Control":"no-cache"},
+        onload: r => r.status >= 200 && r.status < 300 ? resolve(r.responseText) : reject(new Error(`${path}: HTTP ${r.status}`)),
         onerror: () => reject(new Error(`${path}: network error`))
       });
     });
   }
 
   async function loadCss(path) {
-    const css = (await requestText(path))
+    let css = await get(path);
+    css = css
       .replaceAll("__ROOT__", ROOT)
-      .replaceAll("__ASSET__", `${RAW}/assets`)
+      .replaceAll("__RAW__", RAW)
       .replaceAll("__CACHE__", CACHE);
-
     const style = document.createElement("style");
-    style.dataset.teriashDarkGold = path;
+    style.dataset.tdg = path;
     style.textContent = css;
-    (document.head || document.documentElement).appendChild(style);
+    document.head.appendChild(style);
   }
 
   async function loadJs(path) {
-    const code = await requestText(path);
-    // osobny plik JS, ale uruchamiany w sandboxie Tampermonkey - bez problemów z MIME raw.githubusercontent.
-    Function(code)();
+    const source = await get(path);
+    Function(source)();
   }
 
-  async function boot() {
-    try {
-      await Promise.all(CSS_FILES.map(loadCss));
-      for (const file of JS_FILES) {
-        try { await loadJs(file); }
-        catch (e) { console.warn("[Dark Gold] extension:", e); }
-      }
-      console.log("%cTeriash Dark Gold v6 loaded", "color:#e7bf59;font-weight:bold");
-    } catch (e) {
-      console.error("[Dark Gold] loader error:", e);
+  try {
+    await Promise.all(CSS.map(loadCss));
+    for (const file of EXTENSIONS) {
+      try { await loadJs(file); }
+      catch (e) { console.warn("[TDG]", file, e); }
     }
+    console.log("%cTeriash Dark Gold v7", "color:#e8c66b;font-weight:700", "loaded");
+  } catch (e) {
+    console.error("[TDG] loader error", e);
   }
-
-  boot();
 })();

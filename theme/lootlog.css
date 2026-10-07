@@ -1,0 +1,22 @@
+
+/* Lootlog - dopasowanie klas Tailwind używanych przez dodatki */
+html.__ROOT__ .ll\:border-white\/50,
+html.__ROOT__ .ll\:border-gray-400,
+html.__ROOT__ .ll\:border-purple-900\/50 {
+  border-color:#6f4a17!important;
+  border-radius:3px!important;
+}
+html.__ROOT__ .ll\:bg-black\/50,
+html.__ROOT__ .ll\:bg-black,
+html.__ROOT__ .ll\:bg-black\/0,
+html.__ROOT__ .ll\:bg-black\/25,
+html.__ROOT__ .ll\:bg-gray-400\/30,
+html.__ROOT__ .ll\:bg-black\/75 {
+  background-color:rgba(13,11,8,.95)!important;
+}
+html.__ROOT__ .ll\:data-\[state\=active\]\:bg-purple-500\/40[data-state=active],
+html.__ROOT__ .ll\:data-\[state\=checked\]\:bg-purple-500\/80[data-state=checked] {
+  background-color:#5a3a12!important;
+}
+html.__ROOT__ .ll\:bg-purple-950\/40 {background-color:#1a1209!important}
+html.__ROOT__ .ll\:bg-purple-500 {background-color:#8a5b18!important}
