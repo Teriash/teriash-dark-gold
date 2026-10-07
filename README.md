@@ -1,27 +1,30 @@
-# Teriash Galaxy v8
+# Teriash Galaxy v8.1
 
-Wersja przerobiona ze złotego stylu na motyw **Galaxy** oparty na odcieniach:
-- Olympic Blue
-- Teal
-- Turkish Blue
-- Tiffany
-- Electric
+Ta wersja zmienia nie tylko kolory, ale też **sam język ozdób**:
+- usunięty został złotawy / fantasy zamysł ornamentów,
+- zamiast tego są ozdoby bardziej **galaxy / sci-fi / kosmiczne**,
+- belki, nagłówki, ramki i widgety mają teraz:
+  - kryształowe / shardowe zakończenia,
+  - konstelacyjne linie i punkty,
+  - świecące cyan / electric-blue akcenty,
+  - ciemne kosmiczne panele bez złotych zawijasów.
 
-## Co zmieniono
-- górna i dolna belka na pełne grafiki w stylu galaxy,
-- chat na ciemny niebiesko-turkusowy,
-- prawy panel i sloty na galaxy blue,
-- okna i widoki typu **klan**, listy, formularze i przyciski na niebieski motyw,
-- tooltipy, lootlog i oznaczenia NPC również przerobione na galaxy.
+## Najważniejsze podmiany
+- `assets/hud/top-full.png`
+- `assets/hud/bottom-full.png`
+- `assets/hud/hud-center.png`
+- `assets/chat/chat-top.png`
+- `assets/equipment/panel-top.png`
+- `assets/windows/header.png`
+- `assets/windows/frame.png`
+- `assets/equipment/slot.png`
+- `assets/widgets/widget.png`
+- `assets/widgets/widget-active.png`
+- `assets/tooltips/tip-bg.png`
 
-## Instalacja
-1. Wrzuć całą zawartość ZIP-a do repozytorium `Teriash/teriash-dark-gold` (główny katalog, gałąź `main`).
+Instalacja jak wcześniej:
+1. Wrzuć całą zawartość do repo `Teriash/teriash-dark-gold` na gałęzi `main`.
 2. Nadpisz stare pliki.
-3. W Tampermonkey zainstaluj / zaktualizuj `teriash-dark-gold.user.js`.
-4. Wyłącz starsze wersje motywu.
-5. Zrób `Ctrl+F5`.
-
-Jeśli chcesz, następna wersja może pójść jeszcze bardziej w:
-- kosmiczny / neonowy,
-- bardziej elegancki niebieski fantasy,
-- mocniej turkusowy.
+3. Zaktualizuj `teriash-dark-gold.user.js` w Tampermonkey.
+4. Wyłącz starsze wersje.
+5. Ctrl+F5.
