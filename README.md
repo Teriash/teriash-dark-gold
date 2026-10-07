@@ -1,4 +1,4 @@
-# Teriash Dark Gold v6
+# Teriash Dark Gold v6.1
 
 Modułowa wersja motywu pod aktualny Nowy Interfejs Margonem.
 
@@ -25,3 +25,7 @@ Loader pobiera CSS/JS z repo przez `GM_xmlhttpRequest`, dlatego:
 - możesz podmieniać pojedyncze grafiki i po odświeżeniu gry widzieć nową wersję.
 
 Motyw nie ustawia geometrii kluczowych elementów NI (width/height/top/left/margin/padding/transform).
+
+
+## Zmiana v6.1
+- górna i dolna belka korzystają z pełnych grafik (`top-full.png`, `bottom-full.png`) zamiast powtarzalnych segmentów.

@@ -1,14 +1,10 @@
-
-/* GÓRNA BELKA: rzeczywisty DOM .top.positioner > .bg */
+/* GÓRNA BELKA: pełna grafika zamiast kafelkowania */
 html.__ROOT__ .interface-layer .top.positioner > .bg {
   background-color:#171008!important;
-  background-image:
-    url("__ASSET__/top/top-left.png?__CACHE__"),
-    url("__ASSET__/top/top-right.png?__CACHE__"),
-    url("__ASSET__/top/top-repeat.png?__CACHE__")!important;
-  background-repeat:no-repeat,no-repeat,repeat-x!important;
-  background-position:left top,right top,left top!important;
-  background-size:auto 100%,auto 100%,auto 100%!important;
+  background-image:url("__ASSET__/top/top-full.png?__CACHE__")!important;
+  background-repeat:no-repeat!important;
+  background-position:center top!important;
+  background-size:100% 100%!important;
 }
 
 /* Nie pozwalamy positionerowi przykrywać grafiki czernią. */
@@ -37,16 +33,13 @@ html.__ROOT__ .main-buttons-container .widget-button:hover {
   background-image:url("__ASSET__/widgets/widget-active.png?__CACHE__")!important;
 }
 
-/* DOLNA BELKA */
+/* DOLNA BELKA: pełna grafika zamiast powtarzalnych segmentów */
 html.__ROOT__ .interface-layer .bottom.positioner > .bg {
   background-color:#171008!important;
-  background-image:
-    url("__ASSET__/bottom/bottom-left.png?__CACHE__"),
-    url("__ASSET__/bottom/bottom-right.png?__CACHE__"),
-    url("__ASSET__/bottom/bottom-repeat.png?__CACHE__")!important;
-  background-repeat:no-repeat,no-repeat,repeat-x!important;
-  background-position:left bottom,right bottom,left bottom!important;
-  background-size:auto 100%,auto 100%,auto 100%!important;
+  background-image:url("__ASSET__/bottom/bottom-full.png?__CACHE__")!important;
+  background-repeat:no-repeat!important;
+  background-position:center bottom!important;
+  background-size:100% 100%!important;
 }
 html.__ROOT__ .interface-layer .bottom.positioner {
   background:transparent!important;

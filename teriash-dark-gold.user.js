@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Teriash Dark Gold v6
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      6.0.0
+// @version      6.1.0
 // @description  Modułowy graficzny motyw Dark Gold dla Margonem NI.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -38,7 +38,7 @@
   ];
 
   window.__TERIASH_DARK_GOLD__ = {
-    version: "6.0.0",
+    version: "6.1.0",
     rootClass: ROOT,
     rawBase: RAW,
     cacheToken: CACHE,
