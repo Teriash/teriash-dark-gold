@@ -1,0 +1,46 @@
+
+/* PRAWA KOLUMNA */
+html.__ROOT__ .right-column.main-column,
+html.__ROOT__ .right-column.main-column > .inner-wrapper,
+html.__ROOT__ .right-main-column-wrapper {
+  background-color:#0d0b08!important;
+  background-image:
+    url("__ASSET__/equipment/panel-top.png?__CACHE__"),
+    url("__ASSET__/equipment/panel-repeat.png?__CACHE__")!important;
+  background-repeat:no-repeat,repeat!important;
+  background-position:top center,top left!important;
+  box-shadow:
+    inset 2px 0 0 #684014,
+    inset 4px 0 0 rgba(224,174,64,.16)!important;
+}
+
+/* sekcje prawego panelu zachowują pozycję, tylko kolor/tło */
+html.__ROOT__ .stats-section,
+html.__ROOT__ .interface-element-equipment,
+html.__ROOT__ .equipment-wrapper {
+  background-color:rgba(10,8,6,.48)!important;
+}
+
+/* sloty */
+html.__ROOT__ .eq-slot,
+html.__ROOT__ .interface-element-one-item-slot-background-to-repeat,
+html.__ROOT__ .interface-element-one-item-slot-2,
+html.__ROOT__ .skill-usable-slot {
+  background-image:url("__ASSET__/equipment/slot.png?__CACHE__")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+}
+
+/* obrys wyposażenia i statystyk */
+html.__ROOT__ .equipment-wrapper-outline,
+html.__ROOT__ .equipment-outline {
+  filter:sepia(.7) saturate(1.45) brightness(.86)!important;
+}
+html.__ROOT__ .stats-section .label {
+  color:#d7bd7b!important;
+}
+html.__ROOT__ .stats-section .value {
+  color:#f1dc9f!important;
+  text-shadow:0 1px 2px #000!important;
+}

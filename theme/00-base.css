@@ -1,0 +1,26 @@
+
+html.__ROOT__ {
+  --dg-gold:#c68a25;
+  --dg-gold-hi:#f0cf72;
+  --dg-gold-dark:#684014;
+  --dg-text:#ead7a0;
+  --dg-black:#0d0b08;
+}
+
+/* Bez zmian geometrii NI. Nie ustawiamy width/height/top/left/right/bottom/margin/padding/transform. */
+html.__ROOT__ #GAME_CANVAS,
+html.__ROOT__ #base,
+html.__ROOT__ #bground,
+html.__ROOT__ .game-layer canvas,
+html.__ROOT__ .battle-effect-tint,
+html.__ROOT__ .character-effects,
+html.__ROOT__ .battle-night2-layer,
+html.__ROOT__ .window-mode-background-layer {
+  filter:none!important;
+}
+
+/* Canvas itemów też zostaje nietknięty. */
+html.__ROOT__ .inventory-item canvas,
+html.__ROOT__ .item canvas {
+  filter:none!important;
+}

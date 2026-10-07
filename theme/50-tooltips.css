@@ -1,0 +1,13 @@
+
+/* Tooltips – tylko tło/ramka, bez rozmiarów */
+html.__ROOT__ .tooltip,
+html.__ROOT__ .tip-wrapper,
+html.__ROOT__ .item-tip,
+html.__ROOT__ .margo-tip {
+  background-color:#0d0b08!important;
+  background-image:url("__ASSET__/tooltips/tip-bg.png?__CACHE__")!important;
+  background-repeat:repeat!important;
+  color:#ead7a0!important;
+  border-color:#9a681e!important;
+  box-shadow:0 0 0 1px rgba(226,177,66,.18),0 4px 18px rgba(0,0,0,.55)!important;
+}

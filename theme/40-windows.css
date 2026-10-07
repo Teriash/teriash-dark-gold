@@ -1,0 +1,40 @@
+
+/* STANDARDOWE OKNA NI */
+html.__ROOT__ .c-window.border-window > .content,
+html.__ROOT__ .border-window > .content,
+html.__ROOT__ .c-window.border-window .inner-content {
+  background-color:#0d0b08!important;
+  background-image:url("__ASSET__/windows/window-repeat.png?__CACHE__")!important;
+  background-repeat:repeat!important;
+}
+
+html.__ROOT__ .c-window .header-label-positioner,
+html.__ROOT__ .border-window .header-label-positioner {
+  background-image:url("__ASSET__/windows/header-repeat.png?__CACHE__")!important;
+  background-repeat:repeat-x!important;
+  background-size:auto 100%!important;
+}
+
+html.__ROOT__ .c-window .header-label,
+html.__ROOT__ .border-window .header-label {
+  color:var(--dg-gold-hi)!important;
+  text-shadow:0 1px 2px #000,0 0 5px rgba(214,155,39,.33)!important;
+}
+
+html.__ROOT__ .c-window > .border-image,
+html.__ROOT__ .border-window > .border-image {
+  background-image:url("__ASSET__/windows/frame.png?__CACHE__")!important;
+  background-size:100% 100%!important;
+  pointer-events:none!important;
+}
+
+html.__ROOT__ .c-window__bottom-bar,
+html.__ROOT__ .interface-element-bottom-bar-background-stretch {
+  background-image:url("__ASSET__/bottom/bottom-repeat.png?__CACHE__")!important;
+  background-repeat:repeat-x!important;
+}
+
+html.__ROOT__ .close-button,
+html.__ROOT__ .manage-hamburger-button {
+  filter:sepia(.5) saturate(1.45) brightness(1.03)!important;
+}
