@@ -1,4 +1,3 @@
-
 .tdg-mob-tier {
   font-family:var(--tdg-font-fantasy)!important;
   font-style:normal!important;
@@ -6,12 +5,12 @@
   letter-spacing:.4px;
   text-shadow:2px 0 #000,1.4px 1.4px #000,0 2px #000,-1.4px 1.4px #000,-2px 0 #000,-1.4px -1.4px #000,0 -2px #000,1.4px -1.4px #000;
 }
-.tdg-elite {color:#e7d28d!important}
-.tdg-elite2 {color:#e8573d!important;animation:tdgPulse 2s ease-in-out infinite}
-.tdg-elite3 {color:#ef9f37!important}
-.tdg-hero {color:#4ec3ff!important}
-.tdg-titan {color:#44d1bd!important}
-.tdg-colossus {color:#f2d44e!important}
+.tdg-elite {color:#81dbd5!important}
+.tdg-elite2 {color:#76ecf5!important;animation:tdgPulse 2s ease-in-out infinite}
+.tdg-elite3 {color:#00c2ff!important}
+.tdg-hero {color:#8adfff!important}
+.tdg-titan {color:#4ef1d4!important}
+.tdg-colossus {color:#b0fcff!important}
 @keyframes tdgPulse {
   0%,100% {text-shadow:0 0 3px currentColor,2px 0 #000,-2px 0 #000,0 2px #000,0 -2px #000}
   50% {text-shadow:0 0 8px currentColor,2px 0 #000,-2px 0 #000,0 2px #000,0 -2px #000}

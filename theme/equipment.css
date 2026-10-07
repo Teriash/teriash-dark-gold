@@ -1,14 +1,13 @@
-
 html.__ROOT__ .right-column.main-column,
 html.__ROOT__ .right-column.main-column > .inner-wrapper,
 html.__ROOT__ .right-main-column-wrapper {
-  background-color:#0d0b08!important;
+  background-color:#071221!important;
   background-image:
     url("__RAW__/assets/equipment/panel-top.png?v=__CACHE__"),
     url("__RAW__/assets/equipment/panel-repeat.png?v=__CACHE__")!important;
   background-repeat:no-repeat,repeat!important;
   background-position:top center,top left!important;
-  box-shadow:inset 2px 0 #684014,inset 4px 0 rgba(224,174,64,.15)!important;
+  box-shadow:inset 2px 0 #028d87,inset 4px 0 rgba(118,236,245,.15)!important;
 }
 html.__ROOT__ .eq-slot,
 html.__ROOT__ .interface-element-one-item-slot-background-to-repeat,
@@ -19,5 +18,10 @@ html.__ROOT__ .skill-usable-slot {
   background-position:center!important;
   background-size:100% 100%!important;
 }
-html.__ROOT__ .stats-section .label {color:#cfb06d!important}
-html.__ROOT__ .stats-section .value {color:#f0d994!important;text-shadow:0 1px 2px #000!important}
+html.__ROOT__ .stats-section .label {color:#8fe7ef!important}
+html.__ROOT__ .stats-section .value {color:#d8f8ff!important;text-shadow:0 1px 2px #000!important}
+html.__ROOT__ .button.green .background,
+html.__ROOT__ .background-blue,
+html.__ROOT__ .background-gold {
+  filter:hue-rotate(145deg) saturate(1.2) brightness(.95)!important;
+}

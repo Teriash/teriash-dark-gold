@@ -1,13 +1,12 @@
-
 html.__ROOT__ .tooltip,
 html.__ROOT__ .tip-wrapper,
 html.__ROOT__ .item-tip,
 html.__ROOT__ .margo-tip {
-  background-color:#0d0b08!important;
+  background-color:#071221!important;
   background-image:url("__RAW__/assets/tooltips/tip-bg.png?v=__CACHE__")!important;
   background-repeat:repeat!important;
-  color:#ead7a0!important;
-  border-color:#91621c!important;
+  color:#d8f8ff!important;
+  border-color:#2aa9c7!important;
   font-family:var(--tdg-font-ui)!important;
-  box-shadow:0 0 0 1px rgba(224,174,64,.17),0 4px 18px rgba(0,0,0,.55)!important;
+  box-shadow:0 0 0 1px rgba(118,236,245,.17),0 4px 18px rgba(0,0,0,.55)!important;
 }

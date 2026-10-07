@@ -1,24 +1,27 @@
-# Teriash Dark Gold v7
+# Teriash Galaxy v8
 
-Wersja przebudowana na architekturę podobną do systemu rozszerzeń:
-- osobny loader,
-- osobne moduły CSS,
-- osobne rozszerzenia JS,
-- osobne assety PNG.
+Wersja przerobiona ze złotego stylu na motyw **Galaxy** oparty na odcieniach:
+- Olympic Blue
+- Teal
+- Turkish Blue
+- Tiffany
+- Electric
 
-Najważniejsze zmiany:
-- HUD używa pełnych grafik belki zamiast powtarzalnego ornamentu,
-- styl lootloga został dopasowany do Dark Gold,
-- tipy NPC mają własne klasy i kolory,
-- znacznik kliknięcia na mapie ma własną grafikę,
-- rozszerzenia czekają na `Engine.allInit` zamiast wykonywać się za wcześnie,
-- starsze wersje Dark Gold powinny być wyłączone.
+## Co zmieniono
+- górna i dolna belka na pełne grafiki w stylu galaxy,
+- chat na ciemny niebiesko-turkusowy,
+- prawy panel i sloty na galaxy blue,
+- okna i widoki typu **klan**, listy, formularze i przyciski na niebieski motyw,
+- tooltipy, lootlog i oznaczenia NPC również przerobione na galaxy.
 
-## Repo
-Wgraj całą zawartość do:
-`Teriash/teriash-dark-gold`
+## Instalacja
+1. Wrzuć całą zawartość ZIP-a do repozytorium `Teriash/teriash-dark-gold` (główny katalog, gałąź `main`).
+2. Nadpisz stare pliki.
+3. W Tampermonkey zainstaluj / zaktualizuj `teriash-dark-gold.user.js`.
+4. Wyłącz starsze wersje motywu.
+5. Zrób `Ctrl+F5`.
 
-Gałąź:
-`main`
-
-Potem zainstaluj `teriash-dark-gold.user.js` w Tampermonkey.
+Jeśli chcesz, następna wersja może pójść jeszcze bardziej w:
+- kosmiczny / neonowy,
+- bardziej elegancki niebieski fantasy,
+- mocniej turkusowy.

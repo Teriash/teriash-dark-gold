@@ -1,12 +1,11 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap");
 
 html.__ROOT__ {
-  --tdg-gold:#c68a25;
-  --tdg-gold-hi:#efce72;
-  --tdg-gold-dark:#684014;
-  --tdg-text:#ead7a0;
-  --tdg-bg:#0d0b08;
+  --tdg-gold:#0082ba;
+  --tdg-gold-hi:#76ecf5;
+  --tdg-gold-dark:#028d87;
+  --tdg-text:#d8f8ff;
+  --tdg-bg:#06121f;
   --tdg-font-ui:"Poppins", Arial, sans-serif;
   --tdg-font-fantasy:"Cinzel", Georgia, serif;
 }

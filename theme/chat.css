@@ -1,27 +1,33 @@
-
 html.__ROOT__ .left-column.main-column,
 html.__ROOT__ .left-column.main-column > .inner-wrapper,
 html.__ROOT__ .new-chat-window,
 html.__ROOT__ .chat-message-wrapper {
-  background-color:#0d0b08!important;
+  background-color:#071221!important;
   background-image:url("__RAW__/assets/chat/chat-repeat.png?v=__CACHE__")!important;
   background-repeat:repeat!important;
 }
 html.__ROOT__ .new-chat-window {
-  box-shadow:inset -2px 0 #684014,inset -4px 0 rgba(224,174,64,.16)!important;
+  box-shadow:inset -2px 0 #028d87,inset -4px 0 rgba(118,236,245,.18)!important;
 }
 html.__ROOT__ .chat-channel-card-wrapper {
-  background-color:#131008!important;
+  background-color:#0a1f34!important;
   background-image:url("__RAW__/assets/chat/chat-top.png?v=__CACHE__")!important;
   background-repeat:repeat-x!important;
   background-size:auto 100%!important;
-  border-bottom:1px solid #8d5b19!important;
+  border-bottom:1px solid #2aa9c7!important;
 }
 html.__ROOT__ .chat-channel-card.active {
-  box-shadow:inset 0 -2px #efce72, inset 0 0 8px rgba(212,153,42,.22)!important;
+  box-shadow:inset 0 -2px #76ecf5, inset 0 0 8px rgba(118,236,245,.25)!important;
 }
 html.__ROOT__ .chat-message-wrapper,
-html.__ROOT__ .new-chat-message {
+html.__ROOT__ .new-chat-message,
+html.__ROOT__ .chat-message-wrapper * {
   color:var(--tdg-text)!important;
   font-family:var(--tdg-font-ui)!important;
+}
+html.__ROOT__ .new-chat-window .input-wrapper,
+html.__ROOT__ .new-chat-window .input-wrapper input {
+  background-color:#08192b!important;
+  color:#d8f8ff!important;
+  border-color:#2aa9c7!important;
 }

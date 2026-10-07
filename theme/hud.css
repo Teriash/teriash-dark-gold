@@ -1,14 +1,13 @@
-
-/* PEŁNE grafiki, bez kafelkowania ornamentów */
+/* Galaxy HUD */
 html.__ROOT__ .interface-layer .top.positioner > .bg {
-  background-color:#171008!important;
+  background-color:#071221!important;
   background-image:url("__RAW__/assets/hud/top-full.png?v=__CACHE__")!important;
   background-repeat:no-repeat!important;
   background-position:center top!important;
   background-size:100% 100%!important;
 }
 html.__ROOT__ .interface-layer .bottom.positioner > .bg {
-  background-color:#171008!important;
+  background-color:#071221!important;
   background-image:url("__RAW__/assets/hud/bottom-full.png?v=__CACHE__")!important;
   background-repeat:no-repeat!important;
   background-position:center bottom!important;
@@ -31,7 +30,7 @@ html.__ROOT__ .main-buttons-container .widget-button {
   background-repeat:no-repeat!important;
   background-position:center!important;
   background-size:100% 100%!important;
-  box-shadow:inset 0 0 7px rgba(217,158,47,.22)!important;
+  box-shadow:inset 0 0 7px rgba(118,236,245,.22)!important;
 }
 html.__ROOT__ .main-buttons-container .widget-button:hover,
 html.__ROOT__ .main-buttons-container .widget-button.window-is-open {
@@ -40,11 +39,12 @@ html.__ROOT__ .main-buttons-container .widget-button.window-is-open {
 
 html.__ROOT__ .bottom-panel-of-bottom-positioner .bottom-panel-graphic,
 html.__ROOT__ .battle-controller .graphics {
-  filter:sepia(.55) saturate(1.28) brightness(.9) contrast(1.05)!important;
+  filter:hue-rotate(155deg) saturate(1.15) brightness(.95)!important;
 }
 
 html.__ROOT__ .hero-data .heroname,
 html.__ROOT__ .world-name,
 html.__ROOT__ .location {
   font-family:var(--tdg-font-fantasy)!important;
+  color:var(--tdg-text)!important;
 }

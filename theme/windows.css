@@ -1,10 +1,10 @@
-
 html.__ROOT__ .c-window.border-window > .content,
 html.__ROOT__ .border-window > .content,
 html.__ROOT__ .c-window.border-window .inner-content {
-  background-color:#0d0b08!important;
+  background-color:#071221!important;
   background-image:url("__RAW__/assets/windows/window-repeat.png?v=__CACHE__")!important;
   background-repeat:repeat!important;
+  color:var(--tdg-text)!important;
 }
 html.__ROOT__ .c-window .header-label-positioner,
 html.__ROOT__ .border-window .header-label-positioner {
@@ -15,11 +15,46 @@ html.__ROOT__ .border-window .header-label-positioner {
 html.__ROOT__ .header-label {
   color:var(--tdg-gold-hi)!important;
   font-family:var(--tdg-font-fantasy)!important;
-  text-shadow:0 1px 2px #000,0 0 5px rgba(205,147,37,.28)!important;
+  text-shadow:0 1px 2px #000,0 0 5px rgba(118,236,245,.32)!important;
 }
 html.__ROOT__ .c-window > .border-image,
 html.__ROOT__ .border-window > .border-image {
   background-image:url("__RAW__/assets/windows/frame.png?v=__CACHE__")!important;
   background-size:100% 100%!important;
   pointer-events:none!important;
+}
+
+/* extra for clan / browser-like views / lists */
+html.__ROOT__ .c-window .content *,
+html.__ROOT__ .border-window .content * {
+  color:var(--tdg-text);
+}
+html.__ROOT__ .c-window .content button,
+html.__ROOT__ .border-window .content button,
+html.__ROOT__ .button.small,
+html.__ROOT__ .button.medium,
+html.__ROOT__ .button.big {
+  filter:hue-rotate(150deg) saturate(1.18) brightness(.95)!important;
+}
+html.__ROOT__ .c-window .content input,
+html.__ROOT__ .c-window .content textarea,
+html.__ROOT__ .c-window .content select,
+html.__ROOT__ .border-window .content input,
+html.__ROOT__ .border-window .content textarea,
+html.__ROOT__ .border-window .content select {
+  background:#091d30!important;
+  color:#d8f8ff!important;
+  border:1px solid #2aa9c7!important;
+}
+html.__ROOT__ .c-window .content table,
+html.__ROOT__ .border-window .content table,
+html.__ROOT__ .c-window .content .list,
+html.__ROOT__ .border-window .content .list {
+  background:rgba(4,20,35,.42)!important;
+}
+html.__ROOT__ .c-window .content .tab,
+html.__ROOT__ .border-window .content .tab,
+html.__ROOT__ .c-window .content .active,
+html.__ROOT__ .border-window .content .active {
+  box-shadow:inset 0 -2px #76ecf5, inset 0 0 8px rgba(118,236,245,.18)!important;
 }
