@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name         Teriash Galaxy v8.6 Window Reskin
+// @name         Teriash Galaxy v8.7 Clan Complete
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      8.6.0
+// @version      8.7.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
+// @match        https://www.margonem.pl/guilds/*
 // @match        https://*.margonem.com/*
-// @exclude      https://www.margonem.pl/*
 // @exclude      https://forum.margonem.pl/*
 // @run-at       document-end
 // @grant        GM_xmlhttpRequest
@@ -21,6 +21,90 @@
   const RAW = "https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main";
   const ROOT = "teriash-dark-gold-v7";
   const CACHE = Date.now().toString();
+
+  const IS_GUILD_PAGE =
+    location.hostname === "www.margonem.pl" &&
+    location.pathname.startsWith("/guilds/");
+
+  async function installGuildIframeThemeV87() {
+    const cssPath = "theme/clan-iframe.css";
+
+    function gmGet(path) {
+      return new Promise((resolve, reject) => {
+        GM_xmlhttpRequest({
+          method: "GET",
+          url: `${RAW}/${path}?v=${CACHE}`,
+          headers: {"Cache-Control":"no-cache"},
+          onload: r => r.status >= 200 && r.status < 300 ? resolve(r.responseText) : reject(new Error(`${path}: HTTP ${r.status}`)),
+          onerror: () => reject(new Error(`${path}: network error`))
+        });
+      });
+    }
+
+    try {
+      let css = await gmGet(cssPath);
+      css = css
+        .replaceAll("__RAW__", RAW)
+        .replaceAll("__CACHE__", CACHE);
+
+      const style = document.createElement("style");
+      style.id = "tdg-guild-iframe-v87";
+      style.textContent = css;
+      (document.head || document.documentElement).appendChild(style);
+
+      const skip = /icon|outfit|avatar|logo|character|sprite|picture|item-id|inventory|cl_logo/i;
+
+      function markLegacySurfaces() {
+        document.querySelectorAll("body *").forEach(el => {
+          const key = `${el.id || ""} ${typeof el.className === "string" ? el.className : ""}`;
+          if (skip.test(key)) return;
+
+          const rect = el.getBoundingClientRect();
+          if (rect.width < 8 || rect.height < 8) return;
+
+          const cs = getComputedStyle(el);
+          const bg = cs.backgroundImage;
+          if (!bg || bg === "none") return;
+
+          // Only structural surfaces; do not touch character/item imagery.
+          if (rect.width > 100 && rect.height > 18) {
+            el.classList.add("tdg-guild-surface");
+          }
+
+          if ((rect.width > 140 && rect.height <= 80) ||
+              (rect.height > 140 && rect.width <= 80)) {
+            el.classList.add("tdg-guild-framepiece");
+            if (rect.height > rect.width * 2) {
+              el.classList.add("tdg-guild-vertical");
+            }
+          }
+        });
+      }
+
+      markLegacySurfaces();
+      setTimeout(markLegacySurfaces, 250);
+      setTimeout(markLegacySurfaces, 900);
+      setTimeout(markLegacySurfaces, 2200);
+
+      document.addEventListener("click", () => {
+        setTimeout(markLegacySurfaces, 80);
+        setTimeout(markLegacySurfaces, 350);
+      }, true);
+
+      console.log("%cTDG guild iframe v8.7 ACTIVE", "color:#76ecf5;font-weight:bold");
+    } catch (e) {
+      console.error("[TDG guild iframe]", e);
+    }
+  }
+
+  if (IS_GUILD_PAGE) {
+    installGuildIframeThemeV87();
+    return;
+  }
+
+  // Do nothing on other www.margonem.pl pages.
+  if (location.hostname === "www.margonem.pl") return;
+
 
   const CSS = [
     "theme/base.css",
@@ -40,7 +124,7 @@
   ];
 
   window.__TDG = {
-    version: "8.6.0",
+    version: "8.7.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -283,7 +367,7 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
     }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v8.6 Window Reskin", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v8.7 Clan Complete", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }

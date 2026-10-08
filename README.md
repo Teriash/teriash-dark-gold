@@ -1,18 +1,30 @@
-# Teriash Galaxy v8.6 Window Reskin
+# Teriash Galaxy v8.7 Clan Complete
 
-Ta wersja podmienia ogólny wygląd elementów okien:
-- drewniane listwy -> cosmic / galaxy bary,
-- szare kafle / przyciski menu -> niebiesko-cyjanowe przyciski,
-- jasne/beżowe wypełnienia -> ciemne galaxy panele,
-- aktywne elementy -> mocniej podświetlone cyjanem.
+Ta wersja naprawia problem widoczny na screenie z oknem **Klany**.
 
-Najważniejsze nowe assety:
-- assets/windows/window-fill-v86.png
-- assets/windows/section-bar-v86.png
-- assets/windows/menu-button-v86.png
-- assets/windows/menu-button-active-v86.png
-- assets/windows/paper-replacement-v86.png
+Kluczowa zmiana:
+okno klanu jest ładowane jako osobna strona/iframe z `www.margonem.pl/guilds/...`.
+Poprzednie wersje motywu wykluczały `www.margonem.pl`, więc mogły stylować tylko zewnętrzne
+okno NI, ale nie całe wnętrze klanu.
 
-Dodałem też hard override bezpośrednio w userscripcie, więc nowy styl okien powinien zaskoczyć od razu.
-W konsoli po załadowaniu powinno być:
-TDG window reskin v8.6 ACTIVE
+v8.7:
+- uruchamia osobny styl bezpośrednio w guild iframe,
+- zmienia drewniane ramy i separatory,
+- zmienia szare przyciski menu,
+- styluje aktywną pozycję menu,
+- styluje tabele klanowiczów, nagłówki, komórki i hover,
+- styluje formularze, przyciski, rekrutację, skarbiec, zarządzanie i dyplomację,
+- ma dodatkowe wykrywanie starych elementów z graficznym tłem i podmienia je na galaxy,
+  bez ruszania outfitów, ikon, logo klanu i grafik postaci.
+
+Nowe pliki:
+- `theme/clan-iframe.css`
+- `assets/clan/clan-bg-v87.png`
+- `assets/clan/clan-panel-v87.png`
+- `assets/clan/clan-menu-v87.png`
+- `assets/clan/clan-menu-active-v87.png`
+- `assets/clan/clan-horizontal-v87.png`
+- `assets/clan/clan-vertical-v87.png`
+
+Po otwarciu Klany w konsoli iframe powinno pojawić się:
+`TDG guild iframe v8.7 ACTIVE`
