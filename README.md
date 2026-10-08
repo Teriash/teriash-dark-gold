@@ -1,18 +1,18 @@
-# Teriash Galaxy v11.3 — Artifact Cleanup
+# Teriash Galaxy v11.4 — Stable Targeted Fix
 
-Naprawa dziur/artefaktów widocznych w oknach NI.
+Ta wersja jest zbudowana od v11.2, nie od v11.3.
 
-Najważniejsze zmiany:
-- skaner legacy NIE dotyka już frameworkowych elementów NI takich jak
-  `header-label-positioner`, `left-decor`, `right-decor`, `c-window__bottom-bar`,
-  `border-image`, scrollbar itd.,
-- przy każdym przebiegu usuwa przypadkowo dodane klasy `tg-auto-wood-*`
-  z tych elementów,
-- dodano dokładny motyw dla okna `Świat` (`.world-window`),
-- dodano dokładny motyw dla `Dziennika zadań` i jego kolumn/bottom bara,
-- stare stretch-backgroundy w Dzienniku są zastępowane naszym Galaxy panelem,
-- wszystko nadal jest layout-safe: bez zmian `position`, `width`, `height`, `display`.
+Cofnięto agresywne poprawki v11.3, które tworzyły wielkie pionowe/podłużne pasy w Klany.
+
+Co zmieniono względem v11.2:
+- skaner nie traktuje już samego `background-image` jako dowodu, że element jest drewniany,
+- nie skanuje całych shelli `.c-window`, tylko zawartość okien,
+- frameworkowe elementy NI (header/footer/border-image/decor) są całkowicie pomijane,
+- stare elementy są zmieniane tylko jeśli mają rzeczywiście brązowy/papierowy/zielony kolor + sensowny semantyczny hint,
+- Dziennik Zadań, Klany i Świat mają kilka dokładnych poprawek po konkretnych klasach, bez ruszania geometrii.
+
+Nie ma zmian `position`, `width`, `height`, `display`.
 
 Logi:
-- `TDG artifact-safe wood override v11.3 LOADED`
-- `Teriash Galaxy v11.3 Artifact Cleanup loaded`
+- `TDG stable targeted override v11.4 LOADED`
+- `Teriash Galaxy v11.4 Stable Targeted Fix loaded`

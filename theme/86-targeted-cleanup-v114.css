@@ -1,0 +1,86 @@
+
+/* Teriash Galaxy v11.4 — targeted cleanup, based on stable v11.2.
+   No layout/geometry properties here.
+*/
+
+/* Dziennik zadań: only the actual old stretch textures. */
+html.__ROOT__ .quests-tab-content-wrapper .interface-element-middle-3-background-stretch,
+html.__ROOT__ .quests-tab-content-wrapper .interface-element-middle-1-background-stretch,
+html.__ROOT__ .quests-tab-content-wrapper .right-column-background {
+  background:#07172b var(--tg-panel) center/cover no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+}
+
+html.__ROOT__ .quests-tab-content-wrapper .left-grouped-list-right-column-bottom-row-panel,
+html.__ROOT__ .quests-tab-content-wrapper .bottom-row-panel {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:var(--tg-line)!important;
+}
+
+/* Quest column seam: paint only the seam element itself. */
+html.__ROOT__ .quests-tab-content-wrapper .interface-element-middle-1-background-stretch,
+html.__ROOT__ .quests-tab-content-wrapper .interface-element-middle-3-background-stretch {
+  background:#082139 var(--tg-bar-v) center/100% 100% no-repeat!important;
+}
+
+/* Clan: exact old legacy pieces only. */
+html.__ROOT__ #clanbox .clan-recruit-header-option,
+html.__ROOT__ #clanbox .clan-recruit-header-atribute,
+html.__ROOT__ #clanbox .clan-recruit-header-0,
+html.__ROOT__ #clanbox .clan-recruit-header-1,
+html.__ROOT__ #clanbox .clan-recruit-header-2,
+html.__ROOT__ #clanbox .clan-list-find-header,
+html.__ROOT__ #clanbox .quest-content-header,
+html.__ROOT__ #clanbox .clan-skill-main-header,
+html.__ROOT__ #clanbox .clan-skill-header,
+html.__ROOT__ #clanbox .bless-main-header,
+html.__ROOT__ #clanbox .bless-header {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+  box-shadow:none!important;
+}
+
+/* World window: exact surface/table cleanup, no header/footer primitives. */
+html.__ROOT__ .world-window__contents,
+html.__ROOT__ .world-window__contents > .tabs-content-option {
+  background:#07172b var(--tg-panel) center/cover no-repeat!important;
+  color:var(--tg-text)!important;
+}
+
+html.__ROOT__ .world-window table {
+  background:rgba(4,21,38,.90)!important;
+  color:var(--tg-text)!important;
+  border-collapse:collapse!important;
+}
+html.__ROOT__ .world-window th {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+html.__ROOT__ .world-window td {
+  background:rgba(5,28,48,.86)!important;
+  color:var(--tg-text)!important;
+  border-color:rgba(42,169,199,.58)!important;
+}
+
+/* Never let auto classes survive on NI framework primitives. */
+html.__ROOT__ .header-label-positioner.tg-auto-wood-panel,
+html.__ROOT__ .header-label-positioner.tg-auto-wood-row,
+html.__ROOT__ .header-label.tg-auto-wood-control,
+html.__ROOT__ .left-decor.tg-auto-wood-control,
+html.__ROOT__ .right-decor.tg-auto-wood-control,
+html.__ROOT__ .c-window__bottom-bar.tg-auto-wood-h,
+html.__ROOT__ .interface-element-bottom-bar-background-stretch.tg-auto-wood-h,
+html.__ROOT__ .close-button-corner-decor.tg-auto-wood-panel,
+html.__ROOT__ .border-image.tg-auto-wood-panel,
+html.__ROOT__ .border-image.tg-auto-wood-row {
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
