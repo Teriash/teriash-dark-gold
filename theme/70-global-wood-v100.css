@@ -1,0 +1,48 @@
+
+/* Teriash Galaxy v10.0 - global wood replacer */
+
+html.__ROOT__ .tdg100-wood-h {
+  background-color:#082139!important;
+  background-image:url("__RAW__/assets/global/wood-h-v100.png?v=100")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tdg100-wood-v {
+  background-color:#082139!important;
+  background-image:url("__RAW__/assets/global/wood-v-v100.png?v=100")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tdg100-wood-panel {
+  background-color:#07172b!important;
+  background-image:url("__RAW__/assets/global/wood-panel-v100.png?v=100")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:cover!important;
+  border-color:#238eaa!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tdg100-no-before::before,
+html.__ROOT__ .tdg100-no-after::after {
+  background:none!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+
+/* common structural UI pieces that often bring legacy wood */
+html.__ROOT__ .tdg100-wood-h > .border,
+html.__ROOT__ .tdg100-wood-v > .border,
+html.__ROOT__ .tdg100-wood-panel > .border {
+  background:none!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}

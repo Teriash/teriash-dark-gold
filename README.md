@@ -1,34 +1,36 @@
-# Teriash Galaxy v9.9 — Clan Rails
+# Teriash Galaxy v10.0 — Global Wood Replacer
 
-Bazą jest działająca v9.8. Nie ma już agresywnego skanowania ramek.
+Ta wersja nie skupia się już tylko na klanie / rekrutacji.
 
-Pozostałe drewniane elementy są teraz MASKOWANE osobnymi Galaxy rails
-na podstawie rzeczywistych pozycji:
+Dodałem globalny moduł, który podmienia albo wygasza drewniane belki,
+separatory i papierowo-drewniane strukturalne panele w całym UI gry.
+
+## Nowe moduły
+- `theme/70-global-wood-v100.css`
+- `extensions/global-wood-v100.js`
+- `assets/global/wood-h-v100.png`
+- `assets/global/wood-v-v100.png`
+- `assets/global/wood-panel-v100.png`
+
+## Jak działa
+Skrypt:
+- wykrywa elementy wyglądające jak drewniane / szaro-beżowe belki,
+- podmienia cienkie poziome i pionowe elementy na Galaxy bars,
+- usuwa stare pseudo-elementy `::before` / `::after`, jeśli zawierają legacy wood,
+- większe brązowe strukturalne panele zamienia na Galaxy panel.
+
+## Zakres
+Przeszukiwane są m.in.:
 - `.clan`
-- `#clanmenu`
-- `#clanbox`
+- `.c-window`
+- `.border-window`
+- `.window`
+- lewa kolumna / chat
+- prawa kolumna / ekwipunek / statystyki
 
-Skrypt przykrywa:
-- lewą drewnianą belkę,
-- środkowy pionowy separator,
-- prawą drewnianą belkę,
-- cienką belkę pod górnym nagłówkiem,
-- dolną drewnianą belkę,
-- poziomy separator pod atrybutami rekrutacji.
+## Logi
+Po starcie:
+- `TDG global wood replacer v10.0 LOADED`
 
-Nagłówek `Atrybuty klanu` jest dodatkowo wymuszany inline na Galaxy.
-
-To rozwiązanie nie przerabia menu, tabel, kart ani atrybutów, więc nie
-powinno powodować regresji wyglądu jak wcześniejsze szerokie skanery.
-
-Moduły:
-- `theme/60-clan-v99.css`
-- `extensions/clan-theme-v99.js`
-- `assets/clan/rail-h-v99.png`
-- `assets/clan/rail-v-v99.png`
-
-Instalujesz nadal tylko:
-`teriash-dark-gold.user.js`
-
-Log:
-`TDG clan rails v9.9 ACTIVE`
+W trakcie:
+- `TDG global wood replacements v10.0: X`
