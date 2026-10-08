@@ -1,0 +1,232 @@
+
+/*
+  v9.0 — KLUCZOWA POPRAWKA:
+  stary widok klanu w kliencie korzysta z .clan / #clanmenu / #clanbox.
+  Stylujemy go bezpośrednio w głównym dokumencie gry.
+*/
+
+html.__ROOT__ .clan {
+  background-color:#061522!important;
+  background-image:url("__RAW__/assets/clan/surface-v90.png?v=90")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:cover!important;
+  border-color:#238eaa!important;
+}
+
+/* dokładny lewy panel starego okna klanu */
+html.__ROOT__ #clanmenu,
+html.__ROOT__ #clanmenu > .boxhover {
+  background:#07172b url("__RAW__/assets/clan/surface-v90.png?v=90") center/cover no-repeat!important;
+  border-color:#238eaa!important;
+  box-shadow:inset 0 0 26px rgba(0,8,20,.23)!important;
+}
+
+html.__ROOT__ #clanmenu > .boxhover > li,
+html.__ROOT__ #clanmenu li,
+html.__ROOT__ #clanmenu [id$="-item-menu"],
+html.__ROOT__ #clanmenu [name$="-item-menu"] {
+  background:#07172b url("__RAW__/assets/clan/menu-v90.png?v=90") center/100% 100% no-repeat!important;
+  background-color:#07172b!important;
+  color:#e8fbff!important;
+  border-color:#248faa!important;
+  box-shadow:inset 0 1px rgba(220,248,255,.07)!important;
+}
+
+html.__ROOT__ #clanmenu > .boxhover > li:hover,
+html.__ROOT__ #clanmenu > .boxhover > li.active,
+html.__ROOT__ #clanmenu li.active,
+html.__ROOT__ #clanmenu [id$="-item-menu"].active,
+html.__ROOT__ #clanmenu [name$="-item-menu"].active {
+  background-image:url("__RAW__/assets/clan/menu-active-v90.png?v=90")!important;
+  border-color:#76ecf5!important;
+  color:#f3fdff!important;
+  box-shadow:inset 0 0 14px rgba(118,236,245,.22),0 0 6px rgba(118,236,245,.10)!important;
+}
+
+/* prawy obszar */
+html.__ROOT__ #clanbox {
+  background:#07172b url("__RAW__/assets/clan/surface-v90.png?v=90") center/cover no-repeat!important;
+  background-color:#07172b!important;
+  color:#d8f8ff!important;
+  border-color:#238eaa!important;
+}
+
+/* Rekrutacja */
+html.__ROOT__ #clanbox .clan-recruit-content,
+html.__ROOT__ #clanbox .recruit-section,
+html.__ROOT__ #clanbox .scroll-wrapper,
+html.__ROOT__ #clanbox .scroll-pane,
+html.__ROOT__ #clanbox .background-wrapper,
+html.__ROOT__ #clanbox .section-recruit-main,
+html.__ROOT__ #clanbox .clan-part-0,
+html.__ROOT__ #clanbox .clan-part-1,
+html.__ROOT__ #clanbox .clan-part-2 {
+  background:#07172b url("__RAW__/assets/clan/surface-v90.png?v=90") center/cover no-repeat!important;
+  background-color:#07172b!important;
+  color:#d8f8ff!important;
+  border-color:#238eaa!important;
+}
+
+/* zielone wiersze atrybutów */
+html.__ROOT__ #clanbox .one-clan-atribute,
+html.__ROOT__ #clanbox .one-clan-atribute > *,
+html.__ROOT__ #clanbox .atribute-name-wrapper,
+html.__ROOT__ #clanbox .atribute-value-wrapper,
+html.__ROOT__ #clanbox .invite-to-clan {
+  background-color:rgba(5,29,49,.92)!important;
+  background-image:none!important;
+  color:#d8f8ff!important;
+  border-color:#248eaa!important;
+}
+
+/* brązowe paski nagłówków / separatory */
+html.__ROOT__ #clanbox .clan-recruit-header-option,
+html.__ROOT__ #clanbox .clan-recruit-header-atribute,
+html.__ROOT__ #clanbox .clan-recruit-header-0,
+html.__ROOT__ #clanbox .clan-recruit-header-1,
+html.__ROOT__ #clanbox .clan-recruit-header-2,
+html.__ROOT__ #clanbox .clan-list-find-header,
+html.__ROOT__ #clanbox .quest-content-header,
+html.__ROOT__ #clanbox .clan-skill-main-header,
+html.__ROOT__ #clanbox .clan-skill-header,
+html.__ROOT__ #clanbox .bless-main-header,
+html.__ROOT__ #clanbox .bless-header {
+  background:#082139 url("__RAW__/assets/clan/strip-h-v90.png?v=90") center/100% 100% no-repeat!important;
+  color:#e8fbff!important;
+  border-color:#2aa4c1!important;
+}
+
+/* top tabs Rekrutacja / Lista kandydatów / Zaproszenia */
+html.__ROOT__ #clanbox .clan-recruit-menu,
+html.__ROOT__ #clanbox .cards-header-wrapper,
+html.__ROOT__ #clanbox .cards-header,
+html.__ROOT__ #clanbox .header-background-graphic {
+  background:#061727!important;
+  background-image:none!important;
+  border-color:#279fbd!important;
+}
+
+html.__ROOT__ #clanbox .clan-recruit-menu .card,
+html.__ROOT__ #clanbox .cards-header .card {
+  background:#07172b url("__RAW__/assets/clan/menu-v90.png?v=90") center/100% 100% no-repeat!important;
+  color:#d8f8ff!important;
+  border-color:#248faa!important;
+}
+
+html.__ROOT__ #clanbox .clan-recruit-menu .card.active,
+html.__ROOT__ #clanbox .cards-header .card.active {
+  background-image:url("__RAW__/assets/clan/menu-active-v90.png?v=90")!important;
+  border-color:#76ecf5!important;
+  color:#f3fdff!important;
+}
+
+/* członkowie / listy */
+html.__ROOT__ #clanbox .clan-members-content,
+html.__ROOT__ #clanbox .clan-list-content {
+  background:#07172b url("__RAW__/assets/clan/surface-v90.png?v=90") center/cover no-repeat!important;
+}
+
+html.__ROOT__ #clanbox .clan-members-table,
+html.__ROOT__ #clanbox .clan-list-table,
+html.__ROOT__ #clanbox .recruit-candidate-table,
+html.__ROOT__ #clanbox .recruit-invite-table,
+html.__ROOT__ #clanbox table.members,
+html.__ROOT__ #clanbox table.rankstable {
+  background:rgba(4,21,38,.88)!important;
+  color:#d8f8ff!important;
+  border-color:#218fab!important;
+  border-collapse:collapse!important;
+}
+
+html.__ROOT__ #clanbox .clan-members-table th,
+html.__ROOT__ #clanbox .clan-list-table th,
+html.__ROOT__ #clanbox .recruit-candidate-table th,
+html.__ROOT__ #clanbox .recruit-invite-table th,
+html.__ROOT__ #clanbox table.members th,
+html.__ROOT__ #clanbox table.rankstable th {
+  background:linear-gradient(180deg,#0a3b58,#07233a)!important;
+  color:#e6fbff!important;
+  border:1px solid #24a2c2!important;
+}
+
+html.__ROOT__ #clanbox .clan-members-table td,
+html.__ROOT__ #clanbox .clan-list-table td,
+html.__ROOT__ #clanbox .recruit-candidate-table td,
+html.__ROOT__ #clanbox .recruit-invite-table td,
+html.__ROOT__ #clanbox table.members td,
+html.__ROOT__ #clanbox table.rankstable td {
+  background:rgba(5,28,48,.84)!important;
+  color:#d8f8ff!important;
+  border:1px solid #218ba8!important;
+}
+
+/* pozostałe podstrony klanu */
+html.__ROOT__ #clanbox .clan-priv-page,
+html.__ROOT__ #clanbox .clan-official-page,
+html.__ROOT__ #clanbox .history,
+html.__ROOT__ #clanbox .treasury,
+html.__ROOT__ #clanbox .clan-edit-content,
+html.__ROOT__ #clanbox .player-edit-pane,
+html.__ROOT__ #clanbox .clan-list-find-panel,
+html.__ROOT__ #clanbox .clan-list-atributes,
+html.__ROOT__ #clanbox .clan-list-find-content,
+html.__ROOT__ #clanbox .clan-skills-content,
+html.__ROOT__ #clanbox .clan-bless-content,
+html.__ROOT__ #clanbox .clan-quests-content,
+html.__ROOT__ #clanbox .one-clan-skill,
+html.__ROOT__ #clanbox .one-clan-quest {
+  background:#07172b url("__RAW__/assets/clan/surface-v90.png?v=90") center/cover no-repeat!important;
+  color:#d8f8ff!important;
+  border-color:#238eaa!important;
+}
+
+/* przyciski */
+html.__ROOT__ .clan .btn.SI-button,
+html.__ROOT__ .clan .big-button,
+html.__ROOT__ .clan button,
+html.__ROOT__ .clan input[type="button"],
+html.__ROOT__ .clan input[type="submit"] {
+  background:#07172b url("__RAW__/assets/clan/menu-v90.png?v=90") center/100% 100% no-repeat!important;
+  color:#e8fbff!important;
+  border-color:#2aa9c7!important;
+}
+
+html.__ROOT__ .clan .btn.SI-button > .left,
+html.__ROOT__ .clan .btn.SI-button > .right,
+html.__ROOT__ .clan .btn.SI-button > .label,
+html.__ROOT__ .clan .big-button > .left,
+html.__ROOT__ .clan .big-button > .right,
+html.__ROOT__ .clan .big-button > .content {
+  background:none!important;
+  background-image:none!important;
+}
+
+/* forms */
+html.__ROOT__ .clan input,
+html.__ROOT__ .clan select,
+html.__ROOT__ .clan textarea {
+  background:#071d31!important;
+  color:#d8f8ff!important;
+  border-color:#299fbd!important;
+}
+
+/* klasy nałożone przez JS */
+html.__ROOT__ .tdg90-surface {
+  background:#07172b url("__RAW__/assets/clan/surface-v90.png?v=90") center/cover no-repeat!important;
+  color:#d8f8ff!important;
+  border-color:#238eaa!important;
+}
+html.__ROOT__ .tdg90-h {
+  background:#082139 url("__RAW__/assets/clan/strip-h-v90.png?v=90") center/100% 100% no-repeat!important;
+  border-color:#2aa4c1!important;
+}
+html.__ROOT__ .tdg90-v {
+  background:#082139 url("__RAW__/assets/clan/strip-v-v90.png?v=90") center/100% 100% no-repeat!important;
+  border-color:#2aa4c1!important;
+}
+html.__ROOT__ .tdg90-btn {
+  background:#07172b url("__RAW__/assets/clan/menu-v90.png?v=90") center/100% 100% no-repeat!important;
+  color:#e8fbff!important;
+  border-color:#279fbd!important;
+}

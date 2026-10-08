@@ -1,22 +1,29 @@
-# Teriash Galaxy v8.9 Clan Hard Override
+# Teriash Galaxy v9.0 — Main Clan Fix
 
-Ta wersja jest zrobiona pod problem widoczny na screenie:
-- zielony środek rekrutacji,
-- brązowy pasek `Atrybuty klanu`,
-- brązowy separator na dole,
-- stare drewniane pionowe elementy,
-- pozostałe szare/ciemne kafle.
+To jest poprawka wynikająca z ponownego przejrzenia wcześniejszego kodu Margonem.
 
-Najważniejsza różnica względem v8.8:
-krytyczne style klanu są teraz osadzone bezpośrednio w userscripcie,
-więc nie zależą od cache `clan-iframe.css`.
+Najważniejsze odkrycie:
+stary widok klanu używa bezpośrednio elementów `.clan`, `#clanmenu`, `.boxhover`
+oraz `#clanbox` w kliencie gry. Poprzednie wersje za mocno skupiały się na
+`www.margonem.pl/guilds/...` / iframe.
 
-Dodatkowo skrypt:
-- bezpośrednio ustawia style na dokładnych klasach rekrutacji,
-- obserwuje zmiany DOM przez MutationObserver,
-- po każdej zmianie/kliknięciu ponownie styluje nowo utworzone elementy,
-- wykrywa strukturalne zielone/brązowe/szare/beżowe tła i zmienia je na Galaxy,
-- omija outfity, ikony, logo klanu, itemy i grafiki postaci.
+v9.0 styluje klan również BEZPOŚREDNIO W GŁÓWNYM DOKUMENCIE GRY.
 
-W konsoli iframe powinno pojawić się:
-`TDG guild iframe v8.9 ACTIVE`
+Dodane:
+- `theme/clan-main.css`
+- `extensions/clan-theme.js`
+
+Extension:
+- czeka na pojawienie się `.clan`,
+- styluje `#clanmenu > .boxhover > li`,
+- styluje `#clanbox`,
+- styluje rekrutację, członków, skarbiec, zarządzanie, dyplomację itd.,
+- wykrywa stare tła graficzne i zielone/brązowe/szare powierzchnie,
+- ustawia nowe tło przez inline `!important`,
+- ponawia stylowanie po kliknięciach i po zmianach DOM.
+
+W konsoli głównej strony gry powinno być:
+`TDG main clan extension v9.0 ACTIVE`
+
+Jeżeli okno Klany jest otwarte, w `<html>` pojawi się też:
+`data-tdg-clan-main="9.0"`

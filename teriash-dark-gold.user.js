@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v8.9 Clan Hard Override
+// @name         Teriash Galaxy v9.0 Main Clan Fix
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      8.9.0
+// @version      9.0.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -19,7 +19,7 @@
   "use strict";
 
   const RAW = "https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main";
-  const ROOT = "teriash-dark-gold-v7";
+  const ROOT = "teriash-galaxy-v90";
   const CACHE = Date.now().toString();
 
   const IS_GUILD_PAGE =
@@ -265,17 +265,19 @@ body{background:#06111f url("${SURFACE}") center/cover no-repeat!important}
     "theme/windows.css",
     "theme/tooltips.css",
     "theme/lootlog.css",
-    "theme/npc-tips.css"
+    "theme/npc-tips.css",
+    "theme/clan-main.css"
   ];
 
   const EXTENSIONS = [
     "extensions/engine.js",
     "extensions/npc-tips.js",
-    "extensions/map-mark.js"
+    "extensions/map-mark.js",
+    "extensions/clan-theme.js"
   ];
 
   window.__TDG = {
-    version: "8.9.0",
+    version: "9.0.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -518,7 +520,7 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
     }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v8.9 Clan Hard Override", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v9.0 Main Clan Fix", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }
