@@ -1,0 +1,110 @@
+
+/* Teriash Galaxy v11.7 — Global Widget Seal
+   Fill transparent seams in ALL border-window widgets.
+   Visual-only: no position/width/height/display changes.
+*/
+
+/* Base underlay for every NI border window so map cannot bleed through */
+html.__ROOT__ .c-window.border-window,
+html.__ROOT__ .border-window {
+  background-color:#06111f!important;
+  background-image:var(--tg-panel)!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-clip:border-box!important;
+}
+
+/* Main content surface */
+html.__ROOT__ .c-window.border-window > .content,
+html.__ROOT__ .border-window > .content,
+html.__ROOT__ .c-window.border-window .inner-content,
+html.__ROOT__ .border-window .inner-content,
+html.__ROOT__ .c-window.border-window .content,
+html.__ROOT__ .border-window .content {
+  background-color:#07172b!important;
+  background-image:var(--tg-panel)!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-clip:border-box!important;
+}
+
+/* 1–3 px outer seam cover without altering geometry */
+html.__ROOT__ .c-window.border-window > .content,
+html.__ROOT__ .border-window > .content {
+  box-shadow:0 0 0 2px #07172b, inset 0 0 0 1px rgba(118,236,245,.12)!important;
+}
+
+/* Typical transparent legacy wrappers inside widgets */
+html.__ROOT__ .c-window.border-window .content > .scroll-wrapper,
+html.__ROOT__ .c-window.border-window .content > .scroll-pane,
+html.__ROOT__ .c-window.border-window .content > .background-wrapper,
+html.__ROOT__ .c-window.border-window .content > .list,
+html.__ROOT__ .c-window.border-window .content > .list-container,
+html.__ROOT__ .c-window.border-window .content > .panel,
+html.__ROOT__ .c-window.border-window .content > .section,
+html.__ROOT__ .c-window.border-window .content > .box,
+html.__ROOT__ .c-window.border-window .content > .content-box,
+html.__ROOT__ .c-window.border-window .content > .details,
+html.__ROOT__ .c-window.border-window .content > .description,
+html.__ROOT__ .border-window .content > .scroll-wrapper,
+html.__ROOT__ .border-window .content > .scroll-pane,
+html.__ROOT__ .border-window .content > .background-wrapper,
+html.__ROOT__ .border-window .content > .list,
+html.__ROOT__ .border-window .content > .list-container,
+html.__ROOT__ .border-window .content > .panel,
+html.__ROOT__ .border-window .content > .section,
+html.__ROOT__ .border-window .content > .box,
+html.__ROOT__ .border-window .content > .content-box,
+html.__ROOT__ .border-window .content > .details,
+html.__ROOT__ .border-window .content > .description {
+  background-color:#07172b!important;
+  background-image:var(--tg-panel)!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-clip:border-box!important;
+  outline:1px solid rgba(7,23,43,.95)!important;
+  outline-offset:0!important;
+}
+
+/* Bottom bars often leave thin gaps above/below */
+html.__ROOT__ .c-window .c-window__bottom-bar,
+html.__ROOT__ .border-window .c-window__bottom-bar,
+html.__ROOT__ .c-window .bottom-bar,
+html.__ROOT__ .border-window .bottom-bar {
+  background-color:#082139!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  box-shadow:0 -1px 0 #07172b, 0 1px 0 #07172b!important;
+}
+
+/* Header strip side gaps */
+html.__ROOT__ .c-window .header-label-positioner,
+html.__ROOT__ .border-window .header-label-positioner {
+  box-shadow:inset 0 1px 0 rgba(118,236,245,.12), 0 0 0 1px #07172b!important;
+}
+
+/* World/Journal/Clan/Social specific content wrappers often exposing slivers */
+html.__ROOT__ .world-window .content,
+html.__ROOT__ .quest-window .content,
+html.__ROOT__ .clan .content,
+html.__ROOT__ #friends,
+html.__ROOT__ #myfriends,
+html.__ROOT__ #myenemies,
+html.__ROOT__ #clanbox,
+html.__ROOT__ #clanmenu {
+  box-shadow:0 0 0 2px #07172b!important;
+}
+
+/* Avoid visible pale rails on widget edges */
+html.__ROOT__ .c-window.border-window .content,
+html.__ROOT__ .border-window .content,
+html.__ROOT__ .c-window.border-window .content *:not(img):not(canvas):not(svg),
+html.__ROOT__ .border-window .content *:not(img):not(canvas):not(svg) {
+  border-left-color:inherit;
+  border-right-color:inherit;
+}

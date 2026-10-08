@@ -1,24 +1,15 @@
-# Teriash Galaxy v11.6 — Seam Seal
+# Teriash Galaxy v11.7 — Global Widget Seal
 
-Bazą jest v11.5, bo ona zmienia już praktycznie cały interfejs.
+Baza: v11.6.
 
-v11.6 NIE przebudowuje wyglądu od nowa. Naprawia tylko prześwity i szczeliny.
+Cel: domknąć prześwity nie tylko w Klanach, ale we wszystkich widgetach/oknach NI.
 
-## Co robi
-- nadaje `.clan` pełne Galaxy tło, aby mapa nie prześwitywała przez puste miejsca,
-- uszczelnia `#clanmenu` i `#clanbox`,
-- wypełnia transparentne wrappery wewnątrz klanu,
-- przykrywa 1–3 px szczeliny przez `box-shadow` / `outline`,
-- neutralizuje jasne/żółte resztki separatorów.
+Dodany plik:
+- `theme/88-global-widget-seal-v117.css`
 
-## Czego NIE robi
-- nie zmienia `position`,
-- nie zmienia `width` / `height`,
-- nie zmienia `display`,
-- nie przesuwa żadnego okna.
-
-Nowy plik:
-`theme/87-seam-seal-v116.css`
-
-W Tampermonkey nadal instalujesz tylko:
-`teriash-dark-gold.user.js`
+Co robi:
+- daje pełne tło pod całym `.c-window.border-window`,
+- uszczelnia `.content` i `.inner-content`,
+- wypełnia typowe transparentne wrappery (`scroll-wrapper`, `scroll-pane`, `background-wrapper`, `panel`, `section`, `box`, itd.),
+- uszczelnia dolne belki i paski nagłówków,
+- nie zmienia layoutu (`position`, `width`, `height`, `display`).
