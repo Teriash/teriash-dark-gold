@@ -1,33 +1,18 @@
-# Teriash Galaxy v11.1 — Layout Safe
+# Teriash Galaxy v11.2 — Safe Wood Override
 
-Ta wersja naprawia regresję v11.0, w której okna potrafiły rozciągać się
-na cały ekran.
+To rozszerzenie dokłada bezpieczny, globalny zamiennik dla pozostałych
+drewnianych / papierowych / zielonych legacy elementów w oknach gry.
 
-## Przyczyna
+Najważniejsze założenie: ZERO zmian układu.
+- nie zmienia `position`, `width`, `height`, `display`,
+- działa wyłącznie przez zmianę tła / border-image / kolorów,
+- skanuje tylko zawartość znanych okien,
+- ignoruje sloty, itemy, sprite'y, canvasy, ikony postaci.
 
-v11.0 nadpisywał m.in.:
-- `position` na `.clan`,
-- `position` na `.c-window.border-window`,
-- nakładał frame bezpośrednio na `.clan`,
-- jednocześnie nadal ładował stary `60-clan-v98.css`.
+Dodane pliki:
+- `theme/85-safe-wood-override-v112.css`
+- `extensions/safe-wood-override-v112.js`
 
-`.clan` w tym interfejsie jest kontenerem układu, a nie tylko widocznym
-oknem. Zmiana jego `position` zmieniała układ absolutnie pozycjonowanych
-elementów i okno robiło się ogromne.
-
-## v11.1
-
-- nie ustawia `position`, `width`, `height` ani `display` na oknach gry,
-- nie styluje już `.clan` jako panelu,
-- całkowicie usuwa `60-clan-v98.css` z loadera,
-- styluje tylko `#clanmenu`, `#clanbox` i konkretne elementy klanu,
-- border Galaxy jest podmieniany tylko wtedy, gdy element już miał
-  `border-image` — zachowujemy istniejące wymiary,
-- Społeczność korzysta z dokładnych `.frbox`,
-- zachowuje architekturę komponentów i CSS variables z v11.0.
-
-W Tampermonkey instalujesz nadal tylko:
-`teriash-dark-gold.user.js`
-
-Log:
-`TDG layout-safe component theme v11.1 LOADED`
+Logi:
+- `TDG safe wood override v11.2 LOADED`
+- `TDG safe wood override v11.2 { ... }`

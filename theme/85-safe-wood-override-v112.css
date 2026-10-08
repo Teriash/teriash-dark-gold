@@ -1,0 +1,68 @@
+
+/* Teriash Galaxy v11.2 — safe legacy wood override
+   Visual-only replacements. No geometry/layout properties.
+*/
+
+html.__ROOT__ .tg-auto-wood-h {
+  background-color:#082139!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  color:var(--tg-text)!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:var(--tg-line)!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tg-auto-wood-v {
+  background-color:#082139!important;
+  background-image:var(--tg-bar-v)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  color:var(--tg-text)!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:var(--tg-line)!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tg-auto-wood-panel {
+  background-color:#07172b!important;
+  background-image:var(--tg-panel)!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  color:var(--tg-text)!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .tg-auto-wood-row {
+  background-color:#07172b!important;
+  background-image:var(--tg-row)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:rgba(42,169,199,.44)!important;
+}
+
+html.__ROOT__ .tg-auto-wood-control {
+  background-color:#07172b!important;
+  background-image:var(--tg-control)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .tg-auto-wood-border {
+  border-image-source:var(--tg-frame)!important;
+  border-image-slice:52!important;
+  border-image-repeat:stretch!important;
+}
