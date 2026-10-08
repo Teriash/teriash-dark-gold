@@ -1,0 +1,174 @@
+
+/* Teriash Galaxy v12.2 — Inventory / Bag / Shop Slots */
+
+/* ==========================================================
+   1. BAG / INVENTORY GRID
+   Current NI structure:
+   .inventory-grid-bg.interface-element-grid-border
+     > .interface-element-item-slot-grid-stretch
+     > .inventory-grid > .inner-grid > .scroll-pane
+   ========================================================== */
+
+html.__ROOT__ .inventory-grid-bg {
+  background-color:#06111f!important;
+  border-color:#1686a5!important;
+  box-shadow:inset 0 0 0 1px rgba(118,236,245,.12)!important;
+}
+
+html.__ROOT__ .inventory-grid-bg > .interface-element-item-slot-grid-stretch,
+html.__ROOT__ .inventory-grid-bg .interface-element-item-slot-grid-stretch,
+html.__ROOT__ .tg121-item-grid {
+  background-color:#06111f!important;
+  background-image:url("__RAW__/assets/equipment/slot-grid-v122.png?v=122")!important;
+  background-repeat:repeat!important;
+  background-position:0 0!important;
+  background-size:33px 33px!important;
+  border-image:none!important;
+  border-image-source:none!important;
+}
+
+/* The actual scrolling inventory surface is also tiled. This makes
+   empty cells Galaxy even if the native stretch layer is not used. */
+html.__ROOT__ .inventory-grid .inner-grid > .scroll-pane,
+html.__ROOT__ .inventory-grid > .inner-grid,
+html.__ROOT__ .inventory-grid {
+  background-color:#030b16!important;
+  background-image:none!important;
+}
+
+/* ==========================================================
+   2. SINGLE ITEM / EQUIPMENT SLOTS
+   Do not touch battle skill slots.
+   ========================================================== */
+
+html.__ROOT__ .eq-slot:not(.skill-usable-slot),
+html.__ROOT__ .interface-element-one-item-slot-background-to-repeat:not(.skill-usable-slot),
+html.__ROOT__ .tg121-single-slot {
+  background-color:#06111f!important;
+  background-image:url("__RAW__/assets/equipment/slot-single-v122.png?v=122")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  box-shadow:none!important;
+}
+
+/* Preserve item rarity/highlight layers and item icons above our slot. */
+html.__ROOT__ .inventory-item,
+html.__ROOT__ .eq-slot .inventory-item {
+  background-color:transparent!important;
+}
+
+/* ==========================================================
+   3. SHOP / MERCHANT WINDOWS
+   Covers both NI-style reusable item grids and older #shop nodes.
+   ========================================================== */
+
+html.__ROOT__ .c-window [class*="shop"] .interface-element-item-slot-grid-stretch,
+html.__ROOT__ .c-window [class*="store"] .interface-element-item-slot-grid-stretch,
+html.__ROOT__ .c-window [class*="merchant"] .interface-element-item-slot-grid-stretch,
+html.__ROOT__ [class*="shop-window"] .interface-element-item-slot-grid-stretch,
+html.__ROOT__ [class*="store-window"] .interface-element-item-slot-grid-stretch,
+html.__ROOT__ [class*="merchant-window"] .interface-element-item-slot-grid-stretch {
+  background-color:#06111f!important;
+  background-image:url("__RAW__/assets/equipment/slot-grid-v122.png?v=122")!important;
+  background-repeat:repeat!important;
+  background-position:0 0!important;
+  background-size:33px 33px!important;
+}
+
+/* Reusable individual item slot classes used by shop-like windows. */
+html.__ROOT__ .c-window [class*="shop"] [class*="item-slot"]:not(.skill-usable-slot),
+html.__ROOT__ .c-window [class*="store"] [class*="item-slot"]:not(.skill-usable-slot),
+html.__ROOT__ .c-window [class*="merchant"] [class*="item-slot"]:not(.skill-usable-slot),
+html.__ROOT__ [class*="shop-window"] [class*="item-slot"]:not(.skill-usable-slot),
+html.__ROOT__ [class*="store-window"] [class*="item-slot"]:not(.skill-usable-slot),
+html.__ROOT__ [class*="merchant-window"] [class*="item-slot"]:not(.skill-usable-slot),
+html.__ROOT__ .tg121-shop-slot {
+  background-color:#06111f!important;
+  background-image:url("__RAW__/assets/equipment/slot-grid-v122.png?v=122")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-image:none!important;
+  border-image-source:none!important;
+}
+
+/* Old/legacy shop DOM fallback. */
+html.__ROOT__ #shop_store,
+html.__ROOT__ #shop_buy,
+html.__ROOT__ #shop_sell {
+  background-color:#06111f!important;
+  background-image:url("__RAW__/assets/equipment/slot-grid-v122.png?v=122")!important;
+  background-repeat:repeat!important;
+  background-position:0 0!important;
+  background-size:33px 33px!important;
+}
+
+html.__ROOT__ #shop_store > .item,
+html.__ROOT__ #shop_buy > .item,
+html.__ROOT__ #shop_sell > .item {
+  background-color:transparent!important;
+}
+
+/* Galaxy border around reusable grid wrappers. */
+html.__ROOT__ .inventory-grid-bg.interface-element-grid-border,
+html.__ROOT__ .tg121-grid-wrapper {
+  border-color:#1686a5!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(118,236,245,.12),
+    0 0 0 1px rgba(5,17,31,.95)!important;
+}
+
+
+/* v12.2: every cell must visually remain an individual square. */
+html.__ROOT__ .inventory-grid-bg > .interface-element-item-slot-grid-stretch,
+html.__ROOT__ .inventory-grid-bg .interface-element-item-slot-grid-stretch,
+html.__ROOT__ .tg121-item-grid,
+html.__ROOT__ .tg122-item-grid {
+  background-color:#030b16!important;
+  background-image:url("__RAW__/assets/equipment/slot-grid-v122.png?v=122")!important;
+  background-repeat:repeat!important;
+  background-position:0 0!important;
+  background-size:33px 33px!important;
+  image-rendering:auto!important;
+}
+
+/* Don't paint a second tiled layer on top of the grid. */
+html.__ROOT__ .inventory-grid .scroll-pane.tg121-item-grid,
+html.__ROOT__ .inventory-grid .scroll-pane.tg122-item-grid {
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+/* Shop grid containers use the same 33px pitch. */
+html.__ROOT__ .c-window [class*="shop"] .tg121-item-grid,
+html.__ROOT__ .c-window [class*="store"] .tg121-item-grid,
+html.__ROOT__ .c-window [class*="merchant"] .tg121-item-grid,
+html.__ROOT__ .c-window [class*="shop"] .tg122-item-grid,
+html.__ROOT__ .c-window [class*="store"] .tg122-item-grid,
+html.__ROOT__ .c-window [class*="merchant"] .tg122-item-grid,
+html.__ROOT__ #shop_store,
+html.__ROOT__ #shop_buy,
+html.__ROOT__ #shop_sell {
+  background-color:#030b16!important;
+  background-image:url("__RAW__/assets/equipment/slot-grid-v122.png?v=122")!important;
+  background-repeat:repeat!important;
+  background-position:0 0!important;
+  background-size:33px 33px!important;
+}
+
+/* Each reusable standalone slot remains its own plate. */
+html.__ROOT__ .eq-slot:not(.skill-usable-slot),
+html.__ROOT__ .interface-element-one-item-slot-background-to-repeat:not(.skill-usable-slot),
+html.__ROOT__ .tg121-single-slot,
+html.__ROOT__ .tg122-single-slot,
+html.__ROOT__ .tg121-shop-slot,
+html.__ROOT__ .tg122-shop-slot {
+  background-color:transparent!important;
+  background-image:url("__RAW__/assets/equipment/slot-single-v122.png?v=122")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+}
