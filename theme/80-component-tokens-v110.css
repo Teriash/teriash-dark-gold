@@ -1,0 +1,20 @@
+
+/* Teriash Galaxy v11.0 — component tokens */
+html.__ROOT__ {
+  --tg-panel: url("__RAW__/assets/components/panel-v110.png?v=110");
+  --tg-bar-h: url("__RAW__/assets/components/bar-h-v110.png?v=110");
+  --tg-bar-v: url("__RAW__/assets/components/bar-v-v110.png?v=110");
+  --tg-control: url("__RAW__/assets/components/control-v110.png?v=110");
+  --tg-control-active: url("__RAW__/assets/components/control-active-v110.png?v=110");
+  --tg-row: url("__RAW__/assets/components/row-v110.png?v=110");
+  --tg-frame: url("__RAW__/assets/components/frame-v110.png?v=110");
+
+  --tg-bg:#06111f;
+  --tg-bg-2:#07172b;
+  --tg-line:#2aa9c7;
+  --tg-line-soft:rgba(118,236,245,.22);
+  --tg-text:#d8f8ff;
+  --tg-muted:#86b9c7;
+  --tg-cyan:#76ecf5;
+  --tg-teal:#028d87;
+}

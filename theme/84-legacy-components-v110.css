@@ -1,0 +1,36 @@
+
+/* Explicit legacy/native window components */
+
+html.__ROOT__ #dlgwin,
+html.__ROOT__ #config,
+html.__ROOT__ #console,
+html.__ROOT__ #trade,
+html.__ROOT__ #mailnotifier,
+html.__ROOT__ #alert,
+html.__ROOT__ #ask {
+  background:#07172b var(--tg-panel) center/cover no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ #dlgtitle,
+html.__ROOT__ #config .title,
+html.__ROOT__ #console .title,
+html.__ROOT__ #trade .title,
+html.__ROOT__ #alert h2,
+html.__ROOT__ #ask h2 {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ #dlgwin input,
+html.__ROOT__ #config input,
+html.__ROOT__ #console input,
+html.__ROOT__ #trade input,
+html.__ROOT__ #alert input,
+html.__ROOT__ #ask input {
+  background:#061827!important;
+  color:var(--tg-text)!important;
+  border:1px solid var(--tg-line)!important;
+}

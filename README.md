@@ -1,24 +1,39 @@
-# Teriash Galaxy v10.3 — Galaxy Border Replacer
+# Teriash Galaxy v11.0 — Component Theme
 
-v10.1 prawidłowo usuwał drewniane `border-image`, ale po ich zdjęciu
-w części miejsc zostawały jasne / białe pasy.
+Ta wersja zmienia podejście.
 
-v10.3 robi to właściwiej:
+Po przejrzeniu struktury Maddonz zastosowałem podobny model:
+- centralne CSS variables/tokens z URL-ami grafik,
+- osobne, stabilne komponenty,
+- konkretne selektory dla konkretnych okien,
+- bez globalnego zgadywania "czy coś jest brązowe".
 
-- elementy oznaczone przez v10.1 jako `tdg101-no-border-image`
-  dostają nowy GALAXY `border-image`,
-- duże ramy korzystają z 9-slice `galaxy-border-v103.png`,
-- cienkie poziome/pionowe elementy dostają Galaxy bars,
-- jasne pozostałości po usuniętym drewnie są wykrywane i podmieniane,
-- shell klanu (`.clan`, `#clanmenu`, `#clanbox`) może dostać Galaxy border
-  bez zasłaniania zawartości.
+## Maddonz-style architecture
 
-Nowe pliki:
-- `assets/global/galaxy-border-v103.png`
-- `assets/global/galaxy-h-v103.png`
-- `assets/global/galaxy-v-v103.png`
-- `theme/72-galaxy-border-v103.css`
-- `extensions/galaxy-border-v103.js`
+`theme/80-component-tokens-v110.css`
+definiuje wspólne zasoby:
+- `--tg-panel`
+- `--tg-bar-h`
+- `--tg-bar-v`
+- `--tg-control`
+- `--tg-control-active`
+- `--tg-row`
+- `--tg-frame`
+
+Pozostałe pliki tylko korzystają z tych tokenów.
+
+## Moduły
+
+- `theme/81-component-core-v110.css` — bazowe Galaxy components
+- `theme/82-social-v110.css` — Społeczność / Przyjaciele / Wrogowie
+- `theme/83-clan-components-v110.css` — Klany
+- `theme/84-legacy-components-v110.css` — dialogi, trade, config itd.
+- `extensions/component-theme-v110.js` — tylko tagowanie znanych okien
+
+Nie ma skanowania koloru drewna ani background-image po całym DOM.
+
+W Tampermonkey nadal instalujesz tylko:
+`teriash-dark-gold.user.js`
 
 Log:
-`TDG galaxy borders v10.3 { border, h, v, blankH, blankV, forceH }`
+`TDG component theme v11.0 LOADED`

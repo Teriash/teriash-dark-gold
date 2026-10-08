@@ -1,0 +1,80 @@
+
+/* Teriash Galaxy v11.0 — deterministic component layer */
+
+html.__ROOT__ .tg-panel {
+  background:#07172b var(--tg-panel) center/cover no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .tg-bar-h {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tg-bar-v {
+  background:#082139 var(--tg-bar-v) center/100% 100% no-repeat!important;
+  border-color:var(--tg-line)!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tg-control {
+  background:#07172b var(--tg-control) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .tg-control-active {
+  background-image:var(--tg-control-active)!important;
+  border-color:var(--tg-cyan)!important;
+  color:#f4feff!important;
+  box-shadow:inset 0 0 14px rgba(118,236,245,.16)!important;
+}
+
+html.__ROOT__ .tg-row {
+  background:#07172b var(--tg-row) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:rgba(42,169,199,.42)!important;
+}
+
+html.__ROOT__ .tg-frame,
+html.__ROOT__ .c-window.border-window.tg-frame,
+html.__ROOT__ .clan.tg-frame {
+  border-style:solid!important;
+  border-color:transparent!important;
+  border-image-source:var(--tg-frame)!important;
+  border-image-slice:52!important;
+  border-image-width:1!important;
+  border-image-repeat:stretch!important;
+  border-image-outset:0!important;
+}
+
+/* Overlay frame on standard NI windows without touching their layout. */
+html.__ROOT__ .c-window.border-window {
+  position:relative!important;
+}
+html.__ROOT__ .c-window.border-window::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  border:16px solid transparent;
+  border-image-source:var(--tg-frame);
+  border-image-slice:52;
+  border-image-width:1;
+  border-image-repeat:stretch;
+  pointer-events:none;
+  z-index:20;
+}
+
+/* Inputs/buttons shared by legacy game windows */
+html.__ROOT__ .tg-window-scope input[type="text"],
+html.__ROOT__ .tg-window-scope input[type="search"],
+html.__ROOT__ .tg-window-scope textarea,
+html.__ROOT__ .tg-window-scope select {
+  background:#061827!important;
+  color:var(--tg-text)!important;
+  border:1px solid var(--tg-line)!important;
+  box-shadow:inset 0 0 12px rgba(0,0,0,.25)!important;
+}
