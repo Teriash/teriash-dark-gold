@@ -1,37 +1,31 @@
-# Teriash Galaxy v9.4 Modular
+# Teriash Galaxy v9.5 Modular Fix
 
-Teraz jest dokładnie tak, jak chciałeś:
+Naprawa regresji z v9.4.
 
-## Jest tylko JEDEN userscript
-`teriash-dark-gold.user.js`
+Klan nadal jest MODUŁEM w folderach:
+- `theme/60-clan-v95.css`
+- `extensions/clan-theme-v95.js`
+- `assets/clan/*-v95.png`
 
-Nie ma osobnego userscriptu dla klanu.
+Jest tylko jeden userscript:
+- `teriash-dark-gold.user.js`
 
-## Kod klanu jest w folderach jak reszta motywu
+## Co poprawiono
+1. Nowe, unikalne nazwy plików `v95` — omijają stary cache CDN.
+2. Loader ma fallback:
+   - jsDelivr
+   - Statically
+   - GitHub raw
+3. Każdy pobrany moduł jest logowany.
+4. Każde wykonane rozszerzenie jest logowane.
+5. `clan-theme-v95.js` dostaje jawnie `TDG` z głównego loadera.
 
-- `theme/60-clan.css`
-- `extensions/clan-theme.js`
-- `assets/clan/...`
-
-Główny userscript tylko ładuje te moduły razem z HUD-em, chatem, oknami itd.
-
-## Ważna poprawka loadera
-
-Wcześniej `Function(source)()` powodował problem ze scope modułu klanu.
-
-Teraz loader uruchamia moduły tak:
-
-`Function("TDG", source)(window.__TDG)`
-
-czyli każdy plik z `extensions/` dostaje jawnie kontekst motywu.
-
-## Logi
-
+## Logi, które powinieneś zobaczyć
 Po starcie:
-`TDG clan module v1.0 ACTIVE`
+- `TDG module fetched ... clan-theme-v95.js ...`
+- `TDG clan module v9.5 LOADED`
+- `TDG extension executed extensions/clan-theme-v95.js`
+- `Teriash Galaxy v9.5 Modular Fix loaded`
 
 Po otwarciu Klany:
-`TDG clan module DOM FOUND`
-
-oraz normalnie:
-`Teriash Galaxy v9.4 Modular loaded`
+- `TDG clan DOM FOUND v9.5`

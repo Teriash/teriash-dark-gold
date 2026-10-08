@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v9.4 Modular
+// @name         Teriash Galaxy v9.5 Modular Fix
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      9.4.0
+// @version      9.5.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -10,6 +10,8 @@
 // @run-at       document-end
 // @grant        GM_xmlhttpRequest
 // @connect      cdn.jsdelivr.net
+// @connect      cdn.statically.io
+// @connect      raw.githubusercontent.com
 // @updateURL    https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main/teriash-dark-gold.user.js
 // @downloadURL  https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main/teriash-dark-gold.user.js
 // ==/UserScript==
@@ -18,7 +20,7 @@
   "use strict";
 
   const RAW = "https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main";
-  const ROOT = "teriash-galaxy-v90";
+  const ROOT = "teriash-galaxy-v95";
   const CACHE = Date.now().toString();
 
 
@@ -32,18 +34,18 @@
     "theme/tooltips.css",
     "theme/lootlog.css",
     "theme/npc-tips.css",
-    "theme/60-clan.css"
+    "theme/60-clan-v95.css"
   ];
 
   const EXTENSIONS = [
     "extensions/engine.js",
     "extensions/npc-tips.js",
     "extensions/map-mark.js",
-    "extensions/clan-theme.js"
+    "extensions/clan-theme-v95.js"
   ];
 
   window.__TDG = {
-    version: "9.4.0",
+    version: "9.5.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -52,16 +54,38 @@
 
   document.documentElement.classList.add(ROOT);
 
-  function get(path) {
+  function gmGetUrl(url) {
     return new Promise((resolve, reject) => {
       GM_xmlhttpRequest({
         method: "GET",
-        url: `${RAW}/${path}?v=${CACHE}`,
+        url,
         headers: {"Cache-Control":"no-cache"},
-        onload: r => r.status >= 200 && r.status < 300 ? resolve(r.responseText) : reject(new Error(`${path}: HTTP ${r.status}`)),
-        onerror: () => reject(new Error(`${path}: network error`))
+        onload: r => r.status >= 200 && r.status < 300
+          ? resolve(r.responseText)
+          : reject(new Error(`${url}: HTTP ${r.status}`)),
+        onerror: () => reject(new Error(`${url}: network error`))
       });
     });
+  }
+
+  async function get(path) {
+    const urls = [
+      `https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main/${path}?v=${CACHE}`,
+      `https://cdn.statically.io/gh/Teriash/teriash-dark-gold/main/${path}?v=${CACHE}`,
+      `https://raw.githubusercontent.com/Teriash/teriash-dark-gold/main/${path}?v=${CACHE}`
+    ];
+
+    let lastError;
+    for (const url of urls) {
+      try {
+        const text = await gmGetUrl(url);
+        console.log("%cTDG module fetched", "color:#76ecf5", path, "via", new URL(url).host);
+        return text;
+      } catch (e) {
+        lastError = e;
+      }
+    }
+    throw lastError || new Error(`Cannot load ${path}`);
   }
 
   async function loadCss(path) {
@@ -81,6 +105,7 @@
     // Every extension receives the same explicit TDG context.
     // This avoids the previous scope problem with clan-theme.js.
     Function("TDG", source)(window.__TDG);
+    console.log("%cTDG extension executed", "color:#81dbd5", path);
   }
 
 
@@ -290,7 +315,7 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
     }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v9.4 Modular", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v9.5 Modular Fix", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }
