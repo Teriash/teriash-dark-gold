@@ -1,31 +1,28 @@
-# Teriash Galaxy v9.5 Modular Fix
+# Teriash Galaxy v9.6 — Clan Wood Fix
 
-Naprawa regresji z v9.4.
+Ta wersja poprawia konkretnie pozostałe BRĄZOWE / DREWNIANE BELKI widoczne w oknie Klany.
 
-Klan nadal jest MODUŁEM w folderach:
-- `theme/60-clan-v95.css`
-- `extensions/clan-theme-v95.js`
-- `assets/clan/*-v95.png`
+Klan nadal jest modułem:
+- `theme/60-clan-v96.css`
+- `extensions/clan-theme-v96.js`
+- `assets/clan/...`
 
-Jest tylko jeden userscript:
-- `teriash-dark-gold.user.js`
+W Tampermonkey nadal instalujesz tylko:
+`teriash-dark-gold.user.js`
 
-## Co poprawiono
-1. Nowe, unikalne nazwy plików `v95` — omijają stary cache CDN.
-2. Loader ma fallback:
-   - jsDelivr
-   - Statically
-   - GitHub raw
-3. Każdy pobrany moduł jest logowany.
-4. Każde wykonane rozszerzenie jest logowane.
-5. `clan-theme-v95.js` dostaje jawnie `TDG` z głównego loadera.
+## Co zmieniono
+- osobna grafika poziomych belek `wood-replace-h-v96.png`,
+- osobna grafika pionowych belek `wood-replace-v-v96.png`,
+- skrypt wykrywa strukturalne brązowe elementy po computed style,
+- podmiana jest wykonywana inline z `!important`, więc ma pierwszeństwo nad starym CSS gry,
+- wykrywane są też stare `background-image`,
+- obsługiwane są pseudo-elementy `::before` / `::after`,
+- duże strukturalne `<img>` są ukrywane, a ich rodzic dostaje Galaxy bar,
+- outfity, ikony i małe grafiki są pomijane.
 
-## Logi, które powinieneś zobaczyć
-Po starcie:
-- `TDG module fetched ... clan-theme-v95.js ...`
-- `TDG clan module v9.5 LOADED`
-- `TDG extension executed extensions/clan-theme-v95.js`
-- `Teriash Galaxy v9.5 Modular Fix loaded`
-
+## Logi
 Po otwarciu Klany:
-- `TDG clan DOM FOUND v9.5`
+- `TDG clan DOM FOUND v9.6`
+- `TDG clan wood replacements v9.6: <liczba>`
+
+Liczba pokazuje, ile drewnianych/strukturalnych elementów zostało podmienionych.
