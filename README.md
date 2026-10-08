@@ -1,11 +1,16 @@
-# Teriash Galaxy v8.3 Realistic
+# Teriash Galaxy v8.4 Panel Fix
 
-Zmiany:
-- grafiki tworzone w 4x większej rozdzielczości i skalowane w dół z antyaliasingiem,
-- mniej pixelowych krawędzi,
-- płynniejsze szkło, metal, cienie i poświaty,
-- spokojniejsze, bardziej realistyczne ozdoby galaxy,
-- poprawione belki, nagłówki, sloty, widgety, ramki i tooltipy.
+Poprawka dokładnie pod problem widoczny na screenie:
+
+- chat ma teraz JEDNO pełne tło na całej wysokości panelu,
+- prawy panel ma JEDNO pełne tło na całej wysokości,
+- usunięte jest powtarzanie małego `256x256` tła, które robiło poziome kreski,
+- wewnętrzne wrappery mają transparentne tła, więc nie odcinają grafiki,
+- nowe pliki:
+  - `assets/chat/chat-panel-full.png`
+  - `assets/equipment/right-panel-full.png`
+
+Nie zmieniam geometrii paneli.
 
 CDN:
 `https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main/`

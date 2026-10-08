@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v8.3 Realistic.1
+// @name         Teriash Galaxy v8.4 Panel Fix
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      8.3.0
+// @version      8.4.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -40,7 +40,7 @@
   ];
 
   window.__TDG = {
-    version: "8.3.0",
+    version: "8.4.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -84,7 +84,7 @@
       try { await loadJs(file); }
       catch (e) { console.warn("[TDG]", file, e); }
     }
-    console.log("%cTeriash Galaxy v8.3 Realistic", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v8.4 Panel Fix", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }
