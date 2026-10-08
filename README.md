@@ -1,29 +1,31 @@
-# Teriash Galaxy v9.1 Embedded Clan
+# Teriash Galaxy v9.2 Direct Clan
 
-Na screenie z konsoli było widać:
-
-- `TDG panel fix v8.5 ACTIVE`
-- `TDG window reskin v8.6 ACTIVE`
-- `Teriash Galaxy v9.0 Main Clan Fix loaded`
-
-ale BRAKOWAŁO:
-
-`TDG main clan extension v9.0 ACTIVE`
-
-To znaczy, że plik `extensions/clan-theme.js` nie został wykonany.
-Najbardziej prawdopodobna przyczyna to zdalne ładowanie pliku przez CDN.
-
-## Co zmienia v9.1
-
-`clan-theme.js` jest teraz osadzony bezpośrednio w userscripcie.
-Nie jest już pobierany jako osobny plik do wykonania.
-
-Po starcie w konsoli MUSZĄ pojawić się:
-
-- `TDG main clan extension v9.0 ACTIVE`
+Log z v9.1 pokazał:
 - `TDG embedded clan module v9.1 EXECUTED`
-- `Teriash Galaxy v9.1 Embedded Clan loaded`
+- ale brak `TDG main clan extension v9.0 ACTIVE`.
 
-Jeżeli te trzy wpisy są widoczne, mechanizm stylowania klanu faktycznie działa.
+To znaczyło, że `Function(...)` uruchamiał kod w innym kontekście i
+`window.__TDG` wewnątrz modułu nie był dostępny. Moduł kończył się na
+`if (!TDG) return`.
 
-Całą paczkę wrzuć do repo i zaktualizuj userscript w Tampermonkey.
+## v9.2
+Cała logika klanu działa teraz BEZ `Function()` i BEZ `window.__TDG`.
+Korzysta bezpośrednio z `RAW`, `ROOT` i `CACHE` userscriptu.
+
+Dodatkowo:
+- krytyczny CSS klanu jest osadzony bezpośrednio w userscripcie,
+- `theme/clan-main.css` nie jest wymagany do działania,
+- assety dostały nowe nazwy `v92`, żeby ominąć cache CDN,
+- dokładnie stylowane są `.clan`, `#clanmenu`, `.boxhover`, `#clanbox`,
+  rekrutacja, członkowie, nagłówki, stare zielone/brązowe/szare powierzchnie,
+- MutationObserver + cykliczny sweep obsługuje dynamiczne zakładki.
+
+W konsoli po starcie MUSI być:
+`TDG clan main v9.2 ACTIVE`
+
+Po otwarciu Klany dodatkowo:
+`TDG clan DOM FOUND v9.2`
+
+Drugi log pokaże obiekt:
+`{ clan: true/false, clanmenu: true/false, clanbox: true/false }`
+co pozwoli jednoznacznie sprawdzić, który DOM faktycznie istnieje.
