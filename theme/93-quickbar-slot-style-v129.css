@@ -1,0 +1,91 @@
+
+/* Teriash Galaxy v12.9 — sloty jak na dolnym pasku szybkiego wyboru
+   Bez wykrywania całych siatek i bez malowania tła kontenerów.
+   Podmieniamy WYGLĄD samych slotów na styl quickbara (slot.png).
+*/
+
+html.__ROOT__ {
+  --tg-quick-slot:url("__RAW__/assets/equipment/slot.png?v=129");
+}
+
+/* 1) Pojedyncze sloty systemowe — ekwipunek, quickbar-like holders, sloty pomocnicze */
+html.__ROOT__ .eq-slot,
+html.__ROOT__ .interface-element-one-item-slot-background-to-repeat,
+html.__ROOT__ .item-slot,
+html.__ROOT__ .slot,
+html.__ROOT__ .stat-slot,
+html.__ROOT__ .inventory-item,
+html.__ROOT__ .item[data-tip-type="t_item"],
+html.__ROOT__ [data-tip-type="t_item"] {
+  background-color:#071423!important;
+  background-image:var(--tg-quick-slot)!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border:none!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  box-shadow:none!important;
+}
+
+/* 2) Sloty w torbach / sklepie / depo / handlu — bardzo celowane selektory */
+html.__ROOT__ #shop_store > .item,
+html.__ROOT__ #shop_buy > .item,
+html.__ROOT__ #shop_sell > .item,
+html.__ROOT__ #depo-items > .item,
+html.__ROOT__ #mytr_items > .item,
+html.__ROOT__ #tr2_items > .item,
+html.__ROOT__ #shop_store > div.item,
+html.__ROOT__ #shop_buy > div.item,
+html.__ROOT__ #shop_sell > div.item,
+html.__ROOT__ #depo-items > div.item,
+html.__ROOT__ #mytr_items > div.item,
+html.__ROOT__ #tr2_items > div.item,
+html.__ROOT__ [id*="shop"] .item,
+html.__ROOT__ [id*="depo"] .item,
+html.__ROOT__ [id*="inventory"] .item,
+html.__ROOT__ [class*="shop"] .item,
+html.__ROOT__ [class*="depo"] .item,
+html.__ROOT__ [class*="inventory"] .item,
+html.__ROOT__ [class*="backpack"] .item,
+html.__ROOT__ [class*="bag"] .item {
+  background-color:#071423!important;
+  background-image:var(--tg-quick-slot)!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border:none!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  box-shadow:none!important;
+}
+
+/* 3) Puste sloty-kafelki występujące jako zwykłe divy w gridach okienowych. */
+html.__ROOT__ #shop_store > div:not(.scroll-wrapper):not(.scroll-content):not([class*="label"]):not([class*="title"]),
+html.__ROOT__ #shop_buy > div:not(.scroll-wrapper):not(.scroll-content):not([class*="label"]):not([class*="title"]),
+html.__ROOT__ #shop_sell > div:not(.scroll-wrapper):not(.scroll-content):not([class*="label"]):not([class*="title"]),
+html.__ROOT__ #depo-items > div:not(.scroll-wrapper):not(.scroll-content):not([class*="label"]):not([class*="title"]),
+html.__ROOT__ #mytr_items > div:not(.scroll-wrapper):not(.scroll-content):not([class*="label"]):not([class*="title"]),
+html.__ROOT__ #tr2_items > div:not(.scroll-wrapper):not(.scroll-content):not([class*="label"]):not([class*="title"]) {
+  background-image:var(--tg-quick-slot)!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+}
+
+/* 4) Nigdy nie nakładaj siatki na całe tło kontenera. */
+html.__ROOT__ #shop_store,
+html.__ROOT__ #shop_buy,
+html.__ROOT__ #shop_sell,
+html.__ROOT__ #depo-items,
+html.__ROOT__ #mytr_items,
+html.__ROOT__ #tr2_items,
+html.__ROOT__ .inventory-grid,
+html.__ROOT__ .inventory-grid-bg,
+html.__ROOT__ .interface-element-item-slot-grid-stretch,
+html.__ROOT__ .scroll-content,
+html.__ROOT__ .items-grid,
+html.__ROOT__ .backpack-grid {
+  background-size:auto!important;
+  background-repeat:no-repeat!important;
+}
