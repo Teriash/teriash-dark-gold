@@ -1,33 +1,34 @@
-# Teriash Galaxy v9.8 — Clan Frame Fix
+# Teriash Galaxy v9.9 — Clan Rails
 
-Ta wersja naprawia regresję z v9.7.
+Bazą jest działająca v9.8. Nie ma już agresywnego skanowania ramek.
 
-## Co było zepsute w v9.7
-W paczce były niespójne nazwy:
-- CSS odwoływał się do `strip-h-v97.png` / `strip-v-v97.png`, których nie było,
-- JS dodawał klasy `tdg97-base-*`, a CSS nadal miał część klas `tdg95-*`.
+Pozostałe drewniane elementy są teraz MASKOWANE osobnymi Galaxy rails
+na podstawie rzeczywistych pozycji:
+- `.clan`
+- `#clanmenu`
+- `#clanbox`
 
-Dlatego część działającego wyglądu z v9.5 wróciła do starego stylu gry.
+Skrypt przykrywa:
+- lewą drewnianą belkę,
+- środkowy pionowy separator,
+- prawą drewnianą belkę,
+- cienką belkę pod górnym nagłówkiem,
+- dolną drewnianą belkę,
+- poziomy separator pod atrybutami rekrutacji.
 
-## Co robi v9.8
-- bazuje bezpośrednio na działającym v9.5,
-- wszystkie podstawowe assety Galaxy mają kompletne, istniejące nazwy v98,
-- lewe menu, rekrutacja, tabele i powierzchnie zachowują wygląd v9.5,
-- osobny skaner dotyka TYLKO cienkich elementów konstrukcyjnych,
-- nie rusza menu, kart, tabel, atrybutów, przycisków ani inputów,
-- brązowe poziome/pionowe ramy są zastępowane przez:
-  - `frame-h-v98.png`
-  - `frame-v-v98.png`
-- pseudo-elementy z legacy grafiką są neutralizowane tylko na wykrytych elementach.
+Nagłówek `Atrybuty klanu` jest dodatkowo wymuszany inline na Galaxy.
 
-## Moduły
-- `theme/60-clan-v98.css`
-- `extensions/clan-theme-v98.js`
+To rozwiązanie nie przerabia menu, tabel, kart ani atrybutów, więc nie
+powinno powodować regresji wyglądu jak wcześniejsze szerokie skanery.
 
-W Tampermonkey nadal instalujesz tylko:
+Moduły:
+- `theme/60-clan-v99.css`
+- `extensions/clan-theme-v99.js`
+- `assets/clan/rail-h-v99.png`
+- `assets/clan/rail-v-v99.png`
+
+Instalujesz nadal tylko:
 `teriash-dark-gold.user.js`
 
-## Logi
-- `TDG clan module v9.8 LOADED`
-- po otwarciu klanu: `TDG clan DOM FOUND v9.8`
-- jeśli znajdzie ramy: `TDG clan frame bars v9.8: X`
+Log:
+`TDG clan rails v9.9 ACTIVE`
