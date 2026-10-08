@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v8.1.1
+// @name         Teriash Galaxy v8.3 Realistic.1
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      8.1.0
+// @version      8.3.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -10,15 +10,15 @@
 // @exclude      https://forum.margonem.pl/*
 // @run-at       document-end
 // @grant        GM_xmlhttpRequest
-// @connect      raw.githubusercontent.com
-// @updateURL    https://raw.githubusercontent.com/Teriash/teriash-dark-gold/main/teriash-dark-gold.user.js
-// @downloadURL  https://raw.githubusercontent.com/Teriash/teriash-dark-gold/main/teriash-dark-gold.user.js
+// @connect      cdn.jsdelivr.net
+// @updateURL    https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main/teriash-dark-gold.user.js
+// @downloadURL  https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main/teriash-dark-gold.user.js
 // ==/UserScript==
 
 (async () => {
   "use strict";
 
-  const RAW = "https://raw.githubusercontent.com/Teriash/teriash-dark-gold/main";
+  const RAW = "https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main";
   const ROOT = "teriash-dark-gold-v7";
   const CACHE = Date.now().toString();
 
@@ -40,7 +40,7 @@
   ];
 
   window.__TDG = {
-    version: "8.1.0",
+    version: "8.3.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -84,7 +84,7 @@
       try { await loadJs(file); }
       catch (e) { console.warn("[TDG]", file, e); }
     }
-    console.log("%cTeriash Galaxy v8.1", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v8.3 Realistic", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }
