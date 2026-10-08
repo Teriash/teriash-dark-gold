@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v13.1 Safe Empty Slots
+// @name         Teriash Galaxy v13.2 Tip Safe Empty Slots
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      13.1.0
+// @version      13.2.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -20,7 +20,7 @@
   "use strict";
 
   const RAW = "https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main";
-  const ROOT = "teriash-galaxy-v131";
+  const ROOT = "teriash-galaxy-v132";
   const CACHE = Date.now().toString();
 
 
@@ -60,7 +60,7 @@
   ];
 
   window.__TDG = {
-    version: "13.1.0",
+    version: "13.2.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -330,7 +330,7 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
     }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v13.1 Safe Empty Slots", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v13.2 Tip Safe Empty Slots", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }
