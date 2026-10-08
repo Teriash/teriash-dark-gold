@@ -1,0 +1,33 @@
+
+/* Teriash Galaxy v11.5 — rollback safety layer
+   Keeps v11.2 broad legacy conversion, but protects NI framework ornaments.
+*/
+
+/* Technical NI pieces must keep the stable Galaxy/base skin and never receive
+   generic legacy backgrounds. */
+html.__ROOT__ .header-label-positioner,
+html.__ROOT__ .draggable-window-element.header-label-positioner,
+html.__ROOT__ .header-label,
+html.__ROOT__ .header-label .left-decor,
+html.__ROOT__ .header-label .right-decor,
+html.__ROOT__ .window-controlls,
+html.__ROOT__ .c-window__bottom-bar,
+html.__ROOT__ .interface-element-bottom-bar-background-stretch,
+html.__ROOT__ .close-button-corner-decor,
+html.__ROOT__ .close-button,
+html.__ROOT__ .border-image,
+html.__ROOT__ .transparent-window-buttons-menu,
+html.__ROOT__ .manage-hamburger-button {
+  box-sizing:border-box!important;
+}
+
+/* If one of these kept an old auto class after an in-page update, neutralize
+   only the generic auto background without touching geometry. */
+html.__ROOT__ .header-label-positioner.tg-auto-wood-h,
+html.__ROOT__ .header-label-positioner.tg-auto-wood-v,
+html.__ROOT__ .c-window__bottom-bar.tg-auto-wood-h,
+html.__ROOT__ .c-window__bottom-bar.tg-auto-wood-v,
+html.__ROOT__ .border-image.tg-auto-wood-panel,
+html.__ROOT__ .close-button-corner-decor.tg-auto-wood-panel {
+  background-image:none!important;
+}

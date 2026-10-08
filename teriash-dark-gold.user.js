@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v11.4 Stable Targeted Fix
+// @name         Teriash Galaxy v11.5 Rollback Improved
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      11.4.0
+// @version      11.5.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -20,7 +20,7 @@
   "use strict";
 
   const RAW = "https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main";
-  const ROOT = "teriash-galaxy-v114";
+  const ROOT = "teriash-galaxy-v115";
   const CACHE = Date.now().toString();
 
 
@@ -40,7 +40,7 @@
     "theme/83-clan-components-v111.css",
     "theme/84-legacy-components-v111.css",
     "theme/85-safe-wood-override-v112.css",
-    "theme/86-targeted-cleanup-v114.css"
+    "theme/86-rollback-safety-v115.css"
   ];
 
   const EXTENSIONS = [
@@ -48,11 +48,11 @@
     "extensions/npc-tips.js",
     "extensions/map-mark.js",
     "extensions/component-theme-v111.js",
-    "extensions/safe-wood-override-v114.js"
+    "extensions/safe-wood-override-v115.js"
   ];
 
   window.__TDG = {
-    version: "11.4.0",
+    version: "11.5.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -322,7 +322,7 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
     }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v11.4 Stable Targeted Fix", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v11.5 Rollback Improved", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }

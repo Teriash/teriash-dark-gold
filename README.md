@@ -1,18 +1,22 @@
-# Teriash Galaxy v11.4 — Stable Targeted Fix
+# Teriash Galaxy v11.5 — Rollback Improved
 
-Ta wersja jest zbudowana od v11.2, nie od v11.3.
+Ta wersja jest cofnięta do szerokiego mechanizmu z v11.2, bo on zmieniał
+najwięcej elementów i wizualnie był najbliżej celu.
 
-Cofnięto agresywne poprawki v11.3, które tworzyły wielkie pionowe/podłużne pasy w Klany.
+Nie używa ograniczonego skanera z v11.3/v11.4.
 
-Co zmieniono względem v11.2:
-- skaner nie traktuje już samego `background-image` jako dowodu, że element jest drewniany,
-- nie skanuje całych shelli `.c-window`, tylko zawartość okien,
-- frameworkowe elementy NI (header/footer/border-image/decor) są całkowicie pomijane,
-- stare elementy są zmieniane tylko jeśli mają rzeczywiście brązowy/papierowy/zielony kolor + sensowny semantyczny hint,
-- Dziennik Zadań, Klany i Świat mają kilka dokładnych poprawek po konkretnych klasach, bez ruszania geometrii.
+Poprawka względem czystej v11.2:
+- zachowuje szerokie podmienianie drewna/papieru/zielonych legacy paneli,
+- wyklucza tylko techniczne elementy konstrukcyjne NI, które tworzyły dziury
+  i wielkie artefakty (`header-label`, `border-image`, bottom bar, close decor itd.),
+- przed każdym przebiegiem usuwa ewentualne stare `tg-auto-wood-*` z tych
+  frameworkowych elementów,
+- nie zmienia position/width/height/display.
 
-Nie ma zmian `position`, `width`, `height`, `display`.
+Moduły:
+- `extensions/safe-wood-override-v115.js`
+- `theme/86-rollback-safety-v115.css`
 
 Logi:
-- `TDG stable targeted override v11.4 LOADED`
-- `Teriash Galaxy v11.4 Stable Targeted Fix loaded`
+- `TDG rollback wood override v11.5 LOADED`
+- `TDG rollback wood override v11.5 { ... }`
