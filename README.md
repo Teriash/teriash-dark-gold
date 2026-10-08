@@ -1,67 +1,35 @@
-# Teriash Galaxy v9.4 — modularny Clan
+# Teriash Galaxy v9.4
 
-Zgodnie z prośbą jest tylko JEDEN główny skrypt:
+Teraz jest tylko **jeden userscript w głównym katalogu**:
 
-`dark-gold.js`
+`teriash-dark-gold.js`
 
-Kod klanu nie siedzi już w głównym pliku. Jest rozdzielony tak samo jak pozostałe części motywu:
-
-- `theme/clan-main.css`
-- `extensions/clan-theme.js`
-- `assets/clan/...`
+Kod klanu NIE jest osobnym userscriptem.
 
 ## Struktura
 
-dark-gold.js
-theme/
-  base.css
-  hud.css
-  chat.css
-  equipment.css
-  windows.css
-  tooltips.css
-  lootlog.css
-  npc-tips.css
-  clan-main.css
+- `teriash-dark-gold.js` — jedyny loader / userscript
+- `theme/clan-main.css` — CSS klanu
+- `extensions/clan-theme.js` — logika klanu
+- `assets/clan/` — grafiki klanu
 
-extensions/
-  engine.js
-  npc-tips.js
-  map-mark.js
-  clan-theme.js
+Czyli klan działa dokładnie jak pozostałe moduły motywu.
 
-assets/
-  clan/
-  chat/
-  equipment/
-  hud/
-  map/
-  tooltips/
-  widgets/
-  windows/
+## Ważna poprawka loadera
 
-## Jak działa Clan
+Moduły JS są teraz uruchamiane jako:
 
-`dark-gold.js` ładuje:
-- `theme/clan-main.css`
-- `extensions/clan-theme.js`
+`Function("TDG", "window", "document", source)(window.__TDG, window, document)`
 
-`extensions/clan-theme.js` dostaje z loadera:
-- `RAW`
-- `ROOT`
-- `CACHE`
+Dzięki temu `extensions/clan-theme.js` dostaje kontekst motywu bez problemu sandboxu,
+który wcześniej powodował, że moduł klanu się nie uruchamiał.
 
-więc nie musi mieć osobnego userscriptu ani własnego loadera.
+## Logi
 
-W konsoli po uruchomieniu modułu klanu powinno pojawić się:
-`TDG clan main v9.2 ACTIVE`
+Po starcie:
+`TDG clan module v9.4 ACTIVE`
 
-Po otwarciu Klany dodatkowo:
-`TDG clan DOM FOUND v9.2`
+Po otwarciu Klany:
+`TDG clan module DOM FOUND v9.4`
 
-## Repo
-
-Wrzuć zawartość paczki do:
-`Teriash/teriash-dark-gold`
-
-i używaj tylko `dark-gold.js`.
+Nie instalujesz żadnego drugiego userscripta.
