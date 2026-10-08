@@ -1,36 +1,31 @@
-# Teriash Galaxy v12.0 — Bottom Bars + Skills Fix
+# Teriash Galaxy v12.1 — Inventory + Shop Slots
 
-Baza: v11.7, bo była stabilna wizualnie.
+Baza: v12.0.
 
-## Co było źle
+Poprawia sloty:
+- torby / inventory,
+- ekwipunku,
+- dynamicznych okien sklepów,
+- legacy `#shop_store`, `#shop_buy`, `#shop_sell`.
 
-1. W aktualnym NI dolna belka ma strukturę:
-   `.c-window__bottom-bar > .interface-element-bottom-bar-background-stretch`
+## Aktualny NI
 
-   Wcześniejsze wersje zmieniały rodzica, ale dziecko nadal rysowało
-   brązową grafikę nad naszym Galaxy.
+Torba korzysta m.in. z:
+- `.inventory-grid-bg`
+- `.interface-element-item-slot-grid-stretch`
+- `.inventory-grid`
+- `.inventory-item`
 
-2. W v11.9 wyszukiwanie okna Umiejętności mogło trafić w małe okno
-   pomocy bojowych umiejętności, które też ma tytuł "Umiejętności".
+Siatka torby ma krok 33 px, dlatego dodałem osobny Galaxy slot 33×33.
 
-## v12.0
+## Assety
 
-- bezpośrednio podmienia `.interface-element-bottom-bar-background-stretch`,
-- usuwa legacy pseudo-elementy dolnej belki,
-- poprawka działa we wszystkich `.c-window`,
-- główne okno Umiejętności jest wykrywane dopiero, gdy zawiera co najmniej
-  dwa znaczniki:
-  - Lista umiejętności,
-  - Punkty umiejętności,
-  - Mistrzostwo walki,
-  - Reset punktów,
-- dopiero wtedy podmieniana jest belka "Lista umiejętności", stopka
-  i cienkie brązowe separatory.
+- `assets/equipment/slot-grid-v121.png` — torba / sklepy
+- `assets/equipment/slot-single-v121.png` — pojedyncze sloty ekwipunku
 
-## Logi
+## Moduły
 
-`TDG skills/main bottom fix v12.0 LOADED`
+- `theme/92-inventory-shop-slots-v121.css`
+- `extensions/inventory-shop-slots-v121.js`
 
-Po otwarciu głównego okna Umiejętności:
-
-`TDG main skills window v12.0 FOUND`
+Nie zmienia layoutu ani położenia itemów.
