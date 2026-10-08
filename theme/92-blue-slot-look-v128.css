@@ -1,0 +1,76 @@
+
+/* Teriash Galaxy v12.8 — screenshot-like blue slot squares
+   Minimal invasive version:
+   keep current slot layout exactly as in the game,
+   only replace the look of the visible slot squares with blue Galaxy ones.
+*/
+
+html.__ROOT__ {
+  --tg-slot-blue-32:url("__RAW__/assets/equipment/slot-blue-32-v128.png?v=128");
+  --tg-slot-blue-40:url("__RAW__/assets/equipment/slot-blue-40-v128.png?v=128");
+}
+
+/* Occupied bag / shop / depo / trade item slots */
+html.__ROOT__ .inventory-item,
+html.__ROOT__ .item[data-tip-type="t_item"],
+html.__ROOT__ [data-tip-type="t_item"],
+html.__ROOT__ #shop_store > .item,
+html.__ROOT__ #shop_buy > .item,
+html.__ROOT__ #shop_sell > .item,
+html.__ROOT__ #depo-items > .item,
+html.__ROOT__ #mytr_items > .item,
+html.__ROOT__ #tr2_items > .item,
+html.__ROOT__ .inventory-grid .item,
+html.__ROOT__ .inventory-grid .inventory-item {
+  background-color:rgba(5,18,36,.18)!important;
+  background-image:var(--tg-slot-blue-32)!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border:none!important;
+  box-shadow:none!important;
+}
+
+/* Equipment / empty reusable single slots */
+html.__ROOT__ .eq-slot:not(.skill-usable-slot),
+html.__ROOT__ .interface-element-one-item-slot-background-to-repeat:not(.skill-usable-slot),
+html.__ROOT__ .item-slot:not(.skill-usable-slot),
+html.__ROOT__ .stat-slot,
+html.__ROOT__ .slot {
+  background-color:#06111f!important;
+  background-image:var(--tg-slot-blue-40)!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border:none!important;
+  box-shadow:none!important;
+}
+
+/* Small shop buy preview / single-slot holders */
+html.__ROOT__ .shop .item-slot,
+html.__ROOT__ .store .item-slot,
+html.__ROOT__ .merchant .item-slot,
+html.__ROOT__ [class*="shop"] [class*="item-slot"],
+html.__ROOT__ [class*="store"] [class*="item-slot"],
+html.__ROOT__ [class*="merchant"] [class*="item-slot"] {
+  background-image:var(--tg-slot-blue-40)!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+}
+
+/* Do not paint any full-surface grids or window backgrounds. */
+html.__ROOT__ .inventory-grid-bg,
+html.__ROOT__ .inventory-grid .inner-grid,
+html.__ROOT__ .inventory-grid .scroll-pane,
+html.__ROOT__ .interface-element-item-slot-grid-stretch,
+html.__ROOT__ #shop_store,
+html.__ROOT__ #shop_buy,
+html.__ROOT__ #shop_sell,
+html.__ROOT__ #depo-items,
+html.__ROOT__ #mytr_items,
+html.__ROOT__ #tr2_items {
+  background-repeat:no-repeat!important;
+}
