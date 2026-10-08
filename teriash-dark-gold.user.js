@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Teriash Galaxy v8.6 Cosmic Windows
+// @name         Teriash Galaxy v8.6 Window Reskin
 // @namespace    https://github.com/Teriash/teriash-dark-gold
 // @version      8.6.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
@@ -36,8 +36,7 @@
   const EXTENSIONS = [
     "extensions/engine.js",
     "extensions/npc-tips.js",
-    "extensions/map-mark.js",
-    "extensions/window-retheme.js"
+    "extensions/map-mark.js"
   ];
 
   window.__TDG = {
@@ -164,6 +163,118 @@ html.${ROOT} .new-chat-window .input-wrapper {
     console.log("%cTDG panel fix v8.5 ACTIVE", "color:#76ecf5;font-weight:bold");
   }
 
+
+  function installWindowReskinV86() {
+    if (document.getElementById("tdg-window-reskin-v86")) return;
+    const style = document.createElement("style");
+    style.id = "tdg-window-reskin-v86";
+    style.textContent = `
+html.${ROOT} .c-window.border-window > .content,
+html.${ROOT} .border-window > .content,
+html.${ROOT} .c-window.border-window .inner-content {
+  background:#071221 url("${RAW}/assets/windows/window-fill-v86.png?v=86") repeat!important;
+  color:#d8f8ff!important;
+}
+html.${ROOT} .c-window .content .scroll-wrapper,
+html.${ROOT} .c-window .content .scroll-pane,
+html.${ROOT} .c-window .content .list,
+html.${ROOT} .c-window .content .list-container,
+html.${ROOT} .c-window .content .panel,
+html.${ROOT} .c-window .content .section,
+html.${ROOT} .c-window .content .box,
+html.${ROOT} .c-window .content .content-box,
+html.${ROOT} .c-window .content .paper,
+html.${ROOT} .c-window .content .sheet,
+html.${ROOT} .c-window .content .details,
+html.${ROOT} .c-window .content .description,
+html.${ROOT} .c-window .content table,
+html.${ROOT} .c-window .content tbody,
+html.${ROOT} .c-window .content tr,
+html.${ROOT} .c-window .content td,
+html.${ROOT} .c-window .content th,
+html.${ROOT} .border-window .content .scroll-wrapper,
+html.${ROOT} .border-window .content .scroll-pane,
+html.${ROOT} .border-window .content .list,
+html.${ROOT} .border-window .content .list-container,
+html.${ROOT} .border-window .content .panel,
+html.${ROOT} .border-window .content .section,
+html.${ROOT} .border-window .content .box,
+html.${ROOT} .border-window .content .content-box,
+html.${ROOT} .border-window .content .paper,
+html.${ROOT} .border-window .content .sheet,
+html.${ROOT} .border-window .content .details,
+html.${ROOT} .border-window .content .description,
+html.${ROOT} .border-window .content table,
+html.${ROOT} .border-window .content tbody,
+html.${ROOT} .border-window .content tr,
+html.${ROOT} .border-window .content td,
+html.${ROOT} .border-window .content th {
+  background:rgba(6,22,39,.78) url("${RAW}/assets/windows/paper-replacement-v86.png?v=86") repeat!important;
+  border-color:#279ebd!important;
+  color:#d8f8ff!important;
+}
+html.${ROOT} .c-window .content h1,
+html.${ROOT} .c-window .content h2,
+html.${ROOT} .c-window .content h3,
+html.${ROOT} .c-window .content h4,
+html.${ROOT} .c-window .content .title,
+html.${ROOT} .c-window .content .header,
+html.${ROOT} .c-window .content .subheader,
+html.${ROOT} .c-window .content .section-title,
+html.${ROOT} .c-window .content .top-bar,
+html.${ROOT} .c-window .content .tabs-nav,
+html.${ROOT} .border-window .content h1,
+html.${ROOT} .border-window .content h2,
+html.${ROOT} .border-window .content h3,
+html.${ROOT} .border-window .content h4,
+html.${ROOT} .border-window .content .title,
+html.${ROOT} .border-window .content .header,
+html.${ROOT} .border-window .content .subheader,
+html.${ROOT} .border-window .content .section-title,
+html.${ROOT} .border-window .content .top-bar,
+html.${ROOT} .border-window .content .tabs-nav {
+  background:url("${RAW}/assets/windows/section-bar-v86.png?v=86") repeat-x!important;
+  background-size:auto 100%!important;
+  color:#e7fbff!important;
+}
+html.${ROOT} .c-window .content button,
+html.${ROOT} .border-window .content button,
+html.${ROOT} .c-window .content .button,
+html.${ROOT} .border-window .content .button,
+html.${ROOT} .c-window .content .tab,
+html.${ROOT} .border-window .content .tab,
+html.${ROOT} .c-window .content .item,
+html.${ROOT} .border-window .content .item,
+html.${ROOT} .c-window .content .row,
+html.${ROOT} .border-window .content .row,
+html.${ROOT} .c-window .content li,
+html.${ROOT} .border-window .content li,
+html.${ROOT} .c-window .content .menu-entry,
+html.${ROOT} .border-window .content .menu-entry {
+  background:rgba(6,18,33,.88) url("${RAW}/assets/windows/menu-button-v86.png?v=86") repeat-x!important;
+  background-size:auto 100%!important;
+  border:1px solid #248ea8!important;
+  color:#d8f8ff!important;
+}
+html.${ROOT} .c-window .content .active,
+html.${ROOT} .c-window .content .selected,
+html.${ROOT} .c-window .content .current,
+html.${ROOT} .c-window .content [aria-selected="true"],
+html.${ROOT} .border-window .content .active,
+html.${ROOT} .border-window .content .selected,
+html.${ROOT} .border-window .content .current,
+html.${ROOT} .border-window .content [aria-selected="true"] {
+  background:url("${RAW}/assets/windows/menu-button-active-v86.png?v=86") repeat-x!important;
+  background-size:auto 100%!important;
+  border-color:#76ecf5!important;
+  color:#f1fdff!important;
+}
+`;
+    document.head.appendChild(style);
+    document.documentElement.dataset.tdgWindowReskin = "8.6";
+    console.log("%cTDG window reskin v8.6 ACTIVE", "color:#76ecf5;font-weight:bold");
+  }
+
   try {
     await Promise.all(CSS.map(loadCss));
     for (const file of EXTENSIONS) {
@@ -171,7 +282,8 @@ html.${ROOT} .new-chat-window .input-wrapper {
       catch (e) { console.warn("[TDG]", file, e); }
     }
     installPanelFixV85();
-    console.log("%cTeriash Galaxy v8.6 Cosmic Windows", "color:#e8c66b;font-weight:700", "loaded");
+    installWindowReskinV86();
+    console.log("%cTeriash Galaxy v8.6 Window Reskin", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }

@@ -1,26 +1,18 @@
-# Teriash Galaxy v8.6 Cosmic Windows
+# Teriash Galaxy v8.6 Window Reskin
 
-Ta wersja poprawia elementy wewnątrz okien, które dalej miały drewniane albo szare motywy.
+Ta wersja podmienia ogólny wygląd elementów okien:
+- drewniane listwy -> cosmic / galaxy bary,
+- szare kafle / przyciski menu -> niebiesko-cyjanowe przyciski,
+- jasne/beżowe wypełnienia -> ciemne galaxy panele,
+- aktywne elementy -> mocniej podświetlone cyjanem.
 
-## Co dodałem
-- dynamiczne rethemowanie starych okien `border-window` / `c-window.border-window`,
-- obsługa `mz-window`,
-- zamiana drewnianych i szarych powierzchni na galaxy,
-- osobne style dla:
-  - menu po lewej,
-  - aktywnych przycisków/zakładek,
-  - pasków / nagłówków,
-  - dużych paneli treści,
-  - jasnych „papierowych” pól.
+Najważniejsze nowe assety:
+- assets/windows/window-fill-v86.png
+- assets/windows/section-bar-v86.png
+- assets/windows/menu-button-v86.png
+- assets/windows/menu-button-active-v86.png
+- assets/windows/paper-replacement-v86.png
 
-## Nowe pliki
-- `extensions/window-retheme.js`
-- `assets/windows/menu-item.png`
-- `assets/windows/menu-item-active.png`
-- `assets/windows/content-panel.png`
-- `assets/windows/strip.png`
-- `assets/windows/sidebar-top.png`
-- `assets/windows/paper-replacement.png`
-
-Po uruchomieniu w konsoli powinno się pojawić:
-`TDG cosmic windows retheme ACTIVE`
+Dodałem też hard override bezpośrednio w userscripcie, więc nowy styl okien powinien zaskoczyć od razu.
+W konsoli po załadowaniu powinno być:
+TDG window reskin v8.6 ACTIVE
