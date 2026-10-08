@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v9.0 Main Clan Fix
+// @name         Teriash Galaxy v9.1 Embedded Clan
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      9.0.0
+// @version      9.1.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -269,15 +269,16 @@ body{background:#06111f url("${SURFACE}") center/cover no-repeat!important}
     "theme/clan-main.css"
   ];
 
+  const CLAN_MAIN_EMBEDDED_V91 = "\n(() => {\n  const TDG = window.__TDG;\n  if (!TDG) return;\n\n  const SURFACE = TDG.asset(\"clan/surface-v90.png\");\n  const STRIP_H = TDG.asset(\"clan/strip-h-v90.png\");\n  const STRIP_V = TDG.asset(\"clan/strip-v-v90.png\");\n  const MENU = TDG.asset(\"clan/menu-v90.png\");\n\n  const skip = /icon|outfit|avatar|logo|character|sprite|picture|item-id|inventory|cl_logo|skill-icon|quest-bring-item|npc|hero/i;\n\n  function rgb(value) {\n    const m = String(value || \"\").match(/rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)/i);\n    return m ? [Number(m[1]), Number(m[2]), Number(m[3])] : null;\n  }\n\n  function oldColor(v) {\n    if (!v) return false;\n    const [r,g,b] = v;\n    const green = g > r * 1.15 && g > b * 1.03 && g > 28 && r < 115;\n    const brown = r > b * 1.22 && g > b * 1.16 && r > 35 && g > 20 && b < 100;\n    const gray = Math.max(r,g,b) - Math.min(r,g,b) < 30 && r > 15 && r < 165;\n    const beige = r > 145 && g > 110 && b < 150;\n    return green || brown || gray || beige;\n  }\n\n  function applyInline(el, type) {\n    if (el.dataset.tdg90 === type) return;\n    el.dataset.tdg90 = type;\n\n    if (type === \"btn\") {\n      el.style.setProperty(\"background-color\", \"#07172b\", \"important\");\n      el.style.setProperty(\"background-image\", `url(\"${MENU}\")`, \"important\");\n      el.style.setProperty(\"background-position\", \"center\", \"important\");\n      el.style.setProperty(\"background-size\", \"100% 100%\", \"important\");\n      el.style.setProperty(\"background-repeat\", \"no-repeat\", \"important\");\n      el.style.setProperty(\"border-color\", \"#279fbd\", \"important\");\n      el.classList.add(\"tdg90-btn\");\n    } else if (type === \"h\") {\n      el.style.setProperty(\"background-color\", \"#082139\", \"important\");\n      el.style.setProperty(\"background-image\", `url(\"${STRIP_H}\")`, \"important\");\n      el.style.setProperty(\"background-position\", \"center\", \"important\");\n      el.style.setProperty(\"background-size\", \"100% 100%\", \"important\");\n      el.style.setProperty(\"background-repeat\", \"no-repeat\", \"important\");\n      el.classList.add(\"tdg90-h\");\n    } else if (type === \"v\") {\n      el.style.setProperty(\"background-color\", \"#082139\", \"important\");\n      el.style.setProperty(\"background-image\", `url(\"${STRIP_V}\")`, \"important\");\n      el.style.setProperty(\"background-position\", \"center\", \"important\");\n      el.style.setProperty(\"background-size\", \"100% 100%\", \"important\");\n      el.style.setProperty(\"background-repeat\", \"no-repeat\", \"important\");\n      el.classList.add(\"tdg90-v\");\n    } else {\n      el.style.setProperty(\"background-color\", \"#07172b\", \"important\");\n      el.style.setProperty(\"background-image\", `url(\"${SURFACE}\")`, \"important\");\n      el.style.setProperty(\"background-position\", \"center\", \"important\");\n      el.style.setProperty(\"background-size\", \"cover\", \"important\");\n      el.style.setProperty(\"background-repeat\", \"no-repeat\", \"important\");\n      el.style.setProperty(\"border-color\", \"#238eaa\", \"important\");\n      el.classList.add(\"tdg90-surface\");\n    }\n  }\n\n  function inspectElement(el) {\n    const key = `${el.id || \"\"} ${typeof el.className === \"string\" ? el.className : \"\"}`;\n    if (skip.test(key)) return;\n\n    const rect = el.getBoundingClientRect();\n    if (rect.width < 8 || rect.height < 8 || rect.width * rect.height < 500) return;\n\n    const cs = getComputedStyle(el);\n    const bgColor = rgb(cs.backgroundColor);\n    const bgImage = cs.backgroundImage || \"none\";\n\n    const isOurImage = /surface-v90|strip-h-v90|strip-v-v90|menu-v90|menu-active-v90/.test(bgImage);\n    const hasOldImage = bgImage !== \"none\" && !isOurImage;\n    const looksOld = oldColor(bgColor) || hasOldImage;\n\n    const exactMenu = /clanmenu|item-menu|boxhover|card|button|btn/i.test(key);\n    const exactClan = /clan|recruit|atribute|treasury|history|diplom|quest|skill|bless/i.test(key);\n\n    if (!exactClan && !looksOld) return;\n\n    if (exactMenu && rect.height <= 90 && rect.width >= 55) {\n      applyInline(el, \"btn\");\n    } else if (rect.width > 145 && rect.height <= 90) {\n      applyInline(el, \"h\");\n    } else if (rect.height > 145 && rect.width <= 135) {\n      applyInline(el, \"v\");\n    } else if (rect.width > 75 && rect.height > 45) {\n      applyInline(el, \"surface\");\n    }\n  }\n\n  function forceKnown() {\n    const selectors = [\n      \".clan\",\n      \"#clanmenu\",\n      \"#clanmenu > .boxhover\",\n      \"#clanbox\",\n      \"#clanbox .clan-recruit-content\",\n      \"#clanbox .recruit-section\",\n      \"#clanbox .scroll-wrapper\",\n      \"#clanbox .scroll-pane\",\n      \"#clanbox .background-wrapper\",\n      \"#clanbox .section-recruit-main\",\n      \"#clanbox .clan-part-0\",\n      \"#clanbox .clan-part-1\",\n      \"#clanbox .clan-part-2\",\n      \"#clanbox .clan-members-content\",\n      \"#clanbox .clan-list-content\"\n    ];\n    selectors.forEach(sel => document.querySelectorAll(sel).forEach(el => applyInline(el, \"surface\")));\n\n    [\n      \"#clanbox .clan-recruit-header-option\",\n      \"#clanbox .clan-recruit-header-atribute\",\n      \"#clanbox .clan-recruit-header-0\",\n      \"#clanbox .clan-recruit-header-1\",\n      \"#clanbox .clan-recruit-header-2\"\n    ].forEach(sel => document.querySelectorAll(sel).forEach(el => applyInline(el, \"h\")));\n\n    document.querySelectorAll(\"#clanmenu > .boxhover > li, #clanmenu li, #clanmenu [id$='-item-menu'], #clanmenu [name$='-item-menu']\")\n      .forEach(el => applyInline(el, \"btn\"));\n  }\n\n  function sweep() {\n    const clan = document.querySelector(\".clan\");\n    if (!clan) return;\n\n    forceKnown();\n    clan.querySelectorAll(\"*\").forEach(inspectElement);\n    document.documentElement.dataset.tdgClanMain = \"9.0\";\n  }\n\n  // Works even when clan panel is created after game load.\n  const observer = new MutationObserver(() => {\n    clearTimeout(observer._timer);\n    observer._timer = setTimeout(sweep, 40);\n  });\n  observer.observe(document.documentElement, {childList:true, subtree:true});\n\n  document.addEventListener(\"click\", () => {\n    setTimeout(sweep, 30);\n    setTimeout(sweep, 180);\n  }, true);\n\n  setInterval(() => {\n    if (document.querySelector(\".clan\") && getComputedStyle(document.querySelector(\".clan\")).display !== \"none\") {\n      sweep();\n    }\n  }, 1000);\n\n  sweep();\n  console.log(\"%cTDG main clan extension v9.0 ACTIVE\", \"color:#76ecf5;font-weight:bold\");\n})();\n";
+
   const EXTENSIONS = [
     "extensions/engine.js",
     "extensions/npc-tips.js",
-    "extensions/map-mark.js",
-    "extensions/clan-theme.js"
+    "extensions/map-mark.js"
   ];
 
   window.__TDG = {
-    version: "9.0.0",
+    version: "9.1.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -518,9 +519,15 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
       try { await loadJs(file); }
       catch (e) { console.warn("[TDG]", file, e); }
     }
+    try {
+      Function(CLAN_MAIN_EMBEDDED_V91)();
+      console.log("%cTDG embedded clan module v9.1 EXECUTED", "color:#76ecf5;font-weight:bold");
+    } catch (e) {
+      console.error("[TDG] embedded clan module v9.1 failed", e);
+    }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v9.0 Main Clan Fix", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v9.1 Embedded Clan", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }
