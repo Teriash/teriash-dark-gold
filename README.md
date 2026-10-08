@@ -1,28 +1,23 @@
-# Teriash Galaxy v9.6 — Clan Wood Fix
+# Teriash Galaxy v9.7 — Stable Clan Bars
 
-Ta wersja poprawia konkretnie pozostałe BRĄZOWE / DREWNIANE BELKI widoczne w oknie Klany.
+Ta wersja wraca do stabilnej logiki v9.5, która poprawnie stylowała:
+- lewe menu,
+- rekrutację,
+- tabelę,
+- galaxy tła.
 
-Klan nadal jest modułem:
-- `theme/60-clan-v96.css`
-- `extensions/clan-theme-v96.js`
-- `assets/clan/...`
+Usunąłem agresywny skaner z v9.6, który psuł wygląd menu.
 
-W Tampermonkey nadal instalujesz tylko:
+Dodałem tylko precyzyjną poprawkę brązowych belek:
+- skaner NIE dotyka elementów wewnątrz `#clanmenu li`,
+- zmienia wyłącznie cienkie poziome/pionowe elementy konstrukcyjne,
+- reaguje na brązowy computed background albo starą grafikę strukturalną,
+- usuwa stare pseudo-elementy `::before` / `::after`,
+- dokładne nagłówki rekrutacji są wymuszane na Galaxy.
+
+Moduły:
+- `theme/60-clan-v97.css`
+- `extensions/clan-theme-v97.js`
+
+Nadal instalujesz tylko:
 `teriash-dark-gold.user.js`
-
-## Co zmieniono
-- osobna grafika poziomych belek `wood-replace-h-v96.png`,
-- osobna grafika pionowych belek `wood-replace-v-v96.png`,
-- skrypt wykrywa strukturalne brązowe elementy po computed style,
-- podmiana jest wykonywana inline z `!important`, więc ma pierwszeństwo nad starym CSS gry,
-- wykrywane są też stare `background-image`,
-- obsługiwane są pseudo-elementy `::before` / `::after`,
-- duże strukturalne `<img>` są ukrywane, a ich rodzic dostaje Galaxy bar,
-- outfity, ikony i małe grafiki są pomijane.
-
-## Logi
-Po otwarciu Klany:
-- `TDG clan DOM FOUND v9.6`
-- `TDG clan wood replacements v9.6: <liczba>`
-
-Liczba pokazuje, ile drewnianych/strukturalnych elementów zostało podmienionych.
