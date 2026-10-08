@@ -1,21 +1,19 @@
-# Teriash Galaxy v12.2 — Separated Slots
+# Teriash Galaxy v12.3 — Real Slot Squares
 
-Poprawka do v12.1.
+W v12.1/v12.2 problem polegał na tym, że stylowaliśmy głównie tło
+kontenera / stretch sprite. W sklepie widoczna lista itemów korzysta z
+rzeczywistych `.inventory-item` i ich własnego rodzica, więc kafelek nie
+musiał być widoczny dokładnie pod przedmiotami.
 
-Problem:
-slot 33×33 był wypełniony prawie do samej krawędzi. Po powtórzeniu grafiki
-kolejne sloty wizualnie zlewały się w jedną płaszczyznę.
+v12.3:
+- wyszukuje rzeczywiste `.inventory-item`,
+- znajduje ich najmniejszego wspólnego rodzica,
+- wylicza realny odstęp X/Y między itemami,
+- rysuje siatkę kwadratów dokładnie z tym krokiem,
+- każdy zajęty `.inventory-item` dostaje dodatkową własną ramkę Galaxy,
+- nie nadpisuje grafiki przedmiotu ani koloru rarity,
+- działa dla torby i dynamicznych sklepów bez zakładania na sztywno 33 px.
 
-v12.2:
-- nowy `slot-grid-v122.png` ma wyraźny gutter między każdą komórką,
-- każda kratka ma własną obwódkę i osobne ciemne wnętrze,
-- siatka nadal ma dokładnie 33 px kroku, zgodnego z pozycjami itemów NI,
-- wyłączona jest druga warstwa kafelkowania na `.scroll-pane`,
-  żeby dwie siatki nie nakładały się na siebie,
-- pojedyncze sloty ekwipunku/sklepu mają osobny `slot-single-v122.png`.
-
-Pliki:
-- `assets/equipment/slot-grid-v122.png`
-- `assets/equipment/slot-single-v122.png`
-- `theme/92-inventory-shop-slots-v122.css`
-- `extensions/inventory-shop-slots-v122.js`
+Nowe moduły:
+- `theme/92-real-slot-squares-v123.css`
+- `extensions/inventory-shop-slots-v123.js`
