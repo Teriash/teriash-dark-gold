@@ -1,15 +1,13 @@
-# Teriash Galaxy v11.7 — Global Widget Seal
+# Teriash Galaxy v11.8 — Skills Bars Fix
 
-Baza: v11.6.
+Baza: v11.7.
 
-Cel: domknąć prześwity nie tylko w Klanach, ale we wszystkich widgetach/oknach NI.
+Poprawka celowana pod okno **Umiejętności**.
+
+Naprawia:
+- belkę pod napisem „Lista umiejętności”,
+- dolną brązową belkę w oknie umiejętności,
+- dodatkowe brązowe separatory w tym oknie.
 
 Dodany plik:
-- `theme/88-global-widget-seal-v117.css`
-
-Co robi:
-- daje pełne tło pod całym `.c-window.border-window`,
-- uszczelnia `.content` i `.inner-content`,
-- wypełnia typowe transparentne wrappery (`scroll-wrapper`, `scroll-pane`, `background-wrapper`, `panel`, `section`, `box`, itd.),
-- uszczelnia dolne belki i paski nagłówków,
-- nie zmienia layoutu (`position`, `width`, `height`, `display`).
+- `theme/89-skills-window-fix-v118.css`

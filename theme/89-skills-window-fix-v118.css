@@ -1,0 +1,64 @@
+
+/* Teriash Galaxy v11.8 — Skills Window targeted fix */
+
+/* Main title strip: "Lista umiejętności" */
+html.__ROOT__ #skills_title,
+html.__ROOT__ #skills .skills_title,
+html.__ROOT__ #skills .title_skills,
+html.__ROOT__ #skills .skills-header,
+html.__ROOT__ #skills .skill-title {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-top:1px solid #33d8ff!important;
+  border-bottom:1px solid #0f95ba!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), inset 0 -1px 0 rgba(0,0,0,.35)!important;
+  color:#eafcff!important;
+}
+
+html.__ROOT__ #skills_title *,
+html.__ROOT__ #skills .skills_title *,
+html.__ROOT__ #skills .title_skills *,
+html.__ROOT__ #skills .skills-header *,
+html.__ROOT__ #skills .skill-title * {
+  color:#eafcff!important;
+  text-shadow:0 1px 2px rgba(0,0,0,.8)!important;
+}
+
+/* Bottom bar in skills window */
+html.__ROOT__ #skills_footer,
+html.__ROOT__ #skills .skills_footer,
+html.__ROOT__ #skills .footer,
+html.__ROOT__ #skills .bottom-bar {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-top:1px solid #33d8ff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)!important;
+  color:#eafcff!important;
+}
+
+html.__ROOT__ #skills_footer *,
+html.__ROOT__ #skills .skills_footer *,
+html.__ROOT__ #skills .footer *,
+html.__ROOT__ #skills .bottom-bar * {
+  color:#eafcff!important;
+}
+
+/* If game draws extra brown separators inside skills, recolor them too */
+html.__ROOT__ #skills .skill_section .skill_sec_header,
+html.__ROOT__ #skills .section-title,
+html.__ROOT__ #skills .group-title,
+html.__ROOT__ #skills .mastery-title {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-color:#1aa7cc!important;
+  color:#eafcff!important;
+}
