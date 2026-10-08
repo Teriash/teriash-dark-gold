@@ -1,39 +1,38 @@
-# Teriash Galaxy v12.4 — Exact Slot Grid
+# Teriash Galaxy v12.5 — LIVE Slot Detector
 
-To jest przebudowana poprawka slotów oparta o rzeczywiste kontenery gry,
-a nie heurystyczne wykrywanie rodziców.
+Powód, dla którego v12.4 nic nie pokazywał, jest widoczny w konsoli:
 
-## Potwierdzone z klienta Margonem
+`TDG exact slot grids v12.4: 0`
 
-Torba:
-- `.inventory-grid-bg`
-- `.interface-element-item-slot-grid-stretch`
-- `.inventory-grid .inner-grid > .scroll-pane`
-- itemy w `.scroll-pane` mają `left/top = wielokrotność 33px`
+Czyli w aktualnie uruchomionym kliencie nie istnieje żaden z selektorów,
+na których opierała się v12.4.
 
-Sklep:
-- `#shop_store`
-- `#shop_buy`
-- `#shop_sell`
-- klient ustawia itemy jako `left: 33*x`, `top: 33*y`
+v12.5 nie korzysta już z nazw kontenerów.
 
-Depozyt:
-- `#depo-items`
-- szerokość zakładki = `462px = 14 * 33px`
-- itemy mają `left/top = 33*x / 33*y`
+## Jak znajduje siatki
 
-Dlatego v12.4 maluje dokładną siatkę 33×33 bezpośrednio na tych elementach.
+1. Szuka realnych ikon itemów:
+   - `canvas.canvas-icon`
+   - canvasy 32×32
+   - fallback na obrazy ok. 32×32
 
-## Grafika
+2. Znajduje wrapper ~32×32 dla każdego itemu.
 
-`assets/equipment/slot-grid-exact-v124.png`
+3. Analizuje wspólnych rodziców i pozycje itemów.
 
-Każdy kafelek:
-- ma 32×32 własnego slotu,
-- 33. piksel tworzy ciemną przerwę,
-- dzięki temu każda pusta komórka jest osobnym kwadratem.
+4. Jeśli pozycje tworzą raster ok. 33 px, wybiera ten rodzic jako siatkę.
 
-## Moduły
+5. Nakłada grafikę slotów INLINE z `!important`, więc inne moduły motywu
+   nie mogą jej przykryć.
 
-- `theme/92-exact-slot-grid-v124.css`
-- `extensions/exact-slot-grid-v124.js`
+Działa na zasadzie rzeczywistego DOM i geometrii, więc nie potrzebuje nazw:
+torba / sklep / depozyt / handel.
+
+## Diagnostyka
+
+W konsoli:
+
+`TDG LIVE slot grids v12.5: X [...]`
+
+Tym razem `X` powinno być większe od zera, jeśli na ekranie są itemy
+ułożone w siatkę.

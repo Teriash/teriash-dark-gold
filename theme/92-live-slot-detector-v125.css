@@ -1,0 +1,26 @@
+
+/* Teriash Galaxy v12.5 — live slot detector */
+
+html.__ROOT__ .tg125-live-grid {
+  background-color:#020711!important;
+  border-color:#1686a5!important;
+  box-shadow:inset 0 0 0 1px rgba(118,236,245,.12)!important;
+}
+
+/* Occupied cells get a subtle Galaxy square without replacing rarity/item art. */
+html.__ROOT__ .tg125-item-cell {
+  box-shadow:
+    inset 0 0 0 1px rgba(2,7,15,.96),
+    inset 0 0 0 2px rgba(37,167,199,.70)!important;
+  outline:1px solid rgba(118,236,245,.18)!important;
+  outline-offset:-3px!important;
+}
+
+/* Standalone equipment-like slots */
+html.__ROOT__ .eq-slot:not(.skill-usable-slot),
+html.__ROOT__ .interface-element-one-item-slot-background-to-repeat:not(.skill-usable-slot) {
+  border-color:#1686a5!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(2,7,15,.96),
+    inset 0 0 0 2px rgba(37,167,199,.65)!important;
+}
