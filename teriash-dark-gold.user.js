@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v8.8 Clan Total Reskin
+// @name         Teriash Galaxy v8.9 Clan Hard Override
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      8.8.0
+// @version      8.9.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -26,111 +26,230 @@
     location.hostname === "www.margonem.pl" &&
     location.pathname.startsWith("/guilds/");
 
-  async function installGuildIframeThemeV87() {
-    const cssPath = "theme/clan-iframe.css";
+  async function installGuildIframeThemeV89() {
+    const SURFACE = `${RAW}/assets/clan/surface-v89.png?v=89`;
+    const STRONG  = `${RAW}/assets/clan/surface-strong-v89.png?v=89`;
+    const STRIP_H = `${RAW}/assets/clan/strip-h-v89.png?v=89`;
+    const STRIP_V = `${RAW}/assets/clan/strip-v-v89.png?v=89`;
+    const MENU    = `${RAW}/assets/clan/menu-v89.png?v=89`;
+    const MENU_A  = `${RAW}/assets/clan/menu-active-v89.png?v=89`;
 
-    function gmGet(path) {
-      return new Promise((resolve, reject) => {
-        GM_xmlhttpRequest({
-          method: "GET",
-          url: `${RAW}/${path}?v=${CACHE}`,
-          headers: {"Cache-Control":"no-cache"},
-          onload: r => r.status >= 200 && r.status < 300 ? resolve(r.responseText) : reject(new Error(`${path}: HTTP ${r.status}`)),
-          onerror: () => reject(new Error(`${path}: network error`))
-        });
-      });
+    const critical = document.createElement("style");
+    critical.id = "tdg-guild-hard-v89";
+    critical.textContent = `
+html,body{background:#06111f!important;color:#d8f8ff!important}
+body{background:#06111f url("${SURFACE}") center/cover no-repeat!important}
+
+#clanbox,.clan,.clan-wrapper,.clan-window,.clan-main,.clan-page{
+  background:#07172b url("${SURFACE}") center/cover no-repeat!important;
+  color:#d8f8ff!important;border-color:#238eaa!important;
+}
+
+/* REKRUTACJA - elementy widoczne jako zielone/brązowe na screenie */
+.clan-recruit-content,
+.clan-recruit-content>.recruit-section,
+.clan-recruit-content .recruit-section,
+.clan-recruit-content .scroll-wrapper,
+.clan-recruit-content .scroll-pane,
+.clan-recruit-content .background-wrapper,
+.clan-recruit-content .section-recruit-main,
+.clan-recruit-content .clan-part-0,
+.clan-recruit-content .clan-part-1,
+.clan-recruit-content .clan-part-2{
+  background:#07172b url("${SURFACE}") center/cover no-repeat!important;
+  background-color:#07172b!important;
+  color:#d8f8ff!important;border-color:#238eaa!important;
+}
+
+.clan-recruit-header-option,
+.clan-recruit-header-atribute,
+.clan-recruit-header-0,
+.clan-recruit-header-1,
+.clan-recruit-header-2{
+  background:#082139 url("${STRIP_H}") center/100% 100% no-repeat!important;
+  color:#e8fbff!important;border:1px solid #2aa4c1!important;
+}
+
+/* Wiersze atrybutów - zero zieleni */
+.one-clan-atribute,
+.one-clan-atribute>*,
+.atribute-name-wrapper,
+.atribute-value-wrapper,
+.invite-to-clan{
+  background-color:rgba(5,29,49,.92)!important;
+  background-image:none!important;
+  color:#d8f8ff!important;
+  border-color:#248eaa!important;
+}
+
+/* Górne zakładki */
+.clan-recruit-menu,
+.cards-header-wrapper,
+.cards-header,
+.header-background-graphic{
+  background:#061727!important;background-image:none!important;border-color:#279fbd!important;
+}
+.clan-recruit-menu .card,.cards-header .card{
+  background:#07172b url("${MENU}") center/100% 100% no-repeat!important;
+  color:#d8f8ff!important;border:1px solid #248faa!important;
+}
+.clan-recruit-menu .card.active,.cards-header .card.active{
+  background-image:url("${MENU_A}")!important;border-color:#76ecf5!important;color:#f2fdff!important;
+}
+
+/* Lewe menu */
+[id^="clan-"][id$="-item-menu"],
+[name^="clan-"][name$="-item-menu"],
+.clan-menu-item,.clan-menu .item,.clan .menu-item{
+  background:#07172b url("${MENU}") center/100% 100% no-repeat!important;
+  color:#d8f8ff!important;border:1px solid #248faa!important;
+}
+[id^="clan-"][id$="-item-menu"].active,
+[name^="clan-"][name$="-item-menu"].active,
+.clan-menu-item.active,.clan-menu .item.active,.clan .menu-item.active{
+  background-image:url("${MENU_A}")!important;border-color:#76ecf5!important;color:#f2fdff!important;
+}
+
+/* Stare przyciski */
+.btn.SI-button,.big-button,button,input[type="button"],input[type="submit"]{
+  background:#07172b url("${MENU}") center/100% 100% no-repeat!important;
+  color:#e8fbff!important;border:1px solid #2aa9c7!important;
+}
+.btn.SI-button>.left,.btn.SI-button>.right,.btn.SI-button>.label,
+.big-button>.left,.big-button>.right,.big-button>.content{
+  background:none!important;background-image:none!important;color:#e8fbff!important;
+}
+
+/* Tabele i panele */
+.clan-members-table,.clan-list-table,.recruit-candidate-table,.recruit-invite-table,.members,.rankstable{
+  background:rgba(4,21,38,.86)!important;color:#d8f8ff!important;border:1px solid #218fab!important;
+}
+.clan-members-table th,.clan-list-table th,.recruit-candidate-table th,.recruit-invite-table th,.members th,.rankstable th{
+  background:linear-gradient(180deg,#0a3b58,#07233a)!important;color:#e6fbff!important;border:1px solid #24a2c2!important;
+}
+.clan-members-table td,.clan-list-table td,.recruit-candidate-table td,.recruit-invite-table td,.members td,.rankstable td{
+  background:rgba(5,28,48,.84)!important;color:#d8f8ff!important;border:1px solid #218ba8!important;
+}
+
+/* klasy nakładane bezpośrednio przez skaner */
+.tdg89-surface{background:#07172b url("${SURFACE}") center/cover no-repeat!important;color:#d8f8ff!important;border-color:#238eaa!important}
+.tdg89-horizontal{background:#082139 url("${STRIP_H}") center/100% 100% no-repeat!important;border-color:#2aa4c1!important}
+.tdg89-vertical{background:#082139 url("${STRIP_V}") center/100% 100% no-repeat!important;border-color:#2aa4c1!important}
+.tdg89-button{background:#07172b url("${MENU}") center/100% 100% no-repeat!important;color:#e8fbff!important;border-color:#279fbd!important}
+`;
+    (document.head || document.documentElement).appendChild(critical);
+
+    const skip = /icon|outfit|avatar|logo|character|sprite|picture|item-id|inventory|cl_logo|skill-icon|quest-bring-item|npc|hero/i;
+
+    function rgb(value){
+      const m=String(value||"").match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+      return m ? [Number(m[1]),Number(m[2]),Number(m[3])] : null;
     }
 
-    try {
-      let css = await gmGet(cssPath);
-      css = css
-        .replaceAll("__RAW__", RAW)
-        .replaceAll("__CACHE__", CACHE);
+    function isLegacyColor(v){
+      if(!v) return false;
+      const [r,g,b]=v;
+      const green=(g>r*1.18 && g>b*1.05 && g>30 && r<100);
+      const brown=(r>b*1.28 && g>b*1.20 && r>40 && g>22 && b<85);
+      const gray=(Math.max(r,g,b)-Math.min(r,g,b)<28 && r>18 && r<150);
+      const beige=(r>150 && g>120 && b<145);
+      return green||brown||gray||beige;
+    }
 
-      const style = document.createElement("style");
-      style.id = "tdg-guild-iframe-v87";
-      style.textContent = css;
-      (document.head || document.documentElement).appendChild(style);
+    function classify(el){
+      const key=`${el.id||""} ${typeof el.className==="string"?el.className:""}`;
+      if(skip.test(key)) return;
 
-      const skip = /icon|outfit|avatar|logo|character|sprite|picture|item-id|inventory|cl_logo/i;
+      const rect=el.getBoundingClientRect();
+      if(rect.width<8||rect.height<8) return;
 
-      function markLegacySurfaces() {
-        const root = document.querySelector(".clan") || document.body;
-        const skip = /icon|outfit|avatar|logo|character|sprite|picture|item-id|inventory|cl_logo|skill-icon|quest-bring-item/i;
+      const cs=getComputedStyle(el);
+      const bg=rgb(cs.backgroundColor);
+      const img=cs.backgroundImage||"";
+      const legacyImg=img!=="none" && !/surface-v89|strip-h-v89|strip-v-v89|menu-v89|menu-active-v89|cdn\.jsdelivr\.net\/gh\/Teriash\/teriash-dark-gold/i.test(img);
+      const legacy=isLegacyColor(bg)||legacyImg;
 
-        function parseRgb(value) {
-          const m = String(value || "").match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
-          return m ? [Number(m[1]), Number(m[2]), Number(m[3])] : null;
-        }
+      const exactRecruit=/clan-recruit|background-wrapper|clan-part-|one-clan-atribute|atribute-|recruit-section|cards-header|header-background-graphic/i.test(key);
+      const exactMenu=/item-menu|card|menu|button|btn/i.test(key);
 
-        function legacyColor(rgb) {
-          if (!rgb) return false;
-          const [r,g,b] = rgb;
-          const green = g > r * 1.22 && g > b * 1.05 && g > 35 && r < 90;
-          const brown = r > b * 1.35 && g > b * 1.25 && r > 45 && g > 25 && b < 65;
-          const gray = Math.max(r,g,b) - Math.min(r,g,b) < 22 && r < 125 && r > 18;
-          const beige = r > 150 && g > 120 && b < 130;
-          return green || brown || gray || beige;
-        }
-
-        root.querySelectorAll("*").forEach(el => {
-          const key = `${el.id || ""} ${typeof el.className === "string" ? el.className : ""}`;
-          if (skip.test(key)) return;
-
-          const rect = el.getBoundingClientRect();
-          if (rect.width < 8 || rect.height < 8) return;
-
-          const cs = getComputedStyle(el);
-          const bgImg = cs.backgroundImage;
-          const bgColor = parseRgb(cs.backgroundColor);
-          const structural = rect.width * rect.height > 900;
-          const hasLegacyImage = bgImg && bgImg !== "none";
-          const hasLegacyColor = legacyColor(bgColor);
-
-          if (!structural || (!hasLegacyImage && !hasLegacyColor)) return;
-
-          const isButton = /card|menu|button|btn|item-menu/i.test(key) || (rect.height <= 75 && rect.width >= 80 && rect.width <= 500);
-          if (isButton) {
-            el.classList.add("tdg88-button");
-          } else if (rect.width > 150 && rect.height <= 90) {
-            el.classList.add("tdg88-horizontal");
-          } else if (rect.height > 150 && rect.width <= 130) {
-            el.classList.add("tdg88-vertical");
-          } else {
-            el.classList.add("tdg88-surface");
-          }
-
-          const before = getComputedStyle(el, "::before");
-          const after = getComputedStyle(el, "::after");
-          if (before && before.backgroundImage && before.backgroundImage !== "none") {
-            el.classList.add("tdg88-pseudo-before");
-          }
-          if (after && after.backgroundImage && after.backgroundImage !== "none") {
-            el.classList.add("tdg88-pseudo-after");
-          }
-        });
-
-        document.documentElement.dataset.tdgGuildScan = "8.8";
+      if(exactRecruit){
+        if(/header|strip/i.test(key) && rect.height<=100) el.classList.add("tdg89-horizontal");
+        else if(exactMenu) el.classList.add("tdg89-button");
+        else el.classList.add("tdg89-surface");
+        return;
       }
 
-      markLegacySurfaces();
-      setTimeout(markLegacySurfaces, 250);
-      setTimeout(markLegacySurfaces, 900);
-      setTimeout(markLegacySurfaces, 2200);
+      if(!legacy || rect.width*rect.height<700) return;
 
-      document.addEventListener("click", () => {
-        setTimeout(markLegacySurfaces, 80);
-        setTimeout(markLegacySurfaces, 350);
-      }, true);
-
-      console.log("%cTDG guild iframe v8.8 ACTIVE", "color:#76ecf5;font-weight:bold");
-    } catch (e) {
-      console.error("[TDG guild iframe]", e);
+      if(exactMenu || (rect.height<=74 && rect.width>=70 && rect.width<=520)){
+        el.classList.add("tdg89-button");
+      }else if(rect.width>150 && rect.height<=95){
+        el.classList.add("tdg89-horizontal");
+      }else if(rect.height>150 && rect.width<=145){
+        el.classList.add("tdg89-vertical");
+      }else if(rect.width>90 && rect.height>50){
+        el.classList.add("tdg89-surface");
+      }
     }
+
+    function sweep(){
+      const root=document.querySelector(".clan")||document.querySelector("#clanbox")||document.body;
+      root.querySelectorAll("*").forEach(classify);
+
+      /* Twarde bezpośrednie nadpisanie dokładnie tych elementów, które widać jako stare. */
+      [
+        ".clan-recruit-content",
+        ".clan-recruit-content .section-recruit-main",
+        ".clan-recruit-content .background-wrapper",
+        ".clan-recruit-content .clan-part-0",
+        ".clan-recruit-content .clan-part-1",
+        ".clan-recruit-content .clan-part-2"
+      ].forEach(sel=>{
+        document.querySelectorAll(sel).forEach(el=>{
+          el.style.setProperty("background-color","#07172b","important");
+          el.style.setProperty("background-image",`url("${SURFACE}")`,"important");
+          el.style.setProperty("background-size","cover","important");
+          el.style.setProperty("background-position","center","important");
+          el.style.setProperty("border-color","#238eaa","important");
+        });
+      });
+
+      [
+        ".clan-recruit-header-option",
+        ".clan-recruit-header-atribute",
+        ".clan-recruit-header-0",
+        ".clan-recruit-header-1",
+        ".clan-recruit-header-2"
+      ].forEach(sel=>{
+        document.querySelectorAll(sel).forEach(el=>{
+          el.style.setProperty("background-color","#082139","important");
+          el.style.setProperty("background-image",`url("${STRIP_H}")`,"important");
+          el.style.setProperty("background-size","100% 100%","important");
+          el.style.setProperty("background-position","center","important");
+        });
+      });
+
+      document.documentElement.dataset.tdgGuildScan="8.9";
+    }
+
+    sweep();
+
+    const observer=new MutationObserver(()=>{
+      clearTimeout(observer._tdgTimer);
+      observer._tdgTimer=setTimeout(sweep,50);
+    });
+    observer.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:["class","style"]});
+
+    document.addEventListener("click",()=>setTimeout(sweep,40),true);
+    setTimeout(sweep,150);
+    setTimeout(sweep,500);
+    setTimeout(sweep,1200);
+
+    console.log("%cTDG guild iframe v8.9 ACTIVE","color:#76ecf5;font-weight:bold");
   }
 
   if (IS_GUILD_PAGE) {
-    installGuildIframeThemeV87();
+    installGuildIframeThemeV89();
     return;
   }
 
@@ -156,7 +275,7 @@
   ];
 
   window.__TDG = {
-    version: "8.8.0",
+    version: "8.9.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -399,7 +518,7 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
     }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v8.8 Clan Total Reskin", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v8.9 Clan Hard Override", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }

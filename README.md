@@ -1,22 +1,22 @@
-# Teriash Galaxy v8.8 Clan Total Reskin
+# Teriash Galaxy v8.9 Clan Hard Override
 
-Ta wersja jest zrobiona dokładnie pod elementy, które nadal były stare na screenie.
+Ta wersja jest zrobiona pod problem widoczny na screenie:
+- zielony środek rekrutacji,
+- brązowy pasek `Atrybuty klanu`,
+- brązowy separator na dole,
+- stare drewniane pionowe elementy,
+- pozostałe szare/ciemne kafle.
 
-Zmiany w widoku Klany:
-- zielone tło `Atrybuty klanu` / rekrutacji -> Galaxy,
-- brązowe poziome separatory -> Galaxy,
-- brązowe pionowe drewniane belki -> Galaxy,
-- szare zakładki `Lista kandydatów / Zaproszenia` -> Galaxy,
-- lewy zielony panel informacji klanu -> wykrywany i podmieniany,
-- stare szare elementy menu -> Galaxy,
-- dokładne klasy `clan-recruit-content`, `background-wrapper`,
-  `one-clan-atribute`, `clan-part-*`, `cards-header-wrapper`,
-  `recruit-section`, tabele kandydatów i członków są teraz stylowane osobno.
+Najważniejsza różnica względem v8.8:
+krytyczne style klanu są teraz osadzone bezpośrednio w userscripcie,
+więc nie zależą od cache `clan-iframe.css`.
 
-Dodatkowo skrypt analizuje wnętrze strony klanu po załadowaniu i oznacza
-pozostałe strukturalne elementy w starych kolorach (zielony/brązowy/szary/beżowy),
-żeby podmienić je na odpowiedni wariant Galaxy. Ikony, outfity, logo klanu
-i grafiki postaci są pomijane.
+Dodatkowo skrypt:
+- bezpośrednio ustawia style na dokładnych klasach rekrutacji,
+- obserwuje zmiany DOM przez MutationObserver,
+- po każdej zmianie/kliknięciu ponownie styluje nowo utworzone elementy,
+- wykrywa strukturalne zielone/brązowe/szare/beżowe tła i zmienia je na Galaxy,
+- omija outfity, ikony, logo klanu, itemy i grafiki postaci.
 
-W konsoli iframe powinno być:
-`TDG guild iframe v8.8 ACTIVE`
+W konsoli iframe powinno pojawić się:
+`TDG guild iframe v8.9 ACTIVE`
