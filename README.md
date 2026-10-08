@@ -1,12 +1,11 @@
-# Teriash Galaxy v12.9 — Quickbar Slot Style
+# Teriash Galaxy v13.0 — Empty Slots
 
-Ta wersja ma robić sloty **jak na dolnym pasku szybkiego wyboru**.
-Nie rysuje pełnej siatki na tłach.
-Podmienia tylko wygląd pojedynczych slotów w:
-- torbach,
-- sklepie,
-- depo,
-- handlu,
-- slocie ekwipunku.
+v12.9 stylował tylko istniejące/zajęte sloty.
+W wielu torbach/sklepach/depo puste pola nie mają osobnych elementów DOM.
 
-Jeśli jakiś jeden konkretny typ slota dalej zostanie stary, wtedy trzeba już dopiąć dokładny selektor tylko pod ten widget.
+v13.0 zachowuje wygląd zajętych slotów z v12.9, a dodatkowo:
+- wykrywa właściwy mały kontener itemów,
+- rysuje ten sam quickbarowy kwadrat w pustych komórkach,
+- nie maluje całego okna ani całego panelu.
+
+Log: `TDG empty slot grids v13.0:`

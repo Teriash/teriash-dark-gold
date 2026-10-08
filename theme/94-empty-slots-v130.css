@@ -1,0 +1,22 @@
+
+/* Teriash Galaxy v13.0 — Empty Slots
+   Occupied slots still use the quickbar-style square from v12.9.
+   This module additionally paints the SAME square in empty cells,
+   but only inside positively detected item-grid containers.
+*/
+html.__ROOT__ .tg130-slot-grid {
+  background-color:#06111f!important;
+  background-image:url("__RAW__/assets/equipment/slot.png?v=130")!important;
+  background-repeat:repeat!important;
+  background-size:var(--tg130-px,33px) var(--tg130-py,33px)!important;
+  background-position:var(--tg130-ox,0px) var(--tg130-oy,0px)!important;
+  border-color:#1686a5!important;
+}
+
+/* Item artwork stays above the repeated empty-slot background. */
+html.__ROOT__ .tg130-slot-grid .inventory-item,
+html.__ROOT__ .tg130-slot-grid .item[data-tip-type="t_item"],
+html.__ROOT__ .tg130-slot-grid [data-tip-type="t_item"] {
+  position:relative;
+  z-index:1;
+}

@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v12.9 Quickbar Slot Style
+// @name         Teriash Galaxy v13.0 Empty Slots
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      12.9.0
+// @version      13.0.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -20,7 +20,7 @@
   "use strict";
 
   const RAW = "https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main";
-  const ROOT = "teriash-galaxy-v129";
+  const ROOT = "teriash-galaxy-v130";
   const CACHE = Date.now().toString();
 
 
@@ -45,7 +45,8 @@
     "theme/88-global-widget-seal-v117.css",
     "theme/91-bottom-bars-skills-v120.css",
     "theme/92-blue-slot-look-v128.css",
-    "theme/93-quickbar-slot-style-v129.css"
+    "theme/93-quickbar-slot-style-v129.css",
+    "theme/94-empty-slots-v130.css"
   ];
 
   const EXTENSIONS = [
@@ -54,11 +55,12 @@
     "extensions/map-mark.js",
     "extensions/component-theme-v111.js",
     "extensions/safe-wood-override-v115.js",
-    "extensions/skills-main-v120.js"
+    "extensions/skills-main-v120.js",
+    "extensions/empty-slots-v130.js"
   ];
 
   window.__TDG = {
-    version: "12.9.0",
+    version: "13.0.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -328,7 +330,7 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
     }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v12.9 Quickbar Slot Style", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v13.0 Empty Slots", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }
