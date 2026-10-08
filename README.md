@@ -1,36 +1,33 @@
-# Teriash Galaxy v10.0 — Global Wood Replacer
+# Teriash Galaxy v10.1 — Hard Legacy Texture Remover
 
-Ta wersja nie skupia się już tylko na klanie / rekrutacji.
+W v10.0 log pokazał `TDG global wood replacements v10.0: 0`.
+To oznaczało, że poprzedni skaner nie trafiał w mechanizm, którym gra rysuje te belki.
 
-Dodałem globalny moduł, który podmienia albo wygasza drewniane belki,
-separatory i papierowo-drewniane strukturalne panele w całym UI gry.
+v10.1 sprawdza dodatkowo:
+- `border-image-source`,
+- `border-image`,
+- `background-image`,
+- pseudo-elementy `::before` / `::after`,
+- cienkie strukturalne `<img>`.
 
-## Nowe moduły
-- `theme/70-global-wood-v100.css`
-- `extensions/global-wood-v100.js`
-- `assets/global/wood-h-v100.png`
-- `assets/global/wood-v-v100.png`
-- `assets/global/wood-panel-v100.png`
+Najważniejsza zmiana:
+każdy obcy `border-image` w obsługiwanych oknach jest usuwany,
+a cienkie poziome/pionowe elementy z obcą grafiką są zastępowane Galaxy
+bez wymagania konkretnej nazwy klasy.
 
-## Jak działa
-Skrypt:
-- wykrywa elementy wyglądające jak drewniane / szaro-beżowe belki,
-- podmienia cienkie poziome i pionowe elementy na Galaxy bars,
-- usuwa stare pseudo-elementy `::before` / `::after`, jeśli zawierają legacy wood,
-- większe brązowe strukturalne panele zamienia na Galaxy panel.
+Zakres:
+- klan,
+- wszystkie `.c-window` / `.border-window`,
+- chat / lewa kolumna,
+- prawy panel,
+- dynamicznie tworzone okna.
 
-## Zakres
-Przeszukiwane są m.in.:
-- `.clan`
-- `.c-window`
-- `.border-window`
-- `.window`
-- lewa kolumna / chat
-- prawa kolumna / ekwipunek / statystyki
+Nowe moduły:
+- `theme/70-legacy-textures-v101.css`
+- `extensions/legacy-textures-v101.js`
+- `assets/global/legacy-h-v101.png`
+- `assets/global/legacy-v-v101.png`
+- `assets/global/legacy-panel-v101.png`
 
-## Logi
-Po starcie:
-- `TDG global wood replacer v10.0 LOADED`
-
-W trakcie:
-- `TDG global wood replacements v10.0: X`
+Log:
+`TDG legacy replacements v10.1 { borderImage: X, h: X, v: X, panel: X, img: X }`

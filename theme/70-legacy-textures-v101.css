@@ -1,0 +1,90 @@
+
+/* Teriash Galaxy v10.1 - hard legacy texture remover */
+
+html.__ROOT__ .tdg101-h {
+  background-color:#082139!important;
+  background-image:url("__RAW__/assets/global/legacy-h-v101.png?v=101")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tdg101-v {
+  background-color:#082139!important;
+  background-image:url("__RAW__/assets/global/legacy-v-v101.png?v=101")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tdg101-panel {
+  background-color:#07172b!important;
+  background-image:url("__RAW__/assets/global/legacy-panel-v101.png?v=101")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:cover!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#238eaa!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tdg101-no-border-image {
+  border-image:none!important;
+  border-image-source:none!important;
+}
+
+html.__ROOT__ .tdg101-no-before::before,
+html.__ROOT__ .tdg101-no-after::after {
+  background:none!important;
+  background-image:none!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  box-shadow:none!important;
+}
+
+/* Hard fallback for the legacy clan shell itself. */
+html.__ROOT__ .clan,
+html.__ROOT__ #clanmenu,
+html.__ROOT__ #clanbox,
+html.__ROOT__ #clanbox .background-wrapper,
+html.__ROOT__ #clanbox .recruit-section {
+  border-image:none!important;
+  border-image-source:none!important;
+}
+
+/* Known old recruitment strips. */
+html.__ROOT__ #clanbox .clan-recruit-header-option,
+html.__ROOT__ #clanbox .clan-recruit-header-atribute,
+html.__ROOT__ #clanbox .clan-recruit-header-0,
+html.__ROOT__ #clanbox .clan-recruit-header-1,
+html.__ROOT__ #clanbox .clan-recruit-header-2,
+html.__ROOT__ #clanbox .clan-list-find-header {
+  background:#082139 url("__RAW__/assets/global/legacy-h-v101.png?v=101") center/100% 100% no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+
+/* Native NI window frame pieces: never allow a legacy border-image through. */
+html.__ROOT__ .c-window,
+html.__ROOT__ .border-window,
+html.__ROOT__ .c-window > .border-image,
+html.__ROOT__ .c-window__bottom-bar,
+html.__ROOT__ .interface-element-bottom-bar-background-stretch,
+html.__ROOT__ .header-label-positioner,
+html.__ROOT__ .header-label .left-decor,
+html.__ROOT__ .header-label .right-decor,
+html.__ROOT__ .close-button-corner-decor {
+  border-image:none!important;
+  border-image-source:none!important;
+}
