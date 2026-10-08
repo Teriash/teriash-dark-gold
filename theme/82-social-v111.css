@@ -1,0 +1,82 @@
+
+/* Teriash Galaxy v11.1 — Społeczność */
+
+html.__ROOT__ #friends,
+html.__ROOT__ #myfriends,
+html.__ROOT__ #myenemies {
+  color:var(--tg-text)!important;
+}
+
+html.__ROOT__ #friends.tg-window-scope,
+html.__ROOT__ #myfriends.tg-panel,
+html.__ROOT__ #myenemies.tg-panel {
+  background-color:#06111f!important;
+  background-image:var(--tg-panel)!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+}
+
+html.__ROOT__ #friends .frbox,
+html.__ROOT__ #myenemies .frbox {
+  background:#07172b var(--tg-row) center/100% 100% no-repeat!important;
+  border-bottom-color:rgba(42,169,199,.48)!important;
+  color:var(--tg-text)!important;
+  box-shadow:inset 0 1px rgba(220,248,255,.025)!important;
+}
+
+html.__ROOT__ #friends .frbox:hover,
+html.__ROOT__ #myenemies .frbox:hover {
+  background-image:var(--tg-control)!important;
+  border-bottom-color:var(--tg-cyan)!important;
+}
+
+html.__ROOT__ #friends .frbox b,
+html.__ROOT__ #friends .frloc,
+html.__ROOT__ #myenemies .frbox b,
+html.__ROOT__ #myenemies .frloc {
+  color:var(--tg-text)!important;
+}
+
+html.__ROOT__ #friends .frbox small,
+html.__ROOT__ #myenemies .frbox small {
+  text-shadow:0 1px 2px #000!important;
+}
+
+html.__ROOT__ #friends .frchar,
+html.__ROOT__ #myenemies .frchar {
+  filter:drop-shadow(0 0 4px rgba(118,236,245,.28))!important;
+}
+
+html.__ROOT__ #friends .delfr,
+html.__ROOT__ #friends .chatfr,
+html.__ROOT__ #friends .frparty,
+html.__ROOT__ #friends .frup,
+html.__ROOT__ #friends .frdn,
+html.__ROOT__ #myenemies .delen,
+html.__ROOT__ #myenemies .frup,
+html.__ROOT__ #myenemies .frdn {
+  border-color:rgba(118,236,245,.72)!important;
+  box-shadow:inset 0 0 7px rgba(0,130,186,.18),0 0 3px rgba(0,0,0,.55)!important;
+  background-color:rgba(5,25,43,.82)!important;
+}
+
+html.__ROOT__ #friends .tg-social-strip {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ #friends .tg-social-footer {
+  background:#07172b var(--tg-bar-h) center/100% 100% no-repeat!important;
+  border-color:var(--tg-line)!important;
+  color:var(--tg-text)!important;
+}
+
+html.__ROOT__ #friends .tg-social-footer button,
+html.__ROOT__ #friends .tg-social-footer input[type="button"],
+html.__ROOT__ #friends .tg-social-footer input[type="submit"] {
+  background:#07172b var(--tg-control) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}

@@ -1,0 +1,170 @@
+
+/* Teriash Galaxy v11.1 — Klany
+   CRITICAL: .clan itself is NOT touched.
+*/
+
+html.__ROOT__ #clanmenu,
+html.__ROOT__ #clanbox {
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:var(--tg-line)!important;
+  color:var(--tg-text)!important;
+}
+
+/* Left panel: Galaxy surface + vertical Galaxy rail painted inside its
+   existing background. No position/size changes. */
+html.__ROOT__ #clanmenu {
+  background-color:#07172b!important;
+  background-image:var(--tg-bar-v),var(--tg-panel)!important;
+  background-position:right center,center!important;
+  background-size:12px 100%,cover!important;
+  background-repeat:no-repeat,no-repeat!important;
+}
+
+html.__ROOT__ #clanbox {
+  background:#07172b var(--tg-panel) center/cover no-repeat!important;
+}
+
+html.__ROOT__ #clanmenu li,
+html.__ROOT__ #clanmenu [id$="-item-menu"],
+html.__ROOT__ #clanmenu [name$="-item-menu"] {
+  background:#07172b var(--tg-control) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ #clanmenu li:hover,
+html.__ROOT__ #clanmenu li.active,
+html.__ROOT__ #clanmenu [id$="-item-menu"].active,
+html.__ROOT__ #clanmenu [name$="-item-menu"].active {
+  background-image:var(--tg-control-active)!important;
+  border-color:var(--tg-cyan)!important;
+}
+
+/* All known clan pages which previously fell back to green/wood/paper. */
+html.__ROOT__ #clanbox .clan-recruit-content,
+html.__ROOT__ #clanbox .recruit-section,
+html.__ROOT__ #clanbox .scroll-wrapper,
+html.__ROOT__ #clanbox .scroll-pane,
+html.__ROOT__ #clanbox .background-wrapper,
+html.__ROOT__ #clanbox .section-recruit-main,
+html.__ROOT__ #clanbox .clan-part-0,
+html.__ROOT__ #clanbox .clan-part-1,
+html.__ROOT__ #clanbox .clan-part-2,
+html.__ROOT__ #clanbox .clan-members-content,
+html.__ROOT__ #clanbox .clan-list-content,
+html.__ROOT__ #clanbox .clan-priv-page,
+html.__ROOT__ #clanbox .clan-official-page,
+html.__ROOT__ #clanbox .history,
+html.__ROOT__ #clanbox .treasury,
+html.__ROOT__ #clanbox .clan-edit-content,
+html.__ROOT__ #clanbox .player-edit-pane,
+html.__ROOT__ #clanbox .clan-list-find-panel,
+html.__ROOT__ #clanbox .clan-list-atributes,
+html.__ROOT__ #clanbox .clan-list-find-content,
+html.__ROOT__ #clanbox .clan-skills-content,
+html.__ROOT__ #clanbox .clan-bless-content,
+html.__ROOT__ #clanbox .clan-quests-content,
+html.__ROOT__ #clanbox .one-clan-skill,
+html.__ROOT__ #clanbox .one-clan-quest {
+  background:#07172b var(--tg-panel) center/cover no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:var(--tg-line)!important;
+  color:var(--tg-text)!important;
+}
+
+/* Recruitment green rows */
+html.__ROOT__ #clanbox .one-clan-atribute,
+html.__ROOT__ #clanbox .one-clan-atribute > *,
+html.__ROOT__ #clanbox .atribute-name-wrapper,
+html.__ROOT__ #clanbox .atribute-value-wrapper,
+html.__ROOT__ #clanbox .invite-to-clan {
+  background:#07172b var(--tg-row) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:rgba(42,169,199,.44)!important;
+}
+
+/* Known horizontal wooden strips */
+html.__ROOT__ #clanbox .clan-recruit-header-option,
+html.__ROOT__ #clanbox .clan-recruit-header-atribute,
+html.__ROOT__ #clanbox .clan-recruit-header-0,
+html.__ROOT__ #clanbox .clan-recruit-header-1,
+html.__ROOT__ #clanbox .clan-recruit-header-2,
+html.__ROOT__ #clanbox .clan-list-find-header,
+html.__ROOT__ #clanbox .clan-find-header-0,
+html.__ROOT__ #clanbox .clan-find-header-1,
+html.__ROOT__ #clanbox .clan-find-header-2,
+html.__ROOT__ #clanbox .quest-content-header,
+html.__ROOT__ #clanbox .clan-skill-main-header,
+html.__ROOT__ #clanbox .clan-skill-header,
+html.__ROOT__ #clanbox .bless-main-header,
+html.__ROOT__ #clanbox .bless-header {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+  box-shadow:none!important;
+}
+
+/* Recruitment cards / tabs */
+html.__ROOT__ #clanbox .clan-recruit-menu,
+html.__ROOT__ #clanbox .cards-header-wrapper,
+html.__ROOT__ #clanbox .cards-header,
+html.__ROOT__ #clanbox .header-background-graphic {
+  background:#061727!important;
+  background-image:none!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ #clanbox .clan-recruit-menu .card,
+html.__ROOT__ #clanbox .cards-header .card {
+  background:#07172b var(--tg-control) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ #clanbox .clan-recruit-menu .card.active,
+html.__ROOT__ #clanbox .cards-header .card.active {
+  background-image:var(--tg-control-active)!important;
+  border-color:var(--tg-cyan)!important;
+}
+
+/* Clan tables */
+html.__ROOT__ #clanbox table {
+  background:rgba(4,21,38,.90)!important;
+  color:var(--tg-text)!important;
+  border-collapse:collapse!important;
+}
+
+html.__ROOT__ #clanbox th {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  color:#e6fbff!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ #clanbox td {
+  background:rgba(5,28,48,.88)!important;
+  color:var(--tg-text)!important;
+  border-color:rgba(42,169,199,.60)!important;
+}
+
+/* Legacy clan buttons/forms */
+html.__ROOT__ #clanbox .btn.SI-button,
+html.__ROOT__ #clanbox .big-button,
+html.__ROOT__ #clanbox button,
+html.__ROOT__ #clanbox input[type="button"],
+html.__ROOT__ #clanbox input[type="submit"] {
+  background:#07172b var(--tg-control) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ #clanbox input,
+html.__ROOT__ #clanbox select,
+html.__ROOT__ #clanbox textarea {
+  background:#061827!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}

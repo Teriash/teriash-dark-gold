@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v11.0 Component Theme
+// @name         Teriash Galaxy v11.1 Layout Safe
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      11.0.0
+// @version      11.1.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -20,7 +20,7 @@
   "use strict";
 
   const RAW = "https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main";
-  const ROOT = "teriash-galaxy-v110";
+  const ROOT = "teriash-galaxy-v111";
   const CACHE = Date.now().toString();
 
 
@@ -34,23 +34,22 @@
     "theme/tooltips.css",
     "theme/lootlog.css",
     "theme/npc-tips.css",
-    "theme/60-clan-v98.css",
     "theme/80-component-tokens-v110.css",
-    "theme/81-component-core-v110.css",
-    "theme/82-social-v110.css",
-    "theme/83-clan-components-v110.css",
-    "theme/84-legacy-components-v110.css"
+    "theme/81-component-core-v111.css",
+    "theme/82-social-v111.css",
+    "theme/83-clan-components-v111.css",
+    "theme/84-legacy-components-v111.css"
   ];
 
   const EXTENSIONS = [
     "extensions/engine.js",
     "extensions/npc-tips.js",
     "extensions/map-mark.js",
-    "extensions/component-theme-v110.js"
+    "extensions/component-theme-v111.js"
   ];
 
   window.__TDG = {
-    version: "11.0.0",
+    version: "11.1.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -320,7 +319,7 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
     }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v11.0 Component Theme", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v11.1 Layout Safe", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }

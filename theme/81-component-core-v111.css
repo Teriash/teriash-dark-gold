@@ -1,0 +1,82 @@
+
+/* Teriash Galaxy v11.1 — layout-safe component core
+   Rule: visual properties only. Never position/width/height/display.
+*/
+
+html.__ROOT__ .tg-panel {
+  background-color:#07172b!important;
+  background-image:var(--tg-panel)!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .tg-bar-h {
+  background-color:#082139!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tg-bar-v {
+  background-color:#082139!important;
+  background-image:var(--tg-bar-v)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-color:var(--tg-line)!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tg-control {
+  background-color:#07172b!important;
+  background-image:var(--tg-control)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .tg-control-active {
+  background-image:var(--tg-control-active)!important;
+  border-color:var(--tg-cyan)!important;
+  color:#f4feff!important;
+  box-shadow:inset 0 0 14px rgba(118,236,245,.16)!important;
+}
+
+html.__ROOT__ .tg-row {
+  background-color:#07172b!important;
+  background-image:var(--tg-row)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:rgba(42,169,199,.42)!important;
+}
+
+/* Safe decorative frame:
+   only swaps an existing border-image. It DOES NOT create a border,
+   change positioning, or affect geometry. */
+html.__ROOT__ .tg-border-swap {
+  border-image-source:var(--tg-frame)!important;
+  border-image-slice:52!important;
+  border-image-repeat:stretch!important;
+}
+
+/* shared forms, visual only */
+html.__ROOT__ .tg-window-scope input[type="text"],
+html.__ROOT__ .tg-window-scope input[type="search"],
+html.__ROOT__ .tg-window-scope textarea,
+html.__ROOT__ .tg-window-scope select {
+  background:#061827!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+  box-shadow:inset 0 0 12px rgba(0,0,0,.25)!important;
+}

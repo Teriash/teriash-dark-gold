@@ -1,39 +1,33 @@
-# Teriash Galaxy v11.0 — Component Theme
+# Teriash Galaxy v11.1 — Layout Safe
 
-Ta wersja zmienia podejście.
+Ta wersja naprawia regresję v11.0, w której okna potrafiły rozciągać się
+na cały ekran.
 
-Po przejrzeniu struktury Maddonz zastosowałem podobny model:
-- centralne CSS variables/tokens z URL-ami grafik,
-- osobne, stabilne komponenty,
-- konkretne selektory dla konkretnych okien,
-- bez globalnego zgadywania "czy coś jest brązowe".
+## Przyczyna
 
-## Maddonz-style architecture
+v11.0 nadpisywał m.in.:
+- `position` na `.clan`,
+- `position` na `.c-window.border-window`,
+- nakładał frame bezpośrednio na `.clan`,
+- jednocześnie nadal ładował stary `60-clan-v98.css`.
 
-`theme/80-component-tokens-v110.css`
-definiuje wspólne zasoby:
-- `--tg-panel`
-- `--tg-bar-h`
-- `--tg-bar-v`
-- `--tg-control`
-- `--tg-control-active`
-- `--tg-row`
-- `--tg-frame`
+`.clan` w tym interfejsie jest kontenerem układu, a nie tylko widocznym
+oknem. Zmiana jego `position` zmieniała układ absolutnie pozycjonowanych
+elementów i okno robiło się ogromne.
 
-Pozostałe pliki tylko korzystają z tych tokenów.
+## v11.1
 
-## Moduły
+- nie ustawia `position`, `width`, `height` ani `display` na oknach gry,
+- nie styluje już `.clan` jako panelu,
+- całkowicie usuwa `60-clan-v98.css` z loadera,
+- styluje tylko `#clanmenu`, `#clanbox` i konkretne elementy klanu,
+- border Galaxy jest podmieniany tylko wtedy, gdy element już miał
+  `border-image` — zachowujemy istniejące wymiary,
+- Społeczność korzysta z dokładnych `.frbox`,
+- zachowuje architekturę komponentów i CSS variables z v11.0.
 
-- `theme/81-component-core-v110.css` — bazowe Galaxy components
-- `theme/82-social-v110.css` — Społeczność / Przyjaciele / Wrogowie
-- `theme/83-clan-components-v110.css` — Klany
-- `theme/84-legacy-components-v110.css` — dialogi, trade, config itd.
-- `extensions/component-theme-v110.js` — tylko tagowanie znanych okien
-
-Nie ma skanowania koloru drewna ani background-image po całym DOM.
-
-W Tampermonkey nadal instalujesz tylko:
+W Tampermonkey instalujesz nadal tylko:
 `teriash-dark-gold.user.js`
 
 Log:
-`TDG component theme v11.0 LOADED`
+`TDG layout-safe component theme v11.1 LOADED`
