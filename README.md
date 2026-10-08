@@ -1,13 +1,16 @@
-# Teriash Galaxy v13.2 — Tip Safe Empty Slots
+# Teriash Galaxy v13.3 — Tip Priority
 
-Zmiany względem v13.1:
-- obniżony `z-index` pustych slotów, żeby nie zasłaniały tipów,
-- puste sloty są lekko przyciemnione,
-- baza działania dalej ta sama co w stabilnej v13.1.
+Poprawka na zasłanianie tipów przez puste sloty.
 
-Nowe ustawienia overlay:
-- `z-index: 5000`
-- `opacity: .88`
-- `filter: brightness(.78) saturate(.9)`
+Zmiany:
+- overlay pustych slotów ma teraz bardzo niski `z-index: 10`,
+- puste sloty są jeszcze trochę ciemniejsze,
+- dodałem wymuszenie wysokiego `z-index` dla typowych selektorów tipów:
+  - `#tip`
+  - `.tip`
+  - `.tooltip`
+  - `.item-tip`
+  - `.t_item`
+  - oraz selektory zawierające `tip` w id/klasie.
 
-Jeśli dalej jakiś konkretny tip będzie pod spodem, można jeszcze niżej zbić z-index tylko dla overlayów.
+To jest wersja stricte pod priorytet tipów nad overlayem pustych slotów.

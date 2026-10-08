@@ -1,5 +1,5 @@
 
-/* Teriash Galaxy v13.2 — SAFE empty slots
+/* Teriash Galaxy v13.3 — SAFE empty slots
    Base = stable v12.9.
    Does NOT modify layout/background of any game panel.
    Empty slots are separate fixed overlays only.
@@ -18,12 +18,25 @@ html.__ROOT__ .tg131-empty-slot {
   background-size:100% 100%!important;
   border:0!important;
   box-shadow:none!important;
-  opacity:.88!important;
-  filter:brightness(.78) saturate(.9)!important;
-  z-index:5000!important;
+  opacity:.82!important;
+  filter:brightness(.72) saturate(.85)!important;
+  z-index:10!important;
 }
 
 /* Generated overlays never participate in page layout. */
 html.__ROOT__ .tg131-empty-slot-container {
   display:none!important;
+}
+
+
+/* Tips / tooltipsy zawsze nad pustymi slotami */
+html.__ROOT__ #tip,
+html.__ROOT__ .tip,
+html.__ROOT__ .tooltip,
+html.__ROOT__ .item-tip,
+html.__ROOT__ .t_item,
+html.__ROOT__ [class*="tip"],
+html.__ROOT__ [id*="tip"] {
+  z-index:2147483000!important;
+  position:relative!important;
 }

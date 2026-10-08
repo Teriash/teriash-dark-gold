@@ -2,7 +2,7 @@
 (() => {
   if (!TDG) return;
 
-  console.log("%cTDG SAFE empty slots v13.2 LOADED", "color:#76ecf5;font-weight:bold");
+  console.log("%cTDG SAFE empty slots v13.3 LOADED", "color:#76ecf5;font-weight:bold");
 
   const MIN_ITEM = 26;
   const MAX_ITEM = 42;
@@ -277,13 +277,13 @@
       });
     });
 
-    document.documentElement.dataset.tdgEmptySlots = "13.2";
+    document.documentElement.dataset.tdgEmptySlots = "13.3";
 
     const sig = JSON.stringify(report);
     if (sig !== lastSig) {
       lastSig = sig;
       console.log(
-        "%cTDG SAFE empty slots v13.2:",
+        "%cTDG SAFE empty slots v13.3:",
         "color:#81dbd5;font-weight:bold",
         report
       );
