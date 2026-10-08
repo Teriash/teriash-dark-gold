@@ -1,31 +1,67 @@
-# Teriash Galaxy v9.2 Direct Clan
+# Teriash Galaxy v9.4 — modularny Clan
 
-Log z v9.1 pokazał:
-- `TDG embedded clan module v9.1 EXECUTED`
-- ale brak `TDG main clan extension v9.0 ACTIVE`.
+Zgodnie z prośbą jest tylko JEDEN główny skrypt:
 
-To znaczyło, że `Function(...)` uruchamiał kod w innym kontekście i
-`window.__TDG` wewnątrz modułu nie był dostępny. Moduł kończył się na
-`if (!TDG) return`.
+`dark-gold.js`
 
-## v9.2
-Cała logika klanu działa teraz BEZ `Function()` i BEZ `window.__TDG`.
-Korzysta bezpośrednio z `RAW`, `ROOT` i `CACHE` userscriptu.
+Kod klanu nie siedzi już w głównym pliku. Jest rozdzielony tak samo jak pozostałe części motywu:
 
-Dodatkowo:
-- krytyczny CSS klanu jest osadzony bezpośrednio w userscripcie,
-- `theme/clan-main.css` nie jest wymagany do działania,
-- assety dostały nowe nazwy `v92`, żeby ominąć cache CDN,
-- dokładnie stylowane są `.clan`, `#clanmenu`, `.boxhover`, `#clanbox`,
-  rekrutacja, członkowie, nagłówki, stare zielone/brązowe/szare powierzchnie,
-- MutationObserver + cykliczny sweep obsługuje dynamiczne zakładki.
+- `theme/clan-main.css`
+- `extensions/clan-theme.js`
+- `assets/clan/...`
 
-W konsoli po starcie MUSI być:
+## Struktura
+
+dark-gold.js
+theme/
+  base.css
+  hud.css
+  chat.css
+  equipment.css
+  windows.css
+  tooltips.css
+  lootlog.css
+  npc-tips.css
+  clan-main.css
+
+extensions/
+  engine.js
+  npc-tips.js
+  map-mark.js
+  clan-theme.js
+
+assets/
+  clan/
+  chat/
+  equipment/
+  hud/
+  map/
+  tooltips/
+  widgets/
+  windows/
+
+## Jak działa Clan
+
+`dark-gold.js` ładuje:
+- `theme/clan-main.css`
+- `extensions/clan-theme.js`
+
+`extensions/clan-theme.js` dostaje z loadera:
+- `RAW`
+- `ROOT`
+- `CACHE`
+
+więc nie musi mieć osobnego userscriptu ani własnego loadera.
+
+W konsoli po uruchomieniu modułu klanu powinno pojawić się:
 `TDG clan main v9.2 ACTIVE`
 
 Po otwarciu Klany dodatkowo:
 `TDG clan DOM FOUND v9.2`
 
-Drugi log pokaże obiekt:
-`{ clan: true/false, clanmenu: true/false, clanbox: true/false }`
-co pozwoli jednoznacznie sprawdzić, który DOM faktycznie istnieje.
+## Repo
+
+Wrzuć zawartość paczki do:
+`Teriash/teriash-dark-gold`
+
+i używaj tylko `dark-gold.js`.
