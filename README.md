@@ -1,38 +1,17 @@
-# Teriash Galaxy v12.5 — LIVE Slot Detector
+# Teriash Galaxy v12.6 — Slot Regions
 
-Powód, dla którego v12.4 nic nie pokazywał, jest widoczny w konsoli:
+v12.5 poprawnie znalazł raster, ale nakładał go jako background na rodzica.
+Jeżeli rodzicem był duży panel/sklep/prawa kolumna, kwadraty pokrywały całe tło.
 
-`TDG exact slot grids v12.4: 0`
+v12.6 zmienia podejście:
 
-Czyli w aktualnie uruchomionym kliencie nie istnieje żaden z selektorów,
-na których opierała się v12.4.
+- nie ustawia już gridowego backgroundu na żadnym panelu gry,
+- wykrywa klastry itemów po realnej geometrii 32/33 px,
+- szuka najmniejszego sensownego wspólnego kontenera,
+- tworzy przezroczystą nakładkę TYLKO nad obszarem slotów,
+- nakładka rysuje wyłącznie obramowania kwadratów, więc nie zasłania itemów,
+- ma zabezpieczenie przed ogromnymi overlayami całego okna/ekranu,
+- jeśli nie znajdzie dobrego kontenera, ogranicza się tylko do zajętego obszaru + 1 komórka.
 
-v12.5 nie korzysta już z nazw kontenerów.
-
-## Jak znajduje siatki
-
-1. Szuka realnych ikon itemów:
-   - `canvas.canvas-icon`
-   - canvasy 32×32
-   - fallback na obrazy ok. 32×32
-
-2. Znajduje wrapper ~32×32 dla każdego itemu.
-
-3. Analizuje wspólnych rodziców i pozycje itemów.
-
-4. Jeśli pozycje tworzą raster ok. 33 px, wybiera ten rodzic jako siatkę.
-
-5. Nakłada grafikę slotów INLINE z `!important`, więc inne moduły motywu
-   nie mogą jej przykryć.
-
-Działa na zasadzie rzeczywistego DOM i geometrii, więc nie potrzebuje nazw:
-torba / sklep / depozyt / handel.
-
-## Diagnostyka
-
-W konsoli:
-
-`TDG LIVE slot grids v12.5: X [...]`
-
-Tym razem `X` powinno być większe od zera, jeśli na ekranie są itemy
-ułożone w siatkę.
+Log:
+`TDG slot regions v12.6: X [...]`

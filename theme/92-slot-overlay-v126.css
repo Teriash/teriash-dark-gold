@@ -1,0 +1,68 @@
+
+/* Teriash Galaxy v12.6 — Slot Overlay Regions
+   Separate squares only inside detected item-grid rectangles.
+*/
+
+html.__ROOT__ .tg126-slot-overlay {
+  position:fixed!important;
+  pointer-events:none!important;
+  margin:0!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+  z-index:2147482000!important;
+
+  /* no opaque fill — only the individual square borders */
+  background-color:transparent!important;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      rgba(36,165,198,.92) 0,
+      rgba(36,165,198,.92) 1px,
+      transparent 1px,
+      transparent var(--tg126-pitch-x,33px)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(36,165,198,.92) 0,
+      rgba(36,165,198,.92) 1px,
+      transparent 1px,
+      transparent var(--tg126-pitch-y,33px)
+    )!important;
+
+  background-position:0 0!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(118,236,245,.28),
+    0 0 4px rgba(0,130,186,.18)!important;
+}
+
+/* second, darker line right before the next cell makes every square distinct */
+html.__ROOT__ .tg126-slot-overlay::after {
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  pointer-events:none!important;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent calc(var(--tg126-pitch-x,33px) - 2px),
+      rgba(1,7,15,.92) calc(var(--tg126-pitch-x,33px) - 2px),
+      rgba(1,7,15,.92) var(--tg126-pitch-x,33px)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(var(--tg126-pitch-y,33px) - 2px),
+      rgba(1,7,15,.92) calc(var(--tg126-pitch-y,33px) - 2px),
+      rgba(1,7,15,.92) var(--tg126-pitch-y,33px)
+    )!important;
+}
+
+/* Individual equipment slots still get a normal Galaxy outline. */
+html.__ROOT__ .eq-slot:not(.skill-usable-slot),
+html.__ROOT__ .interface-element-one-item-slot-background-to-repeat:not(.skill-usable-slot) {
+  border-color:#1686a5!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(1,7,15,.95),
+    inset 0 0 0 2px rgba(36,165,198,.68)!important;
+}
