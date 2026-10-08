@@ -1,13 +1,11 @@
-(() => {
-  "use strict";
 
-  const ROOT = TDG.rootClass || TDG.root || "teriash-galaxy-clan-v94";
-  const CDN = `${TDG.rawBase || TDG.raw}/assets/clan`;
-  const SURFACE = `${CDN}/surface-v92.png?v=92`;
-  const STRIP_H = `${CDN}/strip-h-v92.png?v=92`;
-  const STRIP_V = `${CDN}/strip-v-v92.png?v=92`;
-  const MENU = `${CDN}/menu-v92.png?v=92`;
-  const MENU_A = `${CDN}/menu-active-v92.png?v=92`;
+(() => {
+  if (!TDG) return;
+
+  const SURFACE = TDG.asset("clan/surface-v92.png");
+  const STRIP_H = TDG.asset("clan/strip-h-v92.png");
+  const STRIP_V = TDG.asset("clan/strip-v-v92.png");
+  const MENU = TDG.asset("clan/menu-v92.png");
 
   const skip = /icon|outfit|avatar|logo|character|sprite|picture|item-id|inventory|cl_logo|skill-icon|quest-bring-item|npc|hero/i;
   let domLogged = false;
@@ -28,11 +26,15 @@
   }
 
   function apply(el, type) {
-    if (!el) return;
-    if (type === "btn") el.classList.add("tdg-clan-btn");
-    else if (type === "h") el.classList.add("tdg-clan-h");
-    else if (type === "v") el.classList.add("tdg-clan-v");
-    else el.classList.add("tdg-clan-surface");
+    if (type === "btn") {
+      el.classList.add("tdg-clan-btn");
+    } else if (type === "h") {
+      el.classList.add("tdg-clan-h");
+    } else if (type === "v") {
+      el.classList.add("tdg-clan-v");
+    } else {
+      el.classList.add("tdg-clan-surface");
+    }
   }
 
   function forceKnown() {
@@ -44,7 +46,7 @@
 
     if (!domLogged) {
       domLogged = true;
-      console.log("%cTDG clan module DOM FOUND v9.4", "color:#81dbd5;font-weight:bold", {
+      console.log("%cTDG clan module DOM FOUND", "color:#81dbd5;font-weight:bold", {
         clan: !!clan,
         clanmenu: !!menu,
         clanbox: !!box
@@ -109,11 +111,12 @@
 
   function sweep() {
     if (!forceKnown()) return;
+
     const root = document.querySelector(".clan") || document.querySelector("#clanbox");
     if (!root) return;
 
     root.querySelectorAll("*").forEach(inspect);
-    document.documentElement.dataset.tdgClanModule = "9.4";
+    document.documentElement.dataset.tdgClanModule = "1.0";
   }
 
   const observer = new MutationObserver(() => {
@@ -134,5 +137,5 @@
   setInterval(sweep, 900);
   sweep();
 
-  console.log("%cTDG clan module v9.4 ACTIVE", "color:#76ecf5;font-weight:bold");
+  console.log("%cTDG clan module v1.0 ACTIVE", "color:#76ecf5;font-weight:bold");
 })();
