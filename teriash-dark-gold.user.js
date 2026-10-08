@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v8.5 Hard Panel Fix
+// @name         Teriash Galaxy v8.6 Cosmic Windows
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      8.5.0
+// @version      8.6.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -36,11 +36,12 @@
   const EXTENSIONS = [
     "extensions/engine.js",
     "extensions/npc-tips.js",
-    "extensions/map-mark.js"
+    "extensions/map-mark.js",
+    "extensions/window-retheme.js"
   ];
 
   window.__TDG = {
-    version: "8.5.0",
+    version: "8.6.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -170,7 +171,7 @@ html.${ROOT} .new-chat-window .input-wrapper {
       catch (e) { console.warn("[TDG]", file, e); }
     }
     installPanelFixV85();
-    console.log("%cTeriash Galaxy v8.4 Panel Fix", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v8.6 Cosmic Windows", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }
