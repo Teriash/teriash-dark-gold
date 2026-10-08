@@ -1,0 +1,58 @@
+
+/* Teriash Galaxy v11.9 — Skills DOM Target
+   Applied only to elements positively identified inside the Umiejętności window.
+*/
+html.__ROOT__ .tg119-skills-bar {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-top-color:#33d8ff!important;
+  border-bottom-color:#0f95ba!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), inset 0 -1px 0 rgba(0,0,0,.38)!important;
+  color:#eafcff!important;
+}
+html.__ROOT__ .tg119-skills-bar,
+html.__ROOT__ .tg119-skills-bar * {
+  color:#eafcff!important;
+  text-shadow:0 1px 2px rgba(0,0,0,.8)!important;
+}
+
+/* The center title strip can have an inner child covering the parent background. */
+html.__ROOT__ .tg119-skills-bar > *:not(img):not(canvas):not(svg) {
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+/* Bottom skills strip: keep buttons/icons intact, only replace container backdrop. */
+html.__ROOT__ .tg119-skills-footer {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-top-color:#33d8ff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)!important;
+  color:#eafcff!important;
+}
+html.__ROOT__ .tg119-skills-footer > * {
+  /* do not erase child button/icon backgrounds */
+  color:inherit;
+}
+
+/* Any thin brown separator positively detected in this one window. */
+html.__ROOT__ .tg119-skills-separator {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#1aa7cc!important;
+}

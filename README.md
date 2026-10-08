@@ -1,13 +1,14 @@
-# Teriash Galaxy v11.8 — Skills Bars Fix
+# Teriash Galaxy v11.9 — Skills DOM Target
 
-Baza: v11.7.
+v11.8 nie trafiał w aktualne elementy NI, bo selektory `#skills_title` / `#skills_footer` pochodzą ze starszej struktury klienta.
 
-Poprawka celowana pod okno **Umiejętności**.
+v11.9 nie zgaduje klas okna Umiejętności. Skrypt:
+- znajduje widoczne okno po nagłówku `UMIEJĘTNOŚCI`,
+- znajduje element z tekstem `Lista umiejętności`,
+- znajduje dolny pasek po `MISTRZOSTWO WALKI` / `Reset punktów`,
+- styluje tylko ich rzeczywiste kontenery,
+- nie zmienia position/width/height/display.
 
-Naprawia:
-- belkę pod napisem „Lista umiejętności”,
-- dolną brązową belkę w oknie umiejętności,
-- dodatkowe brązowe separatory w tym oknie.
-
-Dodany plik:
-- `theme/89-skills-window-fix-v118.css`
+Pliki:
+- `theme/90-skills-dom-target-v119.css`
+- `extensions/skills-dom-target-v119.js`
