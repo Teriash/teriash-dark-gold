@@ -1,17 +1,14 @@
-# Teriash Galaxy v12.6 — Slot Regions
+# Teriash Galaxy v12.7 — Per-Slot Squares
 
-v12.5 poprawnie znalazł raster, ale nakładał go jako background na rodzica.
-Jeżeli rodzicem był duży panel/sklep/prawa kolumna, kwadraty pokrywały całe tło.
+Ta wersja realizuje nowe podejście:
+**nie wykrywa całej siatki** i nie maluje żadnego dużego tła.
 
-v12.6 zmienia podejście:
+Każdy rzeczywisty item/slot jest stylowany osobno.
 
-- nie ustawia już gridowego backgroundu na żadnym panelu gry,
-- wykrywa klastry itemów po realnej geometrii 32/33 px,
-- szuka najmniejszego sensownego wspólnego kontenera,
-- tworzy przezroczystą nakładkę TYLKO nad obszarem slotów,
-- nakładka rysuje wyłącznie obramowania kwadratów, więc nie zasłania itemów,
-- ma zabezpieczenie przed ogromnymi overlayami całego okna/ekranu,
-- jeśli nie znajdzie dobrego kontenera, ogranicza się tylko do zajętego obszaru + 1 komórka.
+- zajęty item 26–44 px dostaje swój własny kwadrat Galaxy,
+- realne puste elementy slotów (np. `.eq-slot`) też dostają własny kwadrat,
+- nie są tworzone żadne grid-overlaye ani powtarzane kafelki na panelach.
 
-Log:
-`TDG slot regions v12.6: X [...]`
+W torbie/sklepie/depozycie puste miejsca często nie mają osobnego elementu DOM.
+W takim miejscu v12.7 celowo nic nie rysuje — kwadrat pojawia się tylko tam,
+gdzie istnieje realny item/slot.

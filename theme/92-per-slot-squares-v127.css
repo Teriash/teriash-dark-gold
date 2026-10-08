@@ -1,0 +1,43 @@
+
+/* Teriash Galaxy v12.7 — Per-Slot Squares
+   No whole-grid painting. Every real item/slot is styled individually.
+*/
+
+html.__ROOT__ {
+  --tg-slot-frame-127:url("__RAW__/assets/equipment/slot-frame-v127.png?v=127");
+  --tg-slot-frame-large-127:url("__RAW__/assets/equipment/slot-frame-large-v127.png?v=127");
+}
+
+/* One occupied item = one square. */
+html.__ROOT__ .tg127-item-slot {
+  background-color:rgba(3,12,25,.28)!important;
+  background-image:var(--tg-slot-frame-127)!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  box-shadow:0 0 2px rgba(0,130,186,.22)!important;
+}
+
+/* Real slot nodes, including empty equipment slots. */
+html.__ROOT__ .tg127-slot-node,
+html.__ROOT__ .eq-slot:not(.skill-usable-slot),
+html.__ROOT__ .interface-element-one-item-slot-background-to-repeat:not(.skill-usable-slot) {
+  background-color:#06111f!important;
+  background-image:var(--tg-slot-frame-large-127)!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-image:none!important;
+  border-image-source:none!important;
+}
+
+/* Nested item still gets the tighter 32px frame. */
+html.__ROOT__ .eq-slot .tg127-item-slot {
+  background-image:var(--tg-slot-frame-127)!important;
+}
+
+/* Never create a tiled/grid background. */
+html.__ROOT__ .tg127-item-slot,
+html.__ROOT__ .tg127-slot-node {
+  background-repeat:no-repeat!important;
+}
