@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v12.3 Real Slot Squares
+// @name         Teriash Galaxy v12.4 Exact Slot Grid
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      12.3.0
+// @version      12.4.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -20,7 +20,7 @@
   "use strict";
 
   const RAW = "https://cdn.jsdelivr.net/gh/Teriash/teriash-dark-gold@main";
-  const ROOT = "teriash-galaxy-v123";
+  const ROOT = "teriash-galaxy-v124";
   const CACHE = Date.now().toString();
 
 
@@ -44,7 +44,7 @@
     "theme/87-seam-seal-v116.css",
     "theme/88-global-widget-seal-v117.css",
     "theme/91-bottom-bars-skills-v120.css",
-    "theme/92-real-slot-squares-v123.css"
+    "theme/92-exact-slot-grid-v124.css"
   ];
 
   const EXTENSIONS = [
@@ -54,11 +54,11 @@
     "extensions/component-theme-v111.js",
     "extensions/safe-wood-override-v115.js",
     "extensions/skills-main-v120.js",
-    "extensions/inventory-shop-slots-v123.js"
+    "extensions/exact-slot-grid-v124.js"
   ];
 
   window.__TDG = {
-    version: "12.3.0",
+    version: "12.4.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -328,7 +328,7 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
     }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v12.3 Real Slot Squares", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v12.4 Exact Slot Grid", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }

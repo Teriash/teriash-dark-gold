@@ -1,19 +1,39 @@
-# Teriash Galaxy v12.3 — Real Slot Squares
+# Teriash Galaxy v12.4 — Exact Slot Grid
 
-W v12.1/v12.2 problem polegał na tym, że stylowaliśmy głównie tło
-kontenera / stretch sprite. W sklepie widoczna lista itemów korzysta z
-rzeczywistych `.inventory-item` i ich własnego rodzica, więc kafelek nie
-musiał być widoczny dokładnie pod przedmiotami.
+To jest przebudowana poprawka slotów oparta o rzeczywiste kontenery gry,
+a nie heurystyczne wykrywanie rodziców.
 
-v12.3:
-- wyszukuje rzeczywiste `.inventory-item`,
-- znajduje ich najmniejszego wspólnego rodzica,
-- wylicza realny odstęp X/Y między itemami,
-- rysuje siatkę kwadratów dokładnie z tym krokiem,
-- każdy zajęty `.inventory-item` dostaje dodatkową własną ramkę Galaxy,
-- nie nadpisuje grafiki przedmiotu ani koloru rarity,
-- działa dla torby i dynamicznych sklepów bez zakładania na sztywno 33 px.
+## Potwierdzone z klienta Margonem
 
-Nowe moduły:
-- `theme/92-real-slot-squares-v123.css`
-- `extensions/inventory-shop-slots-v123.js`
+Torba:
+- `.inventory-grid-bg`
+- `.interface-element-item-slot-grid-stretch`
+- `.inventory-grid .inner-grid > .scroll-pane`
+- itemy w `.scroll-pane` mają `left/top = wielokrotność 33px`
+
+Sklep:
+- `#shop_store`
+- `#shop_buy`
+- `#shop_sell`
+- klient ustawia itemy jako `left: 33*x`, `top: 33*y`
+
+Depozyt:
+- `#depo-items`
+- szerokość zakładki = `462px = 14 * 33px`
+- itemy mają `left/top = 33*x / 33*y`
+
+Dlatego v12.4 maluje dokładną siatkę 33×33 bezpośrednio na tych elementach.
+
+## Grafika
+
+`assets/equipment/slot-grid-exact-v124.png`
+
+Każdy kafelek:
+- ma 32×32 własnego slotu,
+- 33. piksel tworzy ciemną przerwę,
+- dzięki temu każda pusta komórka jest osobnym kwadratem.
+
+## Moduły
+
+- `theme/92-exact-slot-grid-v124.css`
+- `extensions/exact-slot-grid-v124.js`
