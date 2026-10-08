@@ -1,18 +1,18 @@
-# Teriash Galaxy v11.2 — Safe Wood Override
+# Teriash Galaxy v11.3 — Artifact Cleanup
 
-To rozszerzenie dokłada bezpieczny, globalny zamiennik dla pozostałych
-drewnianych / papierowych / zielonych legacy elementów w oknach gry.
+Naprawa dziur/artefaktów widocznych w oknach NI.
 
-Najważniejsze założenie: ZERO zmian układu.
-- nie zmienia `position`, `width`, `height`, `display`,
-- działa wyłącznie przez zmianę tła / border-image / kolorów,
-- skanuje tylko zawartość znanych okien,
-- ignoruje sloty, itemy, sprite'y, canvasy, ikony postaci.
-
-Dodane pliki:
-- `theme/85-safe-wood-override-v112.css`
-- `extensions/safe-wood-override-v112.js`
+Najważniejsze zmiany:
+- skaner legacy NIE dotyka już frameworkowych elementów NI takich jak
+  `header-label-positioner`, `left-decor`, `right-decor`, `c-window__bottom-bar`,
+  `border-image`, scrollbar itd.,
+- przy każdym przebiegu usuwa przypadkowo dodane klasy `tg-auto-wood-*`
+  z tych elementów,
+- dodano dokładny motyw dla okna `Świat` (`.world-window`),
+- dodano dokładny motyw dla `Dziennika zadań` i jego kolumn/bottom bara,
+- stare stretch-backgroundy w Dzienniku są zastępowane naszym Galaxy panelem,
+- wszystko nadal jest layout-safe: bez zmian `position`, `width`, `height`, `display`.
 
 Logi:
-- `TDG safe wood override v11.2 LOADED`
-- `TDG safe wood override v11.2 { ... }`
+- `TDG artifact-safe wood override v11.3 LOADED`
+- `Teriash Galaxy v11.3 Artifact Cleanup loaded`

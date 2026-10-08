@@ -1,0 +1,162 @@
+
+/* Teriash Galaxy v11.3 — exact NI artifact cleanup
+   Exact classes from the current NI DOM. Visual properties only.
+*/
+
+/* ---------- World / Świat ---------- */
+html.__ROOT__ .world-window,
+html.__ROOT__ .world-window__contents,
+html.__ROOT__ .world-window__contents > .tabs-content-option {
+  background:#07172b var(--tg-panel) center/cover no-repeat!important;
+  color:var(--tg-text)!important;
+}
+
+html.__ROOT__ .world-window__tabs.tabs-nav {
+  background:#061522!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .world-window__tabs .card {
+  background:#07172b var(--tg-control) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .world-window__tabs .card.active,
+html.__ROOT__ .world-window__tabs .card[class*="active"],
+html.__ROOT__ .world-window__tabs .card:hover {
+  background-image:var(--tg-control-active)!important;
+  border-color:var(--tg-cyan)!important;
+}
+
+/* Generic generated strips/panels inside World tabs. */
+html.__ROOT__ .world-window [class*="bottom-panel"],
+html.__ROOT__ .world-window [class*="bottom-row"],
+html.__ROOT__ .world-window [class*="header-info"],
+html.__ROOT__ .world-window [class*="data-info"],
+html.__ROOT__ .world-window [class*="date-info"] {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .world-window .ni-input,
+html.__ROOT__ .world-window .search-wrapper {
+  background:#061827!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .world-window .button,
+html.__ROOT__ .world-window .menu > .bck,
+html.__ROOT__ .world-window .menu-option {
+  background:#07172b var(--tg-control) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .world-window table {
+  background:rgba(4,21,38,.90)!important;
+  color:var(--tg-text)!important;
+  border-collapse:collapse!important;
+}
+html.__ROOT__ .world-window th {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+html.__ROOT__ .world-window td {
+  background:rgba(5,28,48,.86)!important;
+  color:var(--tg-text)!important;
+  border-color:rgba(42,169,199,.58)!important;
+}
+
+/* ---------- Quest Journal / Dziennik zadań ---------- */
+html.__ROOT__ .quests-tab-content-wrapper,
+html.__ROOT__ .left-grouped-list-and-right-description-window,
+html.__ROOT__ .left-grouped-list-and-right-description-window .left-column,
+html.__ROOT__ .left-grouped-list-right-column.right-column,
+html.__ROOT__ .left-grouped-list-right-column .right-scroll,
+html.__ROOT__ .quests-tab-content-wrapper .scroll-pane {
+  background:#07172b var(--tg-panel) center/cover no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+
+/* These are the built-in stretch-background elements responsible for the
+   old wood/paper seams between columns and at the bottom. */
+html.__ROOT__ .quests-tab-content-wrapper .interface-element-middle-3-background-stretch,
+html.__ROOT__ .quests-tab-content-wrapper .interface-element-middle-1-background-stretch,
+html.__ROOT__ .quests-tab-content-wrapper .right-column-background {
+  background:#07172b var(--tg-panel) center/cover no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+}
+
+html.__ROOT__ .quests-tab-content-wrapper .left-grouped-list-right-column-bottom-row-panel,
+html.__ROOT__ .quests-tab-content-wrapper .bottom-row-panel,
+html.__ROOT__ .quests-tab-content-wrapper .interface-element-bottom-bar-background-stretch {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:var(--tg-line)!important;
+}
+
+html.__ROOT__ .quests-tab-content-wrapper .left-column {
+  background-image:linear-gradient(to right, transparent calc(100% - 10px), rgba(0,130,186,.35) calc(100% - 10px)), var(--tg-panel)!important;
+  background-position:center!important;
+  background-size:100% 100%,cover!important;
+}
+
+html.__ROOT__ .quests-tab-content-wrapper .search-in-left-column,
+html.__ROOT__ .quests-tab-content-wrapper .ni-input {
+  background:#061827!important;
+  border-color:var(--tg-line)!important;
+  color:var(--tg-text)!important;
+}
+
+/* quest tabs */
+html.__ROOT__ .quests-tabs .card,
+html.__ROOT__ [class*="quests"] .tabs-nav .card {
+  background:#07172b var(--tg-control) center/100% 100% no-repeat!important;
+  color:var(--tg-text)!important;
+  border-color:var(--tg-line)!important;
+}
+html.__ROOT__ .quests-tabs .card.active,
+html.__ROOT__ [class*="quests"] .tabs-nav .card.active {
+  background-image:var(--tg-control-active)!important;
+  border-color:var(--tg-cyan)!important;
+}
+
+/* ---------- NI seam cleanup ---------- */
+/* Never allow the auto legacy layer to leave white/gray blocks on core NI
+   header and footer primitives. We restore the stable Galaxy/base appearance. */
+html.__ROOT__ .c-window.border-window > .header-label-positioner,
+html.__ROOT__ .c-window.border-window > .header-label-positioner .draggable-window-element {
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+html.__ROOT__ .c-window.border-window > .c-window__bottom-bar {
+  background-color:transparent!important;
+}
+
+html.__ROOT__ .c-window.border-window > .c-window__bottom-bar > .interface-element-bottom-bar-background-stretch {
+  background:#082139 var(--tg-bar-h) center/100% 100% no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+}
+
+/* Clear accidental auto classes visually if they somehow survived on core NI pieces. */
+html.__ROOT__ .header-label-positioner.tg-auto-wood-panel,
+html.__ROOT__ .header-label-positioner.tg-auto-wood-row,
+html.__ROOT__ .header-label.tg-auto-wood-control,
+html.__ROOT__ .left-decor.tg-auto-wood-control,
+html.__ROOT__ .right-decor.tg-auto-wood-control,
+html.__ROOT__ .close-button-corner-decor.tg-auto-wood-panel {
+  background-color:transparent!important;
+  background-image:none!important;
+  border-image:none!important;
+  box-shadow:none!important;
+}
