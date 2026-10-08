@@ -1,0 +1,109 @@
+
+/* Teriash Galaxy v12.0 — bottom bars + skills
+   Loaded last so it wins over the game's legacy sprites.
+*/
+
+/* The actual NI bottom-bar structure found in the current DOM is:
+   .c-window__bottom-bar > .interface-element-bottom-bar-background-stretch
+   The child was still painting the brown sprite over the parent.
+*/
+html.__ROOT__ .c-window__bottom-bar,
+html.__ROOT__ .border-window .c-window__bottom-bar,
+html.__ROOT__ .c-window .bottom-bar,
+html.__ROOT__ .border-window .bottom-bar {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#1aa7cc!important;
+  box-shadow:inset 0 1px 0 rgba(210,250,255,.08)!important;
+}
+
+/* Most important rule: remove/replace the brown stretch sprite itself. */
+html.__ROOT__ .c-window__bottom-bar > .interface-element-bottom-bar-background-stretch,
+html.__ROOT__ .border-window .c-window__bottom-bar > .interface-element-bottom-bar-background-stretch,
+html.__ROOT__ .c-window .interface-element-bottom-bar-background-stretch,
+html.__ROOT__ .border-window .interface-element-bottom-bar-background-stretch {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  box-shadow:none!important;
+}
+
+/* Legacy sprite may also be reintroduced with pseudo-elements. */
+html.__ROOT__ .interface-element-bottom-bar-background-stretch::before,
+html.__ROOT__ .interface-element-bottom-bar-background-stretch::after,
+html.__ROOT__ .c-window__bottom-bar::before,
+html.__ROOT__ .c-window__bottom-bar::after {
+  background-image:none!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  box-shadow:none!important;
+}
+
+/* JS tags the real main skills window after checking several text markers. */
+html.__ROOT__ .tg120-skills-window {
+  background-color:#07172b!important;
+}
+
+/* "Lista umiejętności" strip */
+html.__ROOT__ .tg120-skills-list-title {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#1aa7cc!important;
+  box-shadow:inset 0 1px 0 rgba(210,250,255,.08),
+             inset 0 -1px 0 rgba(0,0,0,.35)!important;
+  color:#eafcff!important;
+}
+
+html.__ROOT__ .tg120-skills-list-title > *:not(img):not(canvas):not(svg) {
+  background-color:transparent!important;
+  background-image:none!important;
+  color:inherit!important;
+}
+
+/* Main skills footer ("MISTRZOSTWO WALKI" / Reset punktów). */
+html.__ROOT__ .tg120-skills-footer {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#1aa7cc!important;
+  box-shadow:inset 0 1px 0 rgba(210,250,255,.08)!important;
+  color:#eafcff!important;
+}
+
+/* Any nested legacy stretch sprite inside the detected footer/title. */
+html.__ROOT__ .tg120-skills-footer .interface-element-bottom-bar-background-stretch,
+html.__ROOT__ .tg120-skills-list-title .interface-element-bottom-bar-background-stretch {
+  background:transparent!important;
+  background-image:none!important;
+}
+
+/* Narrow brown separators found ONLY inside the positively identified skills window. */
+html.__ROOT__ .tg120-skills-separator {
+  background-color:#081d34!important;
+  background-image:var(--tg-bar-h)!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  background-repeat:no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#1aa7cc!important;
+  box-shadow:none!important;
+}
