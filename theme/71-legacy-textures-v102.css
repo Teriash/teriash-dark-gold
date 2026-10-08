@@ -1,0 +1,66 @@
+
+/* Teriash Galaxy v10.2 - galaxy bar replacer */
+html.__ROOT__ .tdg102-h {
+  background-color:#082139!important;
+  background-image:url("__RAW__/assets/clan/frame-h-v98.png?v=102")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+html.__ROOT__ .tdg102-v {
+  background-color:#082139!important;
+  background-image:url("__RAW__/assets/clan/frame-v-v98.png?v=102")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+html.__ROOT__ .tdg102-panel {
+  background:#07172b url("__RAW__/assets/clan/surface-v98.png?v=102") center/cover no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#238eaa!important;
+  box-shadow:none!important;
+}
+html.__ROOT__ .tdg102-no-before::before,
+html.__ROOT__ .tdg102-no-after::after {
+  background:none!important;
+  background-image:none!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  box-shadow:none!important;
+}
+/* If v10.1 removed the wood and left blank rails, force our galaxy bars. */
+html.__ROOT__ #clanbox .tdg102-h,
+html.__ROOT__ #clanbox .clan-recruit-header-option,
+html.__ROOT__ #clanbox .clan-recruit-header-atribute,
+html.__ROOT__ #clanbox .clan-recruit-header-0,
+html.__ROOT__ #clanbox .clan-recruit-header-1,
+html.__ROOT__ #clanbox .clan-recruit-header-2,
+html.__ROOT__ #clanbox .clan-list-find-header,
+html.__ROOT__ #clanbox .quest-content-header,
+html.__ROOT__ #clanbox .clan-skill-main-header,
+html.__ROOT__ #clanbox .clan-skill-header,
+html.__ROOT__ #clanbox .bless-main-header,
+html.__ROOT__ #clanbox .bless-header,
+html.__ROOT__ #clanbox [class*="header"]:not(.header-label):not(.cards-header):not(.cards-header-wrapper) {
+  background:#082139 url("__RAW__/assets/clan/frame-h-v98.png?v=102") center/100% 100% no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#2aa4c1!important;
+}
+html.__ROOT__ #clanbox .tdg102-v,
+html.__ROOT__ #clanbox [class*="separator"],
+html.__ROOT__ #clanbox [class*="side"],
+html.__ROOT__ #clanbox [class*="edge"],
+html.__ROOT__ #clanbox [class*="vertical"] {
+  border-image:none!important;
+  border-image-source:none!important;
+}

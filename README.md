@@ -1,33 +1,17 @@
-# Teriash Galaxy v10.1 — Hard Legacy Texture Remover
+# Teriash Galaxy v10.2 — Galaxy Bar Replacer
 
-W v10.0 log pokazał `TDG global wood replacements v10.0: 0`.
-To oznaczało, że poprzedni skaner nie trafiał w mechanizm, którym gra rysuje te belki.
+v10.1 usuwał drewniane belki, ale w części miejsc zostawiał po nich puste / jasne pola.
 
-v10.1 sprawdza dodatkowo:
-- `border-image-source`,
-- `border-image`,
-- `background-image`,
-- pseudo-elementy `::before` / `::after`,
-- cienkie strukturalne `<img>`.
+v10.2 robi drugi krok:
+- wykrywa cienkie poziome i pionowe paski po usunięciu starej tekstury,
+- podmienia je na galaxy `frame-h-v98.png` i `frame-v-v98.png`,
+- dodatkowo wymusza galaxy na znanych belkach klanu,
+- potrafi zamienić jasne/neutralne pozostałości po starych belkach,
+- nadal zostawia w spokoju tabelki, itemy, sloty i normalną treść.
 
-Najważniejsza zmiana:
-każdy obcy `border-image` w obsługiwanych oknach jest usuwany,
-a cienkie poziome/pionowe elementy z obcą grafiką są zastępowane Galaxy
-bez wymagania konkretnej nazwy klasy.
+Nowe pliki:
+- `theme/71-legacy-textures-v102.css`
+- `extensions/legacy-textures-v102.js`
 
-Zakres:
-- klan,
-- wszystkie `.c-window` / `.border-window`,
-- chat / lewa kolumna,
-- prawy panel,
-- dynamicznie tworzone okna.
-
-Nowe moduły:
-- `theme/70-legacy-textures-v101.css`
-- `extensions/legacy-textures-v101.js`
-- `assets/global/legacy-h-v101.png`
-- `assets/global/legacy-v-v101.png`
-- `assets/global/legacy-panel-v101.png`
-
-Log:
-`TDG legacy replacements v10.1 { borderImage: X, h: X, v: X, panel: X, img: X }`
+Log w konsoli:
+`TDG galaxy replacements v10.2 { borderImage, h, v, panel, img, forceH, forceV }`
