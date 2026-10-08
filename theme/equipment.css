@@ -1,51 +1,21 @@
-/* PRAWY PANEL - jedno ciągłe tło na całą wysokość */
+/* v8.5: główne tło prawego panelu jest wymuszane także lokalnie w userscripcie */
 html.__ROOT__ .right-column.main-column {
-  background-color:#071221!important;
-  background-image:url("__RAW__/assets/equipment/right-panel-full.png?v=__CACHE__")!important;
-  background-repeat:no-repeat!important;
-  background-position:center center!important;
-  background-size:cover!important;
-  box-shadow:inset 2px 0 #028d87,inset 4px 0 rgba(118,236,245,.14)!important;
+  background:#06111f url("__RAW__/assets/equipment/right-panel-v85.png?v=85") center/100% 100% no-repeat!important;
 }
-
-/* Usuń własne kafelkowane tła wewnętrznych wrapperów */
 html.__ROOT__ .right-column.main-column > .inner-wrapper,
-html.__ROOT__ .right-main-column-wrapper,
-html.__ROOT__ .right-main-column-wrapper > .bottom-wrapper,
-html.__ROOT__ .equipment-wrapper,
-html.__ROOT__ .interface-element-equipment,
-html.__ROOT__ .stats-section {
-  background-color:transparent!important;
-  background-image:none!important;
+html.__ROOT__ .right-column.main-column .right-main-column-wrapper,
+html.__ROOT__ .right-column.main-column .right-main-column-wrapper > .bottom-wrapper,
+html.__ROOT__ .right-column.main-column .equipment-wrapper,
+html.__ROOT__ .right-column.main-column .interface-element-equipment,
+html.__ROOT__ .right-column.main-column .stats-section {
+  background-color:transparent!important;background-image:none!important;
 }
-
-/* Ekwipunek/statystyki mogą mieć tylko delikatne lokalne przyciemnienie */
-html.__ROOT__ .equipment-wrapper,
-html.__ROOT__ .stats-section {
-  box-shadow:inset 0 0 28px rgba(0,8,20,.10)!important;
+html.__ROOT__ .right-column.main-column > .border,
+html.__ROOT__ .right-column.main-column .extended-stats > .border {
+  background:none!important;border:0!important;box-shadow:none!important;opacity:0!important;
 }
-
-/* Sloty */
-html.__ROOT__ .eq-slot,
-html.__ROOT__ .interface-element-one-item-slot-background-to-repeat,
-html.__ROOT__ .interface-element-one-item-slot-2,
-html.__ROOT__ .skill-usable-slot {
+html.__ROOT__ .right-column.main-column .eq-slot,
+html.__ROOT__ .right-column.main-column .interface-element-one-item-slot-background-to-repeat {
   background-image:url("__RAW__/assets/equipment/slot.png?v=__CACHE__")!important;
-  background-repeat:no-repeat!important;
-  background-position:center!important;
-  background-size:100% 100%!important;
-}
-
-html.__ROOT__ .stats-section .label {
-  color:#8fe7ef!important;
-}
-html.__ROOT__ .stats-section .value {
-  color:#d8f8ff!important;
-  text-shadow:0 1px 2px #000!important;
-}
-
-html.__ROOT__ .button.green .background,
-html.__ROOT__ .background-blue,
-html.__ROOT__ .background-gold {
-  filter:hue-rotate(145deg) saturate(1.2) brightness(.95)!important;
+  background-repeat:no-repeat!important;background-position:center!important;background-size:100% 100%!important;
 }
