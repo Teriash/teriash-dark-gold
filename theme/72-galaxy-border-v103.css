@@ -1,0 +1,47 @@
+
+/* Teriash Galaxy v10.3 — replace removed legacy borders with our Galaxy border */
+
+html.__ROOT__ .tdg103-galaxy-border {
+  border-style:solid!important;
+  border-color:transparent!important;
+  border-image-source:url("__RAW__/assets/global/galaxy-border-v103.png?v=103")!important;
+  border-image-slice:28!important;
+  border-image-width:1!important;
+  border-image-outset:0!important;
+  border-image-repeat:stretch!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tdg103-h {
+  background:#082139 url("__RAW__/assets/global/galaxy-h-v103.png?v=103") center/100% 100% no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tdg103-v {
+  background:#082139 url("__RAW__/assets/global/galaxy-v-v103.png?v=103") center/100% 100% no-repeat!important;
+  border-image:none!important;
+  border-image-source:none!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+
+/* Elements that v10.1 marked after stripping the old border-image get the Galaxy frame. */
+html.__ROOT__ .tdg101-no-border-image.tdg103-galaxy-border {
+  border-color:transparent!important;
+}
+
+/* Known large window shells */
+html.__ROOT__ .clan.tdg103-galaxy-border,
+html.__ROOT__ .c-window.tdg103-galaxy-border,
+html.__ROOT__ .border-window.tdg103-galaxy-border {
+  border-image-source:url("__RAW__/assets/global/galaxy-border-v103.png?v=103")!important;
+}
+
+/* Blank/light rails left after v10.1 */
+html.__ROOT__ .tdg103-blank-h,
+html.__ROOT__ .tdg103-blank-v {
+  background-color:#082139!important;
+}

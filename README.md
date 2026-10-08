@@ -1,17 +1,24 @@
-# Teriash Galaxy v10.2 — Galaxy Bar Replacer
+# Teriash Galaxy v10.3 — Galaxy Border Replacer
 
-v10.1 usuwał drewniane belki, ale w części miejsc zostawiał po nich puste / jasne pola.
+v10.1 prawidłowo usuwał drewniane `border-image`, ale po ich zdjęciu
+w części miejsc zostawały jasne / białe pasy.
 
-v10.2 robi drugi krok:
-- wykrywa cienkie poziome i pionowe paski po usunięciu starej tekstury,
-- podmienia je na galaxy `frame-h-v98.png` i `frame-v-v98.png`,
-- dodatkowo wymusza galaxy na znanych belkach klanu,
-- potrafi zamienić jasne/neutralne pozostałości po starych belkach,
-- nadal zostawia w spokoju tabelki, itemy, sloty i normalną treść.
+v10.3 robi to właściwiej:
+
+- elementy oznaczone przez v10.1 jako `tdg101-no-border-image`
+  dostają nowy GALAXY `border-image`,
+- duże ramy korzystają z 9-slice `galaxy-border-v103.png`,
+- cienkie poziome/pionowe elementy dostają Galaxy bars,
+- jasne pozostałości po usuniętym drewnie są wykrywane i podmieniane,
+- shell klanu (`.clan`, `#clanmenu`, `#clanbox`) może dostać Galaxy border
+  bez zasłaniania zawartości.
 
 Nowe pliki:
-- `theme/71-legacy-textures-v102.css`
-- `extensions/legacy-textures-v102.js`
+- `assets/global/galaxy-border-v103.png`
+- `assets/global/galaxy-h-v103.png`
+- `assets/global/galaxy-v-v103.png`
+- `theme/72-galaxy-border-v103.css`
+- `extensions/galaxy-border-v103.js`
 
-Log w konsoli:
-`TDG galaxy replacements v10.2 { borderImage, h, v, panel, img, forceH, forceV }`
+Log:
+`TDG galaxy borders v10.3 { border, h, v, blankH, blankV, forceH }`
