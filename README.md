@@ -1,11 +1,19 @@
-# Teriash Galaxy v13.0 — Empty Slots
+# Teriash Galaxy v13.1 — Safe Empty Slots
 
-v12.9 stylował tylko istniejące/zajęte sloty.
-W wielu torbach/sklepach/depo puste pola nie mają osobnych elementów DOM.
+Rollback do stabilnej v12.9.
 
-v13.0 zachowuje wygląd zajętych slotów z v12.9, a dodatkowo:
-- wykrywa właściwy mały kontener itemów,
-- rysuje ten sam quickbarowy kwadrat w pustych komórkach,
-- nie maluje całego okna ani całego panelu.
+v13.0 zmieniał tło wykrytego kontenera i dodatkowo dodawał
+`position: relative` do itemów. To mogło rozjechać układ.
 
-Log: `TDG empty slot grids v13.0:`
+v13.1 NIE modyfikuje żadnego panelu gry.
+
+Puste sloty są tworzone jako osobne `position: fixed` overlaye:
+- tylko w wykrytym, małym kontenerze itemów,
+- tylko jeśli jego szerokość i wysokość pasują do rasteru ~33 px,
+- zajęte komórki są pomijane,
+- overlay nie wpływa na layout (`pointer-events:none`).
+
+Zajęte sloty nadal korzystają dokładnie ze stylu v12.9.
+
+Log:
+`TDG SAFE empty slots v13.1: [...]`
