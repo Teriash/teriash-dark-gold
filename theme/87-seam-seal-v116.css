@@ -1,0 +1,90 @@
+
+/* Teriash Galaxy v11.6 — Seam Seal
+   Purpose: fill transparent seams/gaps without changing layout.
+   No position/width/height/display rules.
+*/
+
+/* The clan root itself can safely have a background.
+   Earlier stretching came from position/layout overrides, not background painting. */
+html.__ROOT__ .clan {
+  background-color:#06111f!important;
+  background-image:var(--tg-panel)!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-clip:border-box!important;
+}
+
+/* Make the two main clan columns opaque all the way to their existing boxes. */
+html.__ROOT__ #clanmenu,
+html.__ROOT__ #clanbox {
+  background-color:#07172b!important;
+  background-clip:border-box!important;
+}
+
+/* Fill tiny transparent seams between legacy layers.
+   Spread shadows do not alter geometry; they only paint a few pixels outside. */
+html.__ROOT__ #clanmenu {
+  box-shadow:
+    0 0 0 3px #07172b,
+    inset -1px 0 0 rgba(118,236,245,.18)!important;
+}
+
+html.__ROOT__ #clanbox {
+  box-shadow:
+    0 0 0 3px #07172b,
+    inset 1px 0 0 rgba(118,236,245,.12)!important;
+}
+
+/* These wrappers sometimes stay transparent and reveal the map below. */
+html.__ROOT__ #clanbox .scroll-wrapper,
+html.__ROOT__ #clanbox .scroll-pane,
+html.__ROOT__ #clanbox .background-wrapper,
+html.__ROOT__ #clanbox .recruit-section,
+html.__ROOT__ #clanbox .section-recruit-main,
+html.__ROOT__ #clanbox .clan-members-content,
+html.__ROOT__ #clanbox .clan-list-content,
+html.__ROOT__ #clanbox .clan-priv-page,
+html.__ROOT__ #clanbox .clan-official-page,
+html.__ROOT__ #clanbox .history,
+html.__ROOT__ #clanbox .treasury,
+html.__ROOT__ #clanbox .clan-edit-content,
+html.__ROOT__ #clanbox .player-edit-pane,
+html.__ROOT__ #clanbox .clan-list-find-panel,
+html.__ROOT__ #clanbox .clan-list-atributes,
+html.__ROOT__ #clanbox .clan-list-find-content,
+html.__ROOT__ #clanbox .clan-skills-content,
+html.__ROOT__ #clanbox .clan-bless-content,
+html.__ROOT__ #clanbox .clan-quests-content {
+  background-color:#07172b!important;
+  background-image:var(--tg-panel)!important;
+  background-position:center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-clip:border-box!important;
+}
+
+/* Paint over thin transparent legacy gutters without modifying size. */
+html.__ROOT__ #clanmenu > .boxhover,
+html.__ROOT__ #clanbox > .background-wrapper,
+html.__ROOT__ #clanbox > .scroll-wrapper,
+html.__ROOT__ #clanbox > .scroll-pane {
+  outline:2px solid #07172b!important;
+  outline-offset:0!important;
+}
+
+/* Avoid pale/yellow legacy divider remnants. */
+html.__ROOT__ #clanmenu,
+html.__ROOT__ #clanbox,
+html.__ROOT__ #clanbox .background-wrapper {
+  border-left-color:#1686a5!important;
+  border-right-color:#1686a5!important;
+}
+
+/* Keep the existing Galaxy menu and content borders crisp on top of the seal. */
+html.__ROOT__ #clanmenu li,
+html.__ROOT__ #clanbox .card,
+html.__ROOT__ #clanbox th,
+html.__ROOT__ #clanbox td {
+  background-clip:padding-box!important;
+}

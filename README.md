@@ -1,22 +1,24 @@
-# Teriash Galaxy v11.5 — Rollback Improved
+# Teriash Galaxy v11.6 — Seam Seal
 
-Ta wersja jest cofnięta do szerokiego mechanizmu z v11.2, bo on zmieniał
-najwięcej elementów i wizualnie był najbliżej celu.
+Bazą jest v11.5, bo ona zmienia już praktycznie cały interfejs.
 
-Nie używa ograniczonego skanera z v11.3/v11.4.
+v11.6 NIE przebudowuje wyglądu od nowa. Naprawia tylko prześwity i szczeliny.
 
-Poprawka względem czystej v11.2:
-- zachowuje szerokie podmienianie drewna/papieru/zielonych legacy paneli,
-- wyklucza tylko techniczne elementy konstrukcyjne NI, które tworzyły dziury
-  i wielkie artefakty (`header-label`, `border-image`, bottom bar, close decor itd.),
-- przed każdym przebiegiem usuwa ewentualne stare `tg-auto-wood-*` z tych
-  frameworkowych elementów,
-- nie zmienia position/width/height/display.
+## Co robi
+- nadaje `.clan` pełne Galaxy tło, aby mapa nie prześwitywała przez puste miejsca,
+- uszczelnia `#clanmenu` i `#clanbox`,
+- wypełnia transparentne wrappery wewnątrz klanu,
+- przykrywa 1–3 px szczeliny przez `box-shadow` / `outline`,
+- neutralizuje jasne/żółte resztki separatorów.
 
-Moduły:
-- `extensions/safe-wood-override-v115.js`
-- `theme/86-rollback-safety-v115.css`
+## Czego NIE robi
+- nie zmienia `position`,
+- nie zmienia `width` / `height`,
+- nie zmienia `display`,
+- nie przesuwa żadnego okna.
 
-Logi:
-- `TDG rollback wood override v11.5 LOADED`
-- `TDG rollback wood override v11.5 { ... }`
+Nowy plik:
+`theme/87-seam-seal-v116.css`
+
+W Tampermonkey nadal instalujesz tylko:
+`teriash-dark-gold.user.js`
