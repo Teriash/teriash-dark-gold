@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Teriash Galaxy v8.7 Clan Complete
+// @name         Teriash Galaxy v8.8 Clan Total Reskin
 // @namespace    https://github.com/Teriash/teriash-dark-gold
-// @version      8.7.0
+// @version      8.8.0
 // @description  Modułowy Dark Gold dla Margonem NI - architektura rozszerzeń.
 // @author       Teriash
 // @match        https://*.margonem.pl/*
@@ -55,7 +55,25 @@
       const skip = /icon|outfit|avatar|logo|character|sprite|picture|item-id|inventory|cl_logo/i;
 
       function markLegacySurfaces() {
-        document.querySelectorAll("body *").forEach(el => {
+        const root = document.querySelector(".clan") || document.body;
+        const skip = /icon|outfit|avatar|logo|character|sprite|picture|item-id|inventory|cl_logo|skill-icon|quest-bring-item/i;
+
+        function parseRgb(value) {
+          const m = String(value || "").match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+          return m ? [Number(m[1]), Number(m[2]), Number(m[3])] : null;
+        }
+
+        function legacyColor(rgb) {
+          if (!rgb) return false;
+          const [r,g,b] = rgb;
+          const green = g > r * 1.22 && g > b * 1.05 && g > 35 && r < 90;
+          const brown = r > b * 1.35 && g > b * 1.25 && r > 45 && g > 25 && b < 65;
+          const gray = Math.max(r,g,b) - Math.min(r,g,b) < 22 && r < 125 && r > 18;
+          const beige = r > 150 && g > 120 && b < 130;
+          return green || brown || gray || beige;
+        }
+
+        root.querySelectorAll("*").forEach(el => {
           const key = `${el.id || ""} ${typeof el.className === "string" ? el.className : ""}`;
           if (skip.test(key)) return;
 
@@ -63,22 +81,36 @@
           if (rect.width < 8 || rect.height < 8) return;
 
           const cs = getComputedStyle(el);
-          const bg = cs.backgroundImage;
-          if (!bg || bg === "none") return;
+          const bgImg = cs.backgroundImage;
+          const bgColor = parseRgb(cs.backgroundColor);
+          const structural = rect.width * rect.height > 900;
+          const hasLegacyImage = bgImg && bgImg !== "none";
+          const hasLegacyColor = legacyColor(bgColor);
 
-          // Only structural surfaces; do not touch character/item imagery.
-          if (rect.width > 100 && rect.height > 18) {
-            el.classList.add("tdg-guild-surface");
+          if (!structural || (!hasLegacyImage && !hasLegacyColor)) return;
+
+          const isButton = /card|menu|button|btn|item-menu/i.test(key) || (rect.height <= 75 && rect.width >= 80 && rect.width <= 500);
+          if (isButton) {
+            el.classList.add("tdg88-button");
+          } else if (rect.width > 150 && rect.height <= 90) {
+            el.classList.add("tdg88-horizontal");
+          } else if (rect.height > 150 && rect.width <= 130) {
+            el.classList.add("tdg88-vertical");
+          } else {
+            el.classList.add("tdg88-surface");
           }
 
-          if ((rect.width > 140 && rect.height <= 80) ||
-              (rect.height > 140 && rect.width <= 80)) {
-            el.classList.add("tdg-guild-framepiece");
-            if (rect.height > rect.width * 2) {
-              el.classList.add("tdg-guild-vertical");
-            }
+          const before = getComputedStyle(el, "::before");
+          const after = getComputedStyle(el, "::after");
+          if (before && before.backgroundImage && before.backgroundImage !== "none") {
+            el.classList.add("tdg88-pseudo-before");
+          }
+          if (after && after.backgroundImage && after.backgroundImage !== "none") {
+            el.classList.add("tdg88-pseudo-after");
           }
         });
+
+        document.documentElement.dataset.tdgGuildScan = "8.8";
       }
 
       markLegacySurfaces();
@@ -91,7 +123,7 @@
         setTimeout(markLegacySurfaces, 350);
       }, true);
 
-      console.log("%cTDG guild iframe v8.7 ACTIVE", "color:#76ecf5;font-weight:bold");
+      console.log("%cTDG guild iframe v8.8 ACTIVE", "color:#76ecf5;font-weight:bold");
     } catch (e) {
       console.error("[TDG guild iframe]", e);
     }
@@ -124,7 +156,7 @@
   ];
 
   window.__TDG = {
-    version: "8.7.0",
+    version: "8.8.0",
     root: ROOT,
     raw: RAW,
     cache: CACHE,
@@ -367,7 +399,7 @@ html.${ROOT} .border-window .content [aria-selected="true"] {
     }
     installPanelFixV85();
     installWindowReskinV86();
-    console.log("%cTeriash Galaxy v8.7 Clan Complete", "color:#e8c66b;font-weight:700", "loaded");
+    console.log("%cTeriash Galaxy v8.8 Clan Total Reskin", "color:#e8c66b;font-weight:700", "loaded");
   } catch (e) {
     console.error("[TDG] loader error", e);
   }

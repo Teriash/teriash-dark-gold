@@ -1,30 +1,22 @@
-# Teriash Galaxy v8.7 Clan Complete
+# Teriash Galaxy v8.8 Clan Total Reskin
 
-Ta wersja naprawia problem widoczny na screenie z oknem **Klany**.
+Ta wersja jest zrobiona dokładnie pod elementy, które nadal były stare na screenie.
 
-Kluczowa zmiana:
-okno klanu jest ładowane jako osobna strona/iframe z `www.margonem.pl/guilds/...`.
-Poprzednie wersje motywu wykluczały `www.margonem.pl`, więc mogły stylować tylko zewnętrzne
-okno NI, ale nie całe wnętrze klanu.
+Zmiany w widoku Klany:
+- zielone tło `Atrybuty klanu` / rekrutacji -> Galaxy,
+- brązowe poziome separatory -> Galaxy,
+- brązowe pionowe drewniane belki -> Galaxy,
+- szare zakładki `Lista kandydatów / Zaproszenia` -> Galaxy,
+- lewy zielony panel informacji klanu -> wykrywany i podmieniany,
+- stare szare elementy menu -> Galaxy,
+- dokładne klasy `clan-recruit-content`, `background-wrapper`,
+  `one-clan-atribute`, `clan-part-*`, `cards-header-wrapper`,
+  `recruit-section`, tabele kandydatów i członków są teraz stylowane osobno.
 
-v8.7:
-- uruchamia osobny styl bezpośrednio w guild iframe,
-- zmienia drewniane ramy i separatory,
-- zmienia szare przyciski menu,
-- styluje aktywną pozycję menu,
-- styluje tabele klanowiczów, nagłówki, komórki i hover,
-- styluje formularze, przyciski, rekrutację, skarbiec, zarządzanie i dyplomację,
-- ma dodatkowe wykrywanie starych elementów z graficznym tłem i podmienia je na galaxy,
-  bez ruszania outfitów, ikon, logo klanu i grafik postaci.
+Dodatkowo skrypt analizuje wnętrze strony klanu po załadowaniu i oznacza
+pozostałe strukturalne elementy w starych kolorach (zielony/brązowy/szary/beżowy),
+żeby podmienić je na odpowiedni wariant Galaxy. Ikony, outfity, logo klanu
+i grafiki postaci są pomijane.
 
-Nowe pliki:
-- `theme/clan-iframe.css`
-- `assets/clan/clan-bg-v87.png`
-- `assets/clan/clan-panel-v87.png`
-- `assets/clan/clan-menu-v87.png`
-- `assets/clan/clan-menu-active-v87.png`
-- `assets/clan/clan-horizontal-v87.png`
-- `assets/clan/clan-vertical-v87.png`
-
-Po otwarciu Klany w konsoli iframe powinno pojawić się:
-`TDG guild iframe v8.7 ACTIVE`
+W konsoli iframe powinno być:
+`TDG guild iframe v8.8 ACTIVE`

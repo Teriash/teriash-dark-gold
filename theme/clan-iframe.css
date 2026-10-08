@@ -1,72 +1,135 @@
 
-/* Dedicated style for https://www.margonem.pl/guilds/... iframe */
 html, body {
   background:#06111f!important;
   color:#d8f8ff!important;
 }
 
 body {
-  background-image:url("__RAW__/assets/clan/clan-bg-v87.png?v=87")!important;
-  background-repeat:no-repeat!important;
-  background-position:center center!important;
+  background-image:url("__RAW__/assets/clan/surface-v88.png?v=88")!important;
   background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
 }
 
-/* main clan shell / old wood frame replacements */
+/* OUTER CLAN SHELL - remove legacy wooden frame */
 .clan,
 #clan,
-#clanbox,
-.clan-content,
-.clan-main,
 .clan-wrapper,
 .clan-window,
-.clan-page,
-.clan-members-content,
-.clan-list-content,
-.clan-recruit-content,
-.clan-other-recruit-content,
-.clan-priv-page,
-.clan-official-page,
-.history,
-.treasury {
-  background-color:rgba(5,17,34,.94)!important;
-  background-image:url("__RAW__/assets/clan/clan-panel-v87.png?v=87")!important;
-  background-repeat:repeat!important;
+.clan-main,
+.clan-page {
+  background:#061522 url("__RAW__/assets/clan/surface-v88.png?v=88") center/cover no-repeat!important;
+  border:2px solid #238eaa!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(118,236,245,.15),
+    inset 0 0 28px rgba(0,8,20,.30),
+    0 0 10px rgba(0,130,186,.12)!important;
+}
+
+/* The clan content itself */
+#clanbox {
+  background:#07172b url("__RAW__/assets/clan/surface-v88.png?v=88") center/cover no-repeat!important;
   color:#d8f8ff!important;
-  border-color:#208da9!important;
-  box-shadow:inset 0 0 28px rgba(0,8,20,.22)!important;
+  border-color:#238eaa!important;
 }
 
-/* common structural wood pieces identified at runtime */
-.tdg-guild-surface {
-  background-color:#07172b!important;
-  background-image:url("__RAW__/assets/clan/clan-panel-v87.png?v=87")!important;
-  background-repeat:repeat!important;
-  border-color:#218daa!important;
-}
-.tdg-guild-framepiece {
-  background-color:#07172b!important;
-  background-image:url("__RAW__/assets/clan/clan-horizontal-v87.png?v=87")!important;
-  background-repeat:repeat!important;
-  background-size:100% 100%!important;
-  border-color:#32aec9!important;
-}
-
-/* vertical separators */
-.tdg-guild-framepiece.tdg-guild-vertical {
-  background-image:url("__RAW__/assets/clan/clan-vertical-v87.png?v=87")!important;
+/* exact recruitment view classes */
+.clan-recruit-content,
+.clan-recruit-content .recruit-section,
+.clan-recruit-content .scroll-wrapper,
+.clan-recruit-content .scroll-pane,
+.clan-recruit-content .background-wrapper,
+.clan-recruit-content .clan-part-0,
+.clan-recruit-content .clan-part-1,
+.clan-recruit-content .clan-part-2,
+.clan-other-recruit-content,
+.clan-other-recruit-content .background-wrapper {
+  background:#07172b url("__RAW__/assets/clan/surface-v88.png?v=88") center/cover no-repeat!important;
+  color:#d8f8ff!important;
+  border-color:#238eaa!important;
 }
 
-/* menu items */
+/* brown "Atrybuty klanu" bar and other recruitment separators */
+.clan-recruit-header-option,
+.clan-recruit-header-atribute,
+.clan-recruit-header-0,
+.clan-recruit-header-1,
+.clan-recruit-header-2,
+.clan-list-find-header,
+.clan-find-header-0,
+.clan-find-header-1,
+.clan-find-header-2,
+.quest-content-header,
+.clan-skill-main-header,
+.clan-skill-header,
+.bless-main-header,
+.bless-header {
+  background:#082139 url("__RAW__/assets/clan/strip-h-v88.png?v=88") center/100% 100% no-repeat!important;
+  color:#e8fbff!important;
+  border:1px solid #289dbb!important;
+  box-shadow:inset 0 1px rgba(220,248,255,.08)!important;
+}
+
+/* exact recruitment attributes - remove green panel */
+.one-clan-atribute,
+.atribute-name-wrapper,
+.atribute-value-wrapper,
+.invite-to-clan {
+  background:rgba(5,29,49,.88)!important;
+  background-image:none!important;
+  color:#d8f8ff!important;
+  border-color:#248eaa!important;
+}
+.one-clan-atribute:nth-child(even) {
+  background:rgba(6,37,59,.88)!important;
+}
+.atribute-name,
+.atribute-value,
+.label-info {
+  color:#d8f8ff!important;
+}
+
+/* top recruitment cards */
+.clan-recruit-menu,
+.cards-header-wrapper,
+.cards-header,
+.header-background-graphic {
+  background:#061727!important;
+  background-image:none!important;
+  border-color:#279fbd!important;
+}
+
+.clan-recruit-menu .card,
+.cards-header .card,
+.card.card-recruit-main,
+.card.card-recruit-candidate,
+.card.card-recruit-invite {
+  background:#07172b url("__RAW__/assets/clan/menu-v88.png?v=88") center/100% 100% no-repeat!important;
+  color:#d8f8ff!important;
+  border:1px solid #248faa!important;
+  box-shadow:inset 0 1px rgba(220,248,255,.06)!important;
+}
+
+.clan-recruit-menu .card.active,
+.cards-header .card.active,
+.card.card-recruit-main.active,
+.card.card-recruit-candidate.active,
+.card.card-recruit-invite.active {
+  background-image:url("__RAW__/assets/clan/menu-active-v88.png?v=88")!important;
+  border-color:#76ecf5!important;
+  color:#f2fdff!important;
+  box-shadow:inset 0 0 14px rgba(118,236,245,.22),0 0 7px rgba(118,236,245,.10)!important;
+}
+
+/* left menu items - exact IDs/names known from client */
 [id^="clan-"][id$="-item-menu"],
 [name^="clan-"][name$="-item-menu"],
 .clan-menu-item,
 .clan-menu .item,
 .clan .menu-item {
-  background:#07172b url("__RAW__/assets/clan/clan-menu-v87.png?v=87") center/100% 100% no-repeat!important;
+  background:#07172b url("__RAW__/assets/clan/menu-v88.png?v=88") center/100% 100% no-repeat!important;
   color:#d8f8ff!important;
-  border:1px solid #228eaa!important;
-  box-shadow:inset 0 1px rgba(220,248,255,.07)!important;
+  border:1px solid #248faa!important;
 }
 
 [id^="clan-"][id$="-item-menu"].active,
@@ -76,30 +139,90 @@ body {
 .clan .menu-item.active,
 [id^="clan-"][id$="-item-menu"]:hover,
 [name^="clan-"][name$="-item-menu"]:hover {
-  background-image:url("__RAW__/assets/clan/clan-menu-active-v87.png?v=87")!important;
+  background-image:url("__RAW__/assets/clan/menu-active-v88.png?v=88")!important;
   border-color:#76ecf5!important;
   color:#f2fdff!important;
-  box-shadow:inset 0 0 12px rgba(118,236,245,.22),0 0 6px rgba(118,236,245,.10)!important;
 }
 
-/* old SI buttons, including "Wizytówka klanowa" */
+/* members/list/recruit tables */
+.clan-members-content,
+.clan-list-content,
+.clan-members-content .scroll-wrapper,
+.clan-members-content .scroll-pane,
+.clan-list-content .scroll-wrapper,
+.clan-list-content .scroll-pane,
+.section-recruit-candidate,
+.section-recruit-invite {
+  background:transparent!important;
+}
+
+.clan-members-table,
+.clan-list-table,
+.recruit-candidate-table,
+.recruit-invite-table,
+.members,
+.rankstable,
+.player-edit-table {
+  width:100%;
+  border-collapse:collapse!important;
+  background:rgba(4,21,38,.82)!important;
+  color:#d8f8ff!important;
+  border:1px solid #218fab!important;
+}
+
+.clan-members-table th,
+.clan-list-table th,
+.recruit-candidate-table th,
+.recruit-invite-table th,
+.members th,
+.rankstable th,
+.player-edit-table th,
+.table-header > * {
+  background:#08243c!important;
+  background-image:linear-gradient(180deg,#0a3b58,#07233a)!important;
+  color:#e6fbff!important;
+  border:1px solid #24a2c2!important;
+}
+
+.clan-members-table td,
+.clan-list-table td,
+.recruit-candidate-table td,
+.recruit-invite-table td,
+.members td,
+.rankstable td,
+.player-edit-table td,
+.normal-td > * {
+  background:rgba(5,28,48,.82)!important;
+  color:#d8f8ff!important;
+  border:1px solid #218ba8!important;
+}
+
+.clan-members-table tr:nth-child(even) td,
+.clan-list-table tr:nth-child(even) td,
+.recruit-candidate-table tr:nth-child(even) td,
+.recruit-invite-table tr:nth-child(even) td,
+.members tr:nth-child(even) td {
+  background:rgba(6,36,58,.86)!important;
+}
+
+/* all old SI buttons, including business card */
 .btn.SI-button,
 .big-button,
 button,
 input[type="button"],
 input[type="submit"] {
-  background:#07172b url("__RAW__/assets/clan/clan-menu-v87.png?v=87") center/100% 100% no-repeat!important;
+  background:#07172b url("__RAW__/assets/clan/menu-v88.png?v=88") center/100% 100% no-repeat!important;
   color:#e8fbff!important;
   border:1px solid #2aa9c7!important;
   border-radius:6px!important;
-  box-shadow:inset 0 1px rgba(220,248,255,.08)!important;
+  box-shadow:inset 0 1px rgba(220,248,255,.07)!important;
 }
 .btn.SI-button:hover,
 .big-button:hover,
 button:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
-  background-image:url("__RAW__/assets/clan/clan-menu-active-v87.png?v=87")!important;
+  background-image:url("__RAW__/assets/clan/menu-active-v88.png?v=88")!important;
   border-color:#76ecf5!important;
 }
 .btn.SI-button > .left,
@@ -113,112 +236,80 @@ input[type="submit"]:hover {
   color:#e8fbff!important;
 }
 
-/* members table */
-.clan-members-content,
-.clan-members-content .scroll-wrapper,
-.clan-members-content .scroll-pane,
-.clan-list-content .scroll-wrapper,
-.clan-list-content .scroll-pane {
-  background:transparent!important;
-}
-
-.clan-members-table,
-.clan-list-table,
-.members,
-.rankstable {
-  width:100%;
-  border-collapse:collapse!important;
-  background:rgba(4,21,38,.78)!important;
-  color:#d8f8ff!important;
-  border:1px solid #218fab!important;
-}
-
-.clan-members-table th,
-.clan-list-table th,
-.members th,
-.rankstable th {
-  background:linear-gradient(180deg,#0a3854,#08243c)!important;
-  color:#dffaff!important;
-  border:1px solid #24a2c2!important;
-  box-shadow:inset 0 1px rgba(220,248,255,.07)!important;
-}
-
-.clan-members-table td,
-.clan-list-table td,
-.members td,
-.rankstable td {
-  background:rgba(5,28,48,.78)!important;
-  color:#d8f8ff!important;
-  border:1px solid #218ba8!important;
-}
-
-.clan-members-table tr:nth-child(even) td,
-.clan-list-table tr:nth-child(even) td,
-.members tr:nth-child(even) td,
-.rankstable tr:nth-child(even) td {
-  background:rgba(6,35,58,.82)!important;
-}
-
-.clan-members-table tr:hover td,
-.clan-list-table tr:hover td,
-.members tr:hover td {
-  background:rgba(9,58,81,.88)!important;
-}
-
-/* member rows created by client */
-.clan-member,
-.char-info,
-.last-visit,
-.player-edit-content,
-.player-edit-table,
-.clan-recruit-content .atribute-value-wrapper,
-.clan-recruit-content .atribute-wrapper,
-.one-clan-quest,
+/* exact legacy surfaces in other clan sections */
+.clan-priv-page,
+.clan-official-page,
+.history,
+.treasury,
+.clan-edit-content,
+.player-edit-pane,
+.clan-list-find-panel,
+.clan-list-atributes,
+.clan-list-find-content,
+.clan-skills-content,
 .clan-bless-content,
-.clan-skills-content {
-  background-color:rgba(5,24,42,.84)!important;
+.clan-quests-content,
+.one-clan-skill,
+.one-clan-quest,
+.quest-content,
+.quest-progress-wrapper,
+.clan-progress-bar,
+.skill-clan-info,
+.skill-clan-buts-wrapper {
+  background:#07172b url("__RAW__/assets/clan/surface-v88.png?v=88") center/cover no-repeat!important;
   color:#d8f8ff!important;
-  border-color:#218ba8!important;
+  border-color:#238eaa!important;
 }
 
-/* inputs/selects/textareas */
+/* forms */
 input,
 select,
 textarea,
 .txt,
-.cl_edit {
+.cl_edit,
+.ni-input input {
   background:#071d31!important;
+  background-image:none!important;
   color:#d8f8ff!important;
   border:1px solid #299fbd!important;
-  outline:none!important;
 }
 input:focus,
 select:focus,
 textarea:focus {
   border-color:#76ecf5!important;
-  box-shadow:0 0 0 1px rgba(118,236,245,.20),0 0 8px rgba(118,236,245,.12)!important;
+  box-shadow:0 0 0 1px rgba(118,236,245,.18),0 0 8px rgba(118,236,245,.10)!important;
 }
 
-/* headings and separator bars */
-h1,h2,h3,h4,
-.clan-skill-header,
-.quest-content-header,
-.bless-main-header,
-.bless-header,
-.clan-recruit-header-option,
-.clan-recruit-header-atribute,
-.clan-list-find-header {
-  background:linear-gradient(180deg,#0a3854,#071c30)!important;
+/* Runtime-detected old pieces */
+.tdg88-surface {
+  background:#07172b url("__RAW__/assets/clan/surface-v88.png?v=88") center/cover no-repeat!important;
+  border-color:#238eaa!important;
+  color:#d8f8ff!important;
+}
+.tdg88-horizontal {
+  background:#082139 url("__RAW__/assets/clan/strip-h-v88.png?v=88") center/100% 100% no-repeat!important;
+  border-color:#2aa4c1!important;
+}
+.tdg88-vertical {
+  background:#082139 url("__RAW__/assets/clan/strip-v-v88.png?v=88") center/100% 100% no-repeat!important;
+  border-color:#2aa4c1!important;
+}
+.tdg88-button {
+  background:#07172b url("__RAW__/assets/clan/menu-v88.png?v=88") center/100% 100% no-repeat!important;
+  border-color:#279fbd!important;
   color:#e8fbff!important;
-  border-color:#2aa9c7!important;
-  text-shadow:0 1px 2px #000!important;
+}
+.tdg88-pseudo-before::before,
+.tdg88-pseudo-after::after {
+  background:none!important;
+  background-image:none!important;
+  border-color:#2aa4c1!important;
 }
 
-/* neutralize obvious legacy inline beige/wood/gray blocks */
-[style*="background-color:beige"],
-[style*="background-color: beige"],
-[style*="background:#"],
-[style*="background: #"] {
+/* replace inline legacy beige/green/brown backgrounds where known */
+#depoUpgradeConfirmBox {
+  background:#071d31!important;
+  color:#d8f8ff!important;
   border-color:#299fbd!important;
 }
 
