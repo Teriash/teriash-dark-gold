@@ -1,0 +1,214 @@
+
+/* Teriash Galaxy Clan v9.8 */
+html.__ROOT__ .clan {
+  background:#061522 url("__RAW__/assets/clan/surface-v98.png?v=95") center/cover no-repeat!important;
+  border-color:#238eaa!important;
+}
+
+html.__ROOT__ #clanmenu,
+html.__ROOT__ #clanmenu > .boxhover {
+  background:#07172b url("__RAW__/assets/clan/surface-v98.png?v=95") center/cover no-repeat!important;
+  border-color:#238eaa!important;
+}
+
+html.__ROOT__ #clanmenu li,
+html.__ROOT__ #clanmenu [id$="-item-menu"],
+html.__ROOT__ #clanmenu [name$="-item-menu"] {
+  background:#07172b url("__RAW__/assets/clan/menu-v98.png?v=95") center/100% 100% no-repeat!important;
+  color:#e8fbff!important;
+  border-color:#248faa!important;
+}
+
+html.__ROOT__ #clanmenu li:hover,
+html.__ROOT__ #clanmenu li.active,
+html.__ROOT__ #clanmenu [id$="-item-menu"].active,
+html.__ROOT__ #clanmenu [name$="-item-menu"].active {
+  background-image:url("__RAW__/assets/clan/menu-active-v98.png?v=95")!important;
+  border-color:#76ecf5!important;
+  color:#f3fdff!important;
+}
+
+html.__ROOT__ #clanbox {
+  background:#07172b url("__RAW__/assets/clan/surface-v98.png?v=95") center/cover no-repeat!important;
+  color:#d8f8ff!important;
+  border-color:#238eaa!important;
+}
+
+html.__ROOT__ #clanbox .clan-recruit-content,
+html.__ROOT__ #clanbox .recruit-section,
+html.__ROOT__ #clanbox .scroll-wrapper,
+html.__ROOT__ #clanbox .scroll-pane,
+html.__ROOT__ #clanbox .background-wrapper,
+html.__ROOT__ #clanbox .section-recruit-main,
+html.__ROOT__ #clanbox .clan-part-0,
+html.__ROOT__ #clanbox .clan-part-1,
+html.__ROOT__ #clanbox .clan-part-2,
+html.__ROOT__ #clanbox .clan-members-content,
+html.__ROOT__ #clanbox .clan-list-content,
+html.__ROOT__ #clanbox .clan-priv-page,
+html.__ROOT__ #clanbox .clan-official-page,
+html.__ROOT__ #clanbox .history,
+html.__ROOT__ #clanbox .treasury,
+html.__ROOT__ #clanbox .clan-edit-content,
+html.__ROOT__ #clanbox .player-edit-pane,
+html.__ROOT__ #clanbox .clan-list-find-panel,
+html.__ROOT__ #clanbox .clan-list-atributes,
+html.__ROOT__ #clanbox .clan-list-find-content,
+html.__ROOT__ #clanbox .clan-skills-content,
+html.__ROOT__ #clanbox .clan-bless-content,
+html.__ROOT__ #clanbox .clan-quests-content,
+html.__ROOT__ #clanbox .one-clan-skill,
+html.__ROOT__ #clanbox .one-clan-quest {
+  background:#07172b url("__RAW__/assets/clan/surface-v98.png?v=95") center/cover no-repeat!important;
+  color:#d8f8ff!important;
+  border-color:#238eaa!important;
+}
+
+html.__ROOT__ #clanbox .one-clan-atribute,
+html.__ROOT__ #clanbox .one-clan-atribute > *,
+html.__ROOT__ #clanbox .atribute-name-wrapper,
+html.__ROOT__ #clanbox .atribute-value-wrapper,
+html.__ROOT__ #clanbox .invite-to-clan {
+  background-color:rgba(5,29,49,.94)!important;
+  background-image:none!important;
+  color:#d8f8ff!important;
+  border-color:#248eaa!important;
+}
+
+html.__ROOT__ #clanbox .clan-recruit-header-option,
+html.__ROOT__ #clanbox .clan-recruit-header-atribute,
+html.__ROOT__ #clanbox .clan-recruit-header-0,
+html.__ROOT__ #clanbox .clan-recruit-header-1,
+html.__ROOT__ #clanbox .clan-recruit-header-2,
+html.__ROOT__ #clanbox .clan-list-find-header,
+html.__ROOT__ #clanbox .quest-content-header,
+html.__ROOT__ #clanbox .clan-skill-main-header,
+html.__ROOT__ #clanbox .clan-skill-header,
+html.__ROOT__ #clanbox .bless-main-header,
+html.__ROOT__ #clanbox .bless-header {
+  background:#082139 url("__RAW__/assets/clan/strip-h-v98.png?v=95") center/100% 100% no-repeat!important;
+  color:#e8fbff!important;
+  border-color:#2aa4c1!important;
+}
+
+html.__ROOT__ #clanbox .clan-recruit-menu,
+html.__ROOT__ #clanbox .cards-header-wrapper,
+html.__ROOT__ #clanbox .cards-header,
+html.__ROOT__ #clanbox .header-background-graphic {
+  background:#061727!important;
+  background-image:none!important;
+  border-color:#279fbd!important;
+}
+
+html.__ROOT__ #clanbox .clan-recruit-menu .card,
+html.__ROOT__ #clanbox .cards-header .card {
+  background:#07172b url("__RAW__/assets/clan/menu-v98.png?v=95") center/100% 100% no-repeat!important;
+  color:#d8f8ff!important;
+  border-color:#248faa!important;
+}
+
+html.__ROOT__ #clanbox .clan-recruit-menu .card.active,
+html.__ROOT__ #clanbox .cards-header .card.active {
+  background-image:url("__RAW__/assets/clan/menu-active-v98.png?v=95")!important;
+  border-color:#76ecf5!important;
+  color:#f3fdff!important;
+}
+
+/* tables */
+html.__ROOT__ #clanbox table,
+html.__ROOT__ #clanbox .clan-members-table,
+html.__ROOT__ #clanbox .clan-list-table {
+  background:rgba(4,21,38,.90)!important;
+  color:#d8f8ff!important;
+  border-collapse:collapse!important;
+}
+html.__ROOT__ #clanbox th {
+  background:linear-gradient(180deg,#0a3b58,#07233a)!important;
+  color:#e6fbff!important;
+  border:1px solid #24a2c2!important;
+}
+html.__ROOT__ #clanbox td {
+  background:rgba(5,28,48,.86)!important;
+  color:#d8f8ff!important;
+  border:1px solid #218ba8!important;
+}
+
+/* fallback classes from JS */
+html.__ROOT__ .tdg98-surface {
+  background:#07172b url("__RAW__/assets/clan/surface-v98.png?v=95") center/cover no-repeat!important;
+  color:#d8f8ff!important;
+  border-color:#238eaa!important;
+}
+html.__ROOT__ .tdg98-h {
+  background:#082139 url("__RAW__/assets/clan/strip-h-v98.png?v=95") center/100% 100% no-repeat!important;
+  border-color:#2aa4c1!important;
+}
+html.__ROOT__ .tdg98-v {
+  background:#082139 url("__RAW__/assets/clan/strip-v-v98.png?v=95") center/100% 100% no-repeat!important;
+  border-color:#2aa4c1!important;
+}
+html.__ROOT__ .tdg98-btn {
+  background:#07172b url("__RAW__/assets/clan/menu-v98.png?v=95") center/100% 100% no-repeat!important;
+  color:#e8fbff!important;
+  border-color:#279fbd!important;
+}
+
+
+/* =====================================================================
+   v9.8 STRUCTURAL FRAME FIX
+   Keep working v9.5 content/menu styling. Only replace legacy frame bars.
+   ===================================================================== */
+
+html.__ROOT__ .tdg98-frame-h {
+  background-color:#082139!important;
+  background-image:url("__RAW__/assets/clan/frame-h-v98.png?v=98")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tdg98-frame-v {
+  background-color:#082139!important;
+  background-image:url("__RAW__/assets/clan/frame-v-v98.png?v=98")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:100% 100%!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+
+html.__ROOT__ .tdg98-no-before::before,
+html.__ROOT__ .tdg98-no-after::after {
+  background:none!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+
+/* These are real elements generated by the clan controller. */
+html.__ROOT__ #clanbox .clan-recruit-header-option,
+html.__ROOT__ #clanbox .clan-recruit-header-atribute,
+html.__ROOT__ #clanbox .clan-recruit-header-0,
+html.__ROOT__ #clanbox .clan-recruit-header-1,
+html.__ROOT__ #clanbox .clan-recruit-header-2,
+html.__ROOT__ #clanbox .clan-list-find-header,
+html.__ROOT__ #clanbox .clan-find-header-0,
+html.__ROOT__ #clanbox .clan-find-header-1,
+html.__ROOT__ #clanbox .clan-find-header-2 {
+  background:#082139 url("__RAW__/assets/clan/frame-h-v98.png?v=98") center/100% 100% no-repeat!important;
+  border-color:#2aa4c1!important;
+  box-shadow:none!important;
+}
+
+/* Don't let old decorative pseudos redraw wood over our bars. */
+html.__ROOT__ #clanbox .clan-recruit-header-option::before,
+html.__ROOT__ #clanbox .clan-recruit-header-option::after,
+html.__ROOT__ #clanbox .clan-recruit-header-atribute::before,
+html.__ROOT__ #clanbox .clan-recruit-header-atribute::after,
+html.__ROOT__ #clanbox .clan-list-find-header::before,
+html.__ROOT__ #clanbox .clan-list-find-header::after {
+  background:none!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
